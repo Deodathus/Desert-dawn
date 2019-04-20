@@ -12,3 +12,48 @@
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
+
+body {
+  font-size: 18px;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/*----------------------------USER BAR----------------------------*/
+
+.user-bar {
+  background-color: #05004e;
+  color: #fff;
+  height: 70px;
+}
+
+.user-row-info {
+  padding-top: 1%;
+}
+
+/*----------------------------BOSS BAR----------------------------*/
+
+.bosses {
+  margin-top: 100px;
+}
+
+.boss-block {
+  margin-top: 10px;
+  border: 1px solid #a9c6de;
+  border-radius: 5px;
+  padding: 15px 30px 15px;
+}
+
+.boss-row-info {
+  margin-top: 20px;
+}
+
+.boss-btn {
+  margin-top: 5%
+}
+
+.boss-btn a{
+  color: #fff;
+}

@@ -4,43 +4,24 @@ namespace App\Http\Controllers;
 
 use App\Models\Boss;
 use App\Services\BossService;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 class BossController extends Controller
 {
+    private $bossService;
+    public function __construct(BossService $bossService)
+    {
+        $this->bossService = $bossService;
+    }
+
     /**
-     * Display a listing of the resource.
-     *
-     * @param BossService $bossService
      * @return View
      */
-    public function index(BossService $bossService, Boss $boss): View
+    public function index(): View
     {
-        $bossService->setReward($boss);
-        $bosses = $bossService->getAllBosses();
+        $bosses = $this->bossService->getAllBosses();
         return view('bosses.index', compact('bosses'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
     }
 
     /**
@@ -51,40 +32,23 @@ class BossController extends Controller
      */
     public function show(Boss $boss): View
     {
+        if (!session()->get('hp'))
+        {
+            session()->put('hp', $boss->hp);
+        }
         return view('bosses.show', compact('boss'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Boss  $boss
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Boss $boss)
+    public function first(Boss $boss)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Boss  $boss
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Boss $boss)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Boss  $boss
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Boss $boss)
-    {
-        //
+        $this->bossService->attack($boss);
+        if (session()->get('hp') === 0)
+        {
+            session()->forget('hp');
+            return redirect()->route('boss.index');
+        }
+        else {
+            return back();
+        }
     }
 }

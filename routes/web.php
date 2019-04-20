@@ -23,4 +23,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('/boss', 'BossController');
+    Route::resource('/boss', 'BossController');
+    Route::name('attack.')->group(function ()
+    {
+        Route::get('/boss/{boss}/first', 'BossController@first')->name('first');
+    });
