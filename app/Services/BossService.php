@@ -42,16 +42,29 @@ class BossService
         ]);
     }
 
-    public function attack($boss)
+    /**
+     * @return bool
+     */
+    public function checkIsHpZero(): bool
+    {
+        if (session()->get('hp') === 0)
+        {
+            session()->forget('hp');
+            session()->forget('boss_id');
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public function firstAttack()
     {
         if (session()->get('hp'))
         {
             $hp = session()->get('hp');
             $hp -= 100;
             session()->put('hp', $hp);
-        }
-        else {
-            session()->put('hp', $boss->hp);
         }
     }
 }

@@ -17,14 +17,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-$user = Auth::user();
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-    Route::resource('/boss', 'BossController');
-    Route::name('attack.')->group(function ()
+    Route::middleware('auth')->group(function ()
     {
-        Route::get('/boss/{boss}/first', 'BossController@first')->name('first');
+        Route::name('boss.')->group(function ()
+        {
+            Route::get('/boss', 'BossController@index')->name('index')->middleware('hp.check');
+            Route::get('/boss/{boss}', 'BossController@show')->name('show')->middleware('boss.check');
+        });
+
+        Route::name('attack.')->group(function ()
+        {
+            Route::get('/boss/{boss}/first', 'BossController@firstSkill')->name('first');
+        });
+
     });

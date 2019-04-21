@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Boss;
 use App\Services\BossService;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
@@ -32,19 +33,23 @@ class BossController extends Controller
      */
     public function show(Boss $boss): View
     {
-        if (!session()->get('hp'))
+        if (!session()->get('hp') && !session()->get('boss_id'))
         {
             session()->put('hp', $boss->hp);
+            session()->put('boss_id', $boss->id);
         }
         return view('bosses.show', compact('boss'));
     }
 
-    public function first(Boss $boss)
+
+    /**
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function firstSkill(): RedirectResponse
     {
-        $this->bossService->attack($boss);
-        if (session()->get('hp') === 0)
+        $this->bossService->firstAttack();
+        if ($this->bossService->checkIsHpZero())
         {
-            session()->forget('hp');
             return redirect()->route('boss.index');
         }
         else {
