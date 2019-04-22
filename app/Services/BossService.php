@@ -48,6 +48,9 @@ class BossService
     {
         if ($this->bossSessionService->checkIsBossHpZero())
         {
+            $reward = $this->bossSessionService->getBossReward();
+            $this->userBossService->setReward($reward);
+
             return redirect()->route('boss.index');
         }
         else {
@@ -82,7 +85,7 @@ class BossService
         if ($hp)
         {
             $this->bossSessionService->minusHpAccordingSkillDamage($hp, $user->$damage);
-            $this->userBossService->minusSkillsCount($user->$skill, $skill);
+            $this->userBossService->minusSkillsCount($user->id ,$user->$skill, $skill);
 
             return null;
         }

@@ -13,6 +13,8 @@ class BossSessionService
         {
             session()->put('hp', $boss->hp);
             session()->put('boss_id', $boss->id);
+            session()->put('boss_reward_gold', $boss->reward_gold);
+            session()->put('boss_reward_exp', $boss->reward_exp);
         }
     }
 
@@ -49,5 +51,18 @@ class BossSessionService
     {
         $hp -= $damage;
         session()->put('hp', $hp);
+    }
+
+    /**
+     * @return array|null
+     */
+    public function getBossReward(): ? array
+    {
+        $bossGold = session()->get('boss_reward_gold');
+        $bossExp = session()->get('boss_reward_exp');
+        return [
+            'gold' => $bossGold,
+            'exp' => $bossExp,
+        ];
     }
 }

@@ -58,31 +58,31 @@
                 </div>
             </div>
 
-            <div class="boss-attack col-lg-3 col-md-3">
-                <div class="skill-div">
-                    4 <br>
-                    <i class="fas fa-book-dead fa-3x"></i>
-                    <h4 class="skill-disc">Test</h4>
-                    <h4 class="skill-disc">Damage: 100</h4>
-                    <a href="" class="btn btn-danger boss-btn boss-btn-show">Damage</a>
-                </div>
+{{--            <div class="boss-attack col-lg-3 col-md-3">--}}
+{{--                <div class="skill-div">--}}
+{{--                    4 <br>--}}
+{{--                    <i class="fas fa-book-dead fa-3x"></i>--}}
+{{--                    <h4 class="skill-disc">Test</h4>--}}
+{{--                    <h4 class="skill-disc">Damage: 100</h4>--}}
+{{--                    <a href="" class="btn btn-danger boss-btn boss-btn-show">Damage</a>--}}
+{{--                </div>--}}
 
-                <div class="skill-div">
-                    4 <br>
-                    <i class="fas fa-ghost fa-3x"></i>
-                    <h4 class="skill-disc">Test</h4>
-                    <h4 class="skill-disc">Damage: 500</h4>
-                    <a href="" class="btn btn-danger boss-btn boss-btn-show">Damage</a>
-                </div>
+{{--                <div class="skill-div">--}}
+{{--                    4 <br>--}}
+{{--                    <i class="fas fa-ghost fa-3x"></i>--}}
+{{--                    <h4 class="skill-disc">Test</h4>--}}
+{{--                    <h4 class="skill-disc">Damage: 500</h4>--}}
+{{--                    <a href="" class="btn btn-danger boss-btn boss-btn-show">Damage</a>--}}
+{{--                </div>--}}
 
-                <div class="skill-div">
-                    4 <br>
-                    <i class="fas fa-meh-blank fa-3x"></i>
-                    <h4 class="skill-disc">Test</h4>
-                    <h4 class="skill-disc">Damage: 1000</h4>
-                    <a href="" class="btn btn-danger boss-btn boss-btn-show">Damage</a>
-                </div>
-            </div>
+{{--                <div class="skill-div">--}}
+{{--                    4 <br>--}}
+{{--                    <i class="fas fa-meh-blank fa-3x"></i>--}}
+{{--                    <h4 class="skill-disc">Test</h4>--}}
+{{--                    <h4 class="skill-disc">Damage: 1000</h4>--}}
+{{--                    <a href="" class="btn btn-danger boss-btn boss-btn-show">Damage</a>--}}
+{{--                </div>--}}
+{{--            </div>--}}
 
         </div>
         <div class="boss-static row text-center">
