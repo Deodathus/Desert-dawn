@@ -71,22 +71,6 @@ class BossService
     }
 
     /**
-     * @return RedirectResponse|null
-     */
-    public function attackOrNot(): ? RedirectResponse
-    {
-        $user = $this->getUser();
-        if ($this->checkSkillCount($user->skill_1))
-        {
-            $this->attack($user, $user->skill_1_damage, 'skill_1');
-            return null;
-        }
-        else {
-            return back();
-        }
-    }
-
-    /**
      * @param $user
      * @param $damage
      * @param $skill
@@ -104,6 +88,24 @@ class BossService
         }
         else {
             return redirect()->route('boss.index');
+        }
+    }
+
+    /**
+     * @param $user
+     * @param $damage
+     * @param $skill
+     * @return RedirectResponse|null
+     */
+    public function attackOrNot($user, $damage, $skill): ? RedirectResponse
+    {
+        if ($this->checkSkillCount($user->$skill))
+        {
+            $this->attack($user, $damage, $skill);
+            return null;
+        }
+        else {
+            return back();
         }
     }
     //TODO Check from middleware to services.

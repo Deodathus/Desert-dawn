@@ -50,7 +50,8 @@ class BossController extends Controller
      */
     public function firstSkill(): RedirectResponse
     {
-        $this->bossService->attackOrNot();
+        $user = $this->bossService->getUser();
+        $this->bossService->attackOrNot($user, $user->skill_1_damage, 'skill_1');
 
         return $this->bossService->checkIsHpZero();
     }
