@@ -81,8 +81,8 @@ class BossService
         $hp = $this->bossSessionService->getBossHpFromSession();
         if ($hp)
         {
-            $this->bossSessionService->minusHpAccordingSkillDamage($hp, $damage);
-            $this->userBossService->minusSkillsCount($user->skill_1, $skill);
+            $this->bossSessionService->minusHpAccordingSkillDamage($hp, $user->$damage);
+            $this->userBossService->minusSkillsCount($user->$skill, $skill);
 
             return null;
         }
@@ -92,13 +92,13 @@ class BossService
     }
 
     /**
-     * @param $user
      * @param $damage
      * @param $skill
      * @return RedirectResponse|null
      */
-    public function attackOrNot($user, $damage, $skill): ? RedirectResponse
+    public function attackOrNot($skill, $damage): ? RedirectResponse
     {
+        $user = $this->getUser();
         if ($this->checkSkillCount($user->$skill))
         {
             $this->attack($user, $damage, $skill);

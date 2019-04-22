@@ -29,7 +29,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
         Route::name('attack.')->group(function ()
         {
-            Route::get('/boss/{boss}/first', 'BossController@firstSkill')->name('first');
+            Route::get('/boss/{boss}/firstSkill', 'BossController@firstSkill')->name('first');
+            Route::get('/boss/{boss}/secondSkill', 'BossController@secondSkill')->name('second');
+            Route::get('/boss/{boss}/thirdSkill', 'BossController@thirdSkill')->name('third');
         });
 
     });

@@ -50,8 +50,27 @@ class BossController extends Controller
      */
     public function firstSkill(): RedirectResponse
     {
-        $user = $this->bossService->getUser();
-        $this->bossService->attackOrNot($user, $user->skill_1_damage, 'skill_1');
+        $this->bossService->attackOrNot('skill_1', 'skill_1_damage');
+
+        return $this->bossService->checkIsHpZero();
+    }
+
+    /**
+     * @return RedirectResponse
+     */
+    public function secondSkill(): RedirectResponse
+    {
+        $this->bossService->attackOrNot('skill_2', 'skill_2_damage');
+
+        return $this->bossService->checkIsHpZero();
+    }
+
+    /**
+     * @return RedirectResponse
+     */
+    public function thirdSkill(): RedirectResponse
+    {
+        $this->bossService->attackOrNot('skill_3', 'skill_3_damage');
 
         return $this->bossService->checkIsHpZero();
     }

@@ -36,7 +36,7 @@
                     <h4 class="skill-disc">Damage: {{ $user->skill_2_damage }}</h4>
 
                     @if($user->skill_2 > 0)
-                        <a href="" class="btn btn-danger boss-btn boss-btn-show">Damage</a>
+                        <a href="{{ route('attack.second', $boss->id) }}" class="btn btn-danger boss-btn boss-btn-show">Damage</a>
                     @else
                         <p class="btn btn-danger boss-btn boss-btn-show p-reward">Damage</p>
                     @endif
@@ -50,7 +50,7 @@
                     <h4 class="skill-disc">Damage: {{ $user->skill_3_damage }}</h4>
 
                     @if($user->skill_3 > 0)
-                        <a href="{{ route('attack.first', $boss->id) }}" class="btn btn-danger boss-btn boss-btn-show">Damage</a>
+                        <a href="{{ route('attack.third', $boss->id) }}" class="btn btn-danger boss-btn boss-btn-show">Damage</a>
                     @else
                         <p class="btn btn-danger boss-btn boss-btn-show p-reward">Damage</p>
                     @endif
