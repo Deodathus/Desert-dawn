@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersTable extends Migration
+class AddSkillsDamageUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,9 +14,9 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->integer('skill_1')->after('exp');
-            $table->integer('skill_2')->after('skill_1');
-            $table->integer('skill_3')->after('skill_2');
+            $table->integer('skill_1_damage')->after('skill_3')->default('100');
+            $table->integer('skill_2_damage')->after('skill_1_damage')->default('500');
+            $table->integer('skill_3_damage')->after('skill_2_damage')->default('1000');
         });
     }
 

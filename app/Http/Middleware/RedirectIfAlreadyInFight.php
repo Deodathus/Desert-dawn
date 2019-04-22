@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class CheckSessionHp
+class RedirectIfAlreadyInFight
 {
     /**
      * Handle an incoming request.
@@ -15,7 +15,7 @@ class CheckSessionHp
      */
     public function handle($request, Closure $next)
     {
-        if (session()->get('boss_id') && session()->get('boss_id'))
+        if (session()->get('boss_id'))
         {
             return redirect()->route('boss.show', session()->get('boss_id'));
         }

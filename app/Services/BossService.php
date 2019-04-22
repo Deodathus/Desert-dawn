@@ -3,19 +3,19 @@
 namespace App\Services;
 
 use App\Models\Boss;
-use App\Models\User;
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\RedirectResponse;
 
 class BossService
 {
-    private $bossRepository;
-    private $userId;
+    private $bossSessionService;
+    private $userBossService;
 
-    public function __construct(Boss $boss)
+    public function __construct(BossSessionService $bossSessionService, UserBossService $userBossService)
     {
-        $this->bossRepository = $boss;
-        $this->userId = Auth::id();
+        $this->bossSessionService = $bossSessionService;
+        $this->userBossService = $userBossService;
     }
 
     /**
@@ -23,34 +23,46 @@ class BossService
      */
     public function getAllBosses(): Collection
     {
-        return $this->bossRepository->all();
+        return Boss::all();
     }
 
     /**
-     * @param Boss $boss
+     * @return \Illuminate\Contracts\Auth\Authenticatable|null
      */
-    public function getAndSetReward(Boss $boss)
+    public function getUser(): ? Authenticatable
     {
-        $reward = [
-            'gold' => $boss->reward_gold,
-            'exp' => $boss->reward_exp,
-        ];
-
-        User::where('id', $this->userId)->update([
-            'exp' => $reward['exp'],
-            'coins' => $reward['reward_gold']
-        ]);
+        return $this->userBossService->getUser();
+    }
+    /**
+     * @param $boss
+     */
+    public function fillSessionIfEmpty($boss): void
+    {
+        $this->bossSessionService->fillSessionIfEmpty($boss);
     }
 
     /**
+     * @return RedirectResponse
+     */
+    public function checkIsHpZero(): RedirectResponse
+    {
+        if ($this->bossSessionService->checkIsBossHpZero())
+        {
+            return redirect()->route('boss.index');
+        }
+        else {
+            return back();
+        }
+    }
+
+    /**
+     * @param $skill
      * @return bool
      */
-    public function checkIsHpZero(): bool
+    public function checkSkillCount($skill): bool
     {
-        if (session()->get('hp') === 0)
+        if ($skill > 0)
         {
-            session()->forget('hp');
-            session()->forget('boss_id');
             return true;
         }
         else {
@@ -58,13 +70,41 @@ class BossService
         }
     }
 
-    public function firstAttack()
+    /**
+     * @return RedirectResponse|null
+     */
+    public function attackOrNot(): ? RedirectResponse
     {
-        if (session()->get('hp'))
+        $user = $this->getUser();
+        if ($this->checkSkillCount($user->skill_1))
         {
-            $hp = session()->get('hp');
-            $hp -= 100;
-            session()->put('hp', $hp);
+            $this->attack($user, $user->skill_1_damage, 'skill_1');
+            return null;
+        }
+        else {
+            return back();
         }
     }
+
+    /**
+     * @param $user
+     * @param $damage
+     * @param $skill
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function attack($user, $damage, $skill): ? RedirectResponse
+    {
+        $hp = $this->bossSessionService->getBossHpFromSession();
+        if ($hp)
+        {
+            $this->bossSessionService->minusHpAccordingSkillDamage($hp, $damage);
+            $this->userBossService->minusSkillsCount($user->skill_1, $skill);
+
+            return null;
+        }
+        else {
+            return redirect()->route('boss.index');
+        }
+    }
+    //TODO Check from middleware to services.
 }

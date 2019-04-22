@@ -10712,3 +10712,50 @@ a:hover {
   color: #fff;
 }
 
+/*----------------------------BOSS ATACK PAGE----------------------------*/
+
+.skill-div,
+.boss-static,
+.boss-attack-row {
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+}
+
+.boss-reward {
+  padding-top: 80px;
+}
+
+.boss-name {
+  padding: 250px 0 40px 40px;
+}
+
+.p-reward,
+h4 {
+  margin: 0;
+}
+
+.skill-div {
+  margin-bottom: 4%;
+  padding: 5% 0 5% 15%;
+}
+
+.fa-3x {
+  padding-left: 2%;
+}
+
+.boss-attack {
+  padding-top: 20px;
+}
+
+.boss-btn-show {
+  margin-top: 0;
+}
+
+.boss-static {
+  margin-top: 20px;
+}
+
+.last-damage {
+  border-right: 1px solid lightgrey;
+}
+
