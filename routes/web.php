@@ -34,4 +34,5 @@ Route::get('/home', 'HomeController@index')->name('home');
             Route::get('/boss/{boss}/thirdSkill', 'BossController@thirdSkill')->name('third');
         });
 
+        Route::view('/levelup', 'welcome')->name('test.lvlup');
     });

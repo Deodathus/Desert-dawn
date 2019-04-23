@@ -5,17 +5,16 @@ namespace App\Services;
 use App\Models\Boss;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Http\RedirectResponse;
 
 class BossService
 {
     private $bossSessionService;
-    private $userBossService;
+    private $userService;
 
-    public function __construct(BossSessionService $bossSessionService, UserBossService $userBossService)
+    public function __construct(BossSessionService $bossSessionService, UserService $userService)
     {
         $this->bossSessionService = $bossSessionService;
-        $this->userBossService = $userBossService;
+        $this->userService = $userService;
     }
 
     /**
@@ -31,7 +30,7 @@ class BossService
      */
     public function getUser(): ? Authenticatable
     {
-        return $this->userBossService->getUser();
+        return $this->userService->getUser();
     }
     /**
      * @param $boss
@@ -42,19 +41,19 @@ class BossService
     }
 
     /**
-     * @return RedirectResponse
+     * @return bool
      */
-    public function checkIsHpZero(): RedirectResponse
+    public function checkIsHpZero(): bool
     {
         if ($this->bossSessionService->checkIsBossHpZero())
         {
             $reward = $this->bossSessionService->getBossReward();
-            $this->userBossService->setReward($reward);
+            $this->userService->setReward($reward);
 
-            return redirect()->route('boss.index');
+            return true;
         }
         else {
-            return back();
+            return false;
         }
     }
 
@@ -64,8 +63,23 @@ class BossService
      */
     public function checkSkillCount($skill): bool
     {
-        if ($skill > 0)
+        return $skill > 0;
+    }
+
+    /**
+     * @param $user
+     * @param $damage
+     * @param $skill
+     * @return bool
+     */
+    public function attack($user, $damage, $skill): bool
+    {
+        $hp = $this->bossSessionService->getBossHpFromSession();
+        if ($hp)
         {
+            $this->bossSessionService->minusHpAccordingSkillDamage($hp, $user->$damage);
+            $this->userService->minusSkillsCount($user->id ,$user->$skill, $skill);
+
             return true;
         }
         else {
@@ -74,42 +88,19 @@ class BossService
     }
 
     /**
-     * @param $user
-     * @param $damage
      * @param $skill
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function attack($user, $damage, $skill): ? RedirectResponse
-    {
-        $hp = $this->bossSessionService->getBossHpFromSession();
-        if ($hp)
-        {
-            $this->bossSessionService->minusHpAccordingSkillDamage($hp, $user->$damage);
-            $this->userBossService->minusSkillsCount($user->id ,$user->$skill, $skill);
-
-            return null;
-        }
-        else {
-            return redirect()->route('boss.index');
-        }
-    }
-
-    /**
      * @param $damage
-     * @param $skill
-     * @return RedirectResponse|null
+     * @return bool
      */
-    public function attackOrNot($skill, $damage): ? RedirectResponse
+    public function attackOrNot($skill, $damage): bool
     {
         $user = $this->getUser();
-        if ($this->checkSkillCount($user->$skill))
+        if ($user->$skill > 0)
         {
-            $this->attack($user, $damage, $skill);
-            return null;
+            return $this->attack($user, $damage, $skill);
         }
         else {
-            return back();
+            return false;
         }
     }
-    //TODO Check from middleware to services.
 }

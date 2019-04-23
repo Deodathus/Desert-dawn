@@ -6,9 +6,8 @@ use App\Models\User;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Support\Facades\Auth;
 
-class UserBossService
+class UserService
 {
-    private $skill_count;
     protected $expMult = 5;
 
     /**
@@ -21,15 +20,15 @@ class UserBossService
 
     /**
      * @param $userId
-     * @param $skill_count
+     * @param $skillCount
      * @param $skill
      */
-    public function minusSkillsCount($userId, $skill_count, $skill): void
+    public function minusSkillsCount($userId, $skillCount, $skill): void
     {
-        $this->skill_count = $skill_count - 1;
+        $this->$skillCount = $skillCount - 1;
 
         User::where('id', $userId)->update([
-            $skill => $this->skill_count,
+            $skill => $this->$skillCount,
         ]);
     }
 
@@ -47,22 +46,30 @@ class UserBossService
             'coins' => $userGold,
             'exp' => $userExp
         ]);
-
-        $this->levelUp();
     }
 
+    /**
+     *
+     */
     public function levelUp()
     {
         $user = $this->getUser();
         $userId = $user->id;
         $userLvlNow = $user->level;
         $userExpNow = $user->exp;
-        $userLvlUp = $userLvlNow + 1;
-        if ($userExpNow !== 0 && $userExpNow > $userLvlNow * ($this->expMult * $userLvlNow) * 2)
+        if ($userExpNow >= $userLvlNow * ($this->expMult * $userLvlNow * 2))
         {
+            $userSkillFirstDamage = $user->skill_1_damage + ($userLvlNow * $this->expMult);
+            $userSkillSecondDamage = $user->skill_2_damage + ($userLvlNow * $this->expMult);
+            $userSkillThirdDamage = $user->skill_3_damage + ($userLvlNow * $this->expMult);
+            $userLvlUp = $userLvlNow + 1;
+
             User::where('id', $userId)->update([
                 'level' => $userLvlUp,
-                'exp' => 0
+                'exp' => 0,
+                'skill_1_damage' => $userSkillFirstDamage,
+                'skill_2_damage' => $userSkillSecondDamage,
+                'skill_3_damage' => $userSkillThirdDamage,
             ]);
         }
     }

@@ -17,8 +17,8 @@
             <div class="boss-attack col-lg-3 col-md-3">
                 <div class="skill-div">
                     {{ $user->skill_1 }} <br>
-                    <i class="fas fa-book-dead fa-3x"></i>
-                    <h4 class="skill-disc">Test</h4>
+                    <i class="fas fa-ghost fa-3x"></i>
+                    <h4 class="skill-disc">Ghost attack</h4>
                     <h4 class="skill-disc">Damage: {{ $user->skill_1_damage }}</h4>
 
                     @if($user->skill_1 > 0)
@@ -31,8 +31,8 @@
 
                 <div class="skill-div">
                     {{ $user->skill_2 }} <br>
-                    <i class="fas fa-ghost fa-3x"></i>
-                    <h4 class="skill-disc">Test</h4>
+                    <i class="fas fa-book-dead fa-3x"></i>
+                    <h4 class="skill-disc">Soul corruption</h4>
                     <h4 class="skill-disc">Damage: {{ $user->skill_2_damage }}</h4>
 
                     @if($user->skill_2 > 0)
@@ -46,7 +46,7 @@
                 <div class="skill-div">
                     {{ $user->skill_3 }} <br>
                     <i class="fas fa-meh-blank fa-3x"></i>
-                    <h4 class="skill-disc">Test</h4>
+                    <h4 class="skill-disc">Lost of mind control</h4>
                     <h4 class="skill-disc">Damage: {{ $user->skill_3_damage }}</h4>
 
                     @if($user->skill_3 > 0)

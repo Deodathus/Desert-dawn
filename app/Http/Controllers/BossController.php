@@ -44,15 +44,24 @@ class BossController extends Controller
         return view('bosses.show', compact('boss', 'user'));
     }
 
-
     /**
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
     public function firstSkill(): RedirectResponse
     {
-        $this->bossService->attackOrNot('skill_1', 'skill_1_damage');
-
-        return $this->bossService->checkIsHpZero();
+        if (!$this->bossService->attackOrNot('skill_1', 'skill_1_damage'))
+        {
+            return back();
+        }
+        else {
+            if ($this->bossService->checkIsHpZero())
+            {
+                return redirect()->route('boss.index');
+            }
+            else {
+                return back();
+            }
+        }
     }
 
     /**
@@ -60,9 +69,19 @@ class BossController extends Controller
      */
     public function secondSkill(): RedirectResponse
     {
-        $this->bossService->attackOrNot('skill_2', 'skill_2_damage');
-
-        return $this->bossService->checkIsHpZero();
+        if (!$this->bossService->attackOrNot('skill_2', 'skill_2_damage'))
+        {
+            return back();
+        }
+        else {
+            if ($this->bossService->checkIsHpZero())
+            {
+                return redirect()->route('boss.index');
+            }
+            else {
+                return back();
+            }
+        }
     }
 
     /**
@@ -70,8 +89,18 @@ class BossController extends Controller
      */
     public function thirdSkill(): RedirectResponse
     {
-        $this->bossService->attackOrNot('skill_3', 'skill_3_damage');
-
-        return $this->bossService->checkIsHpZero();
+        if (!$this->bossService->attackOrNot('skill_3', 'skill_3_damage'))
+        {
+            return back();
+        }
+        else {
+            if ($this->bossService->checkIsHpZero())
+            {
+                return redirect()->route('boss.index');
+            }
+            else {
+                return back();
+            }
+        }
     }
 }
