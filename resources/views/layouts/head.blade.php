@@ -34,6 +34,7 @@
             <div class="col-md-2">
                 <i class="fas fa-coins"></i>
                 {{ Auth::user()->coins }}
+                <i class="far fa-gem"></i>
             </div>
         </div>
     </div>
@@ -42,10 +43,10 @@
 
     </body>
 
-    <footer>
-        <div class="footer">
-
+        <div class="footer fixed-bottom text-center">
+            <a href=""><i class="fas fa-store-alt fa-3x"></i></a>
+            <a href=""><i class="fas fa-store fa-3x"></i></a>
+            <a href="{{ route('boss.index') }}"><i class="fas fa-khanda fa-3x"></i></a>
         </div>
-    </footer>
 
 </html>

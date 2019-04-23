@@ -21,8 +21,8 @@
                     </div>
                     <div class="col-lg-3 col-md-3">
                         <p class="font-weight-bold">Reward:</p>
-                        <p> <i class="fas fa-coins"></i>{{ $boss->reward_gold }}
-                            <i class="fas fa-angle-double-up"></i>{{ $boss->reward_exp }}
+                        <p>
+
                         </p>
                     </div>
                     <div class="col-lg-1 col-lg-1">

@@ -49,9 +49,9 @@ class UserService
     }
 
     /**
-     *
+     * @return bool
      */
-    public function levelUp()
+    public function levelUp(): bool
     {
         $user = $this->getUser();
         $userId = $user->id;
@@ -71,6 +71,11 @@ class UserService
                 'skill_2_damage' => $userSkillSecondDamage,
                 'skill_3_damage' => $userSkillThirdDamage,
             ]);
+
+            return true;
+        }
+        else {
+            return false;
         }
     }
 }

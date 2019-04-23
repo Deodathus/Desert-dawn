@@ -10675,12 +10675,33 @@ a:hover {
   text-decoration: none;
 }
 
-/*----------------------------USER BAR----------------------------*/
+/*----------------------------NAV BAR----------------------------*/
 
-.user-bar {
+.user-bar,
+.footer {
   background-color: #05004e;
   color: #fff;
+}
+
+.user-bar {
   height: 70px;
+}
+
+.footer {
+  height: 90px;
+  padding-top: 20px;
+}
+
+.footer a {
+  color: #fff;
+  transition: 1s;
+}
+
+.footer a:hover {
+  color: #e2e2e2;
+  position: relative;
+  bottom: 2px;
+  transition: 2s;
 }
 
 .user-row-info {
@@ -10690,7 +10711,7 @@ a:hover {
 /*----------------------------BOSS BAR----------------------------*/
 
 .bosses {
-  margin-top: 100px;
+  margin: 100px auto 110px;
 }
 
 .boss-block {
@@ -10757,5 +10778,11 @@ h4 {
 
 .last-damage {
   border-right: 1px solid lightgrey;
+}
+
+/*----------------------------LEVEL UP PAGE----------------------------*/
+
+.level-up-section {
+  margin-top: 20%;
 }
 
