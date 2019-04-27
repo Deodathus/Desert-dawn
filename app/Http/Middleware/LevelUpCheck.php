@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use App\Services\UserService;
 use Closure;
+use Illuminate\Support\Facades\Auth;
 
 class LevelUpCheck
 {
@@ -23,9 +24,15 @@ class LevelUpCheck
      */
     public function handle($request, Closure $next)
     {
-        if($this->userService->levelUp())
+        if (Auth::user())
         {
-            return redirect()->route('lvlup');
+            if($this->userService->levelUp())
+            {
+                return redirect()->route('lvlup');
+            }
+            else {
+                return $next($request);
+            }
         }
         else {
             return $next($request);

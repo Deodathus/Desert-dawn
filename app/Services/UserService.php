@@ -41,11 +41,17 @@ class UserService
         $userId = $user->id;
         $userGold = $user->coins + $reward['gold'];
         $userExp = $user->exp + $reward['exp'];
+        $userGems = $user->gems + $reward['gems'];
 
         User::where('id', $userId)->update([
             'coins' => $userGold,
-            'exp' => $userExp
+            'exp' => $userExp,
+            'gems' => $userGems
         ]);
+
+        session()->forget('boss_reward_gold');
+        session()->forget('boss_reward_exp');
+        session()->forget('boss_reward_gems');
     }
 
     /**

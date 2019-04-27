@@ -22,12 +22,6 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'coins',
-        'energy',
-        'p_attack',
-        'm_attack',
-        'level',
-        'exp'
     ];
 
     /**
@@ -48,4 +42,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function attributes()
+    {
+        return $this->hasOne('App\Models\Attribute');
+    }
+
+    public function items()
+    {
+        return $this->belongsToMany('App\Models\Item');
+    }
 }

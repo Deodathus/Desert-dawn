@@ -15,6 +15,7 @@ class BossSessionService
             session()->put('boss_id', $boss->id);
             session()->put('boss_reward_gold', $boss->reward_gold);
             session()->put('boss_reward_exp', $boss->reward_exp);
+            session()->put('boss_reward_gems', $boss->reward_gems);
         }
     }
 
@@ -60,9 +61,11 @@ class BossSessionService
     {
         $bossGold = session()->get('boss_reward_gold');
         $bossExp = session()->get('boss_reward_exp');
+        $bossGems = session()->get('boss_reward_gems');
         return [
             'gold' => $bossGold,
             'exp' => $bossExp,
+            'gems' => $bossGems,
         ];
     }
 }

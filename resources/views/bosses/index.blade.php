@@ -22,7 +22,8 @@
                     <div class="col-lg-3 col-md-3">
                         <p class="font-weight-bold">Reward:</p>
                         <p>
-
+                            <i class="far fa-gem"></i>
+                            {{ $boss->reward_gems }}
                         </p>
                     </div>
                     <div class="col-lg-1 col-lg-1">

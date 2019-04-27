@@ -12,7 +12,7 @@
     </head>
 
     <body>
-
+@if(Auth::user())
     <div class="container-fluid user-bar fixed-top">
         <div class="row user-row-info">
             <div class="col-md-2">
@@ -35,16 +35,18 @@
                 <i class="fas fa-coins"></i>
                 {{ Auth::user()->coins }}
                 <i class="far fa-gem"></i>
+                {{ Auth::user()->gems }}
             </div>
         </div>
     </div>
+    @endif
 
 @yield('content')
 
     </body>
 
         <div class="footer fixed-bottom text-center">
-            <a href=""><i class="fas fa-store-alt fa-3x"></i></a>
+            <a href="{{ route('user.hero') }}"><i class="fas fa-store-alt fa-3x"></i></a>
             <a href=""><i class="fas fa-store fa-3x"></i></a>
             <a href="{{ route('boss.index') }}"><i class="fas fa-khanda fa-3x"></i></a>
         </div>

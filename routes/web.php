@@ -13,14 +13,13 @@
 
 use Illuminate\Support\Facades\Auth;
 
-Route::get('/', 'BossController@index');
-
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 
     Route::middleware('auth')->group(function ()
     {
+        Route::get('/', 'BossController@index');
+        Route::get('/home', 'HomeController@index')->name('home');
+
         Route::name('boss.')->group(function ()
         {
             Route::get('/boss', 'BossController@index')->name('index')->middleware('hp.check');
@@ -35,4 +34,5 @@ Route::get('/home', 'HomeController@index')->name('home');
         });
 
         Route::view('/levelup', 'levelup')->name('lvlup');
+        Route::view('/hero', 'user.index')->name('user.hero');
     });
