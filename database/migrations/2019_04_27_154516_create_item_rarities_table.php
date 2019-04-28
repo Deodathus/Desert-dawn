@@ -16,6 +16,10 @@ class CreateItemRaritiesTable extends Migration
         Schema::create('item_rarities', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+            $table->integer('min_stat_multiply');
+            $table->integer('max_stat_multiply');
+            $table->integer('skill_amount');
+            $table->integer('attribute_amount');
             $table->timestamps();
         });
     }

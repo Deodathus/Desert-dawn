@@ -9,6 +9,7 @@
         <h2>{{ Auth::user()->name }}</h2>
         <div class="row">
             <div class="col-lg-4 col-md-4">
+
                 <div class="hero-attributes">
                     <p class="user-attribute">
                         Strength:
@@ -36,6 +37,24 @@
                     </p>
                 </div>
             </div>
+
+            <div class="col-lg-8 col-md-8">
+                <div class="items row">
+                    @foreach(Auth::user()->items as $item)
+                            <div class="col-lg-5 col-md-5 card-div text-center">
+                                <img src="images/legendaryCard.png" alt="">
+                                <p class="user-attribute">
+                                    {{ $item->name }}
+                                </p>
+                                <div class="card-info text-left">
+                                    <p class="{{ $item->rarity->name }}">{{ $item->rarity->name }}</p>
+                                    <p>{{ $item->name }}</p>
+                                </div>
+                            </div>
+                    @endforeach
+                </div>
+            </div>
+
         </div>
     </div>
 

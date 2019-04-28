@@ -10792,12 +10792,52 @@ h4 {
   margin: 100px auto 110px;
 }
 
-.hero-attributes {
+.hero-attributes,
+.card-div {
   border: 1px solid lightgrey;
   border-radius: 5px;
 }
 
 .user-attribute {
   padding: 10px 0 0 15px;
+}
+
+.card-div {
+  padding: 50px 0 50px;
+  margin: 20px;
+}
+
+.card-info {
+  display: none;
+}
+
+.Legendary {
+  color: #fd5f00;
+}
+
+.Immortal {
+  color: #fdd043;
+}
+
+.Mythical {
+  color: #692db7;
+}
+
+.Rare {
+  color: #207dff;
+}
+
+.card-div:hover .card-info {
+  display: block;
+  position: absolute;
+  border: 1px solid gray;
+  left: 60%;
+  top: 20%;
+  background-color: #0000009e;
+  color: #fff;
+  padding: 15px 20px 15px;
+  width: 70%;
+  z-index: 1;
+  height: 120%;
 }
 

@@ -15,4 +15,9 @@ class Item extends Model
     {
         return $this->belongsToMany('App\Models\User');
     }
+
+    public function boss()
+    {
+        return $this->belongsTo('App\Models\Boss', 'id', 'reward_item');
+    }
 }

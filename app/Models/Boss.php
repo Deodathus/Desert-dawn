@@ -18,4 +18,9 @@ class Boss extends Model
         'reward_exp',
         'reward_item'
     ];
+
+    public function items()
+    {
+        return $this->hasMany('App\Models\Item', 'id', 'reward_item');
+    }
 }

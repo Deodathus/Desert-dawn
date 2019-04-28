@@ -17,6 +17,8 @@ class CreateItemsTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('item_rarity_id');
             $table->string('name');
+            $table->integer('required_level');
+            $table->boolean('active');
             $table->timestamps();
         });
     }
