@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Boss;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -21,6 +21,6 @@ class Boss extends Model
 
     public function items()
     {
-        return $this->hasMany('App\Models\Item', 'id', 'reward_item');
+        return $this->hasMany('App\Models\Item\Item', 'id', 'reward_item');
     }
 }

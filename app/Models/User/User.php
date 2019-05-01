@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\User;
 
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 /**
@@ -45,11 +44,11 @@ class User extends Authenticatable
 
     public function attributes()
     {
-        return $this->hasOne('App\Models\Attribute');
+        return $this->hasOne('App\Models\User\Attribute');
     }
 
     public function items()
     {
-        return $this->belongsToMany('App\Models\Item');
+        return $this->belongsToMany('App\Models\Item\Item');
     }
 }

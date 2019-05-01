@@ -49,6 +49,7 @@
                                 <div class="card-info text-left">
                                     <p class="{{ $item->rarity->name }}">{{ $item->rarity->name }}</p>
                                     <p>{{ $item->name }}</p>
+                                    <p>Stamina: {{ $item->itemAttribute->stamina }}</p>
                                 </div>
                             </div>
                     @endforeach

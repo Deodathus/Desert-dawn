@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-use App\Models\Boss;
+use App\Models\Boss\Boss;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Collection;
 
