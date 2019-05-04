@@ -2,6 +2,7 @@
 
 namespace App\Models\User;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -49,6 +50,6 @@ class User extends Authenticatable
 
     public function items()
     {
-        return $this->belongsToMany('App\Models\Item\Item');
+        return $this->belongsToMany('App\Models\Item\Item')->withPivot('active');
     }
 }

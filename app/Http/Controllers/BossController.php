@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Boss\Boss;
 use App\Services\BossService;
+use App\Services\CardService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
@@ -23,9 +24,10 @@ class BossController extends Controller
     /**
      * @return View
      */
-    public function index(): View
+    public function index(CardService $cardService): View
     {
         $bosses = $this->bossService->getAllBosses();
+//        $cardService->createNewCard('Alfa');
 
         return view('bosses.index', compact('bosses'));
     }

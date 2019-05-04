@@ -159,7 +159,7 @@ h4{
   color: #fd5f00;
 }
 
-.Immortal {
+.Immortall {
   color: #fdd043;
 }
 
@@ -183,6 +183,38 @@ h4{
     padding: 15px 20px 15px;
     width: 70%;
     z-index: 1;
-    height: 120%;
+    height: auto;
   }
+}
+
+.card-attribute {
+  margin: 0;
+}
+
+.card-info a:hover {
+  color: #fff;
+}
+
+.not-active-cards {
+  margin-bottom: 300px;
+}
+
+.not-active-cards .card-div:hover {
+  .card-info {
+    display: block;
+    position: absolute;
+    border: 1px solid gray;
+    background-color: #0000009e;
+    color: #fff;
+    padding: 15px 20px 15px;
+    width: 20%;
+    z-index: 1;
+    top: auto;
+    left: auto;
+  }
+}
+
+.not-active-cards .card-div {
+  padding: 50px 20px 50px;
+  width: 20%;
 }

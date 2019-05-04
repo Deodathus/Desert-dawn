@@ -17,8 +17,12 @@ Auth::routes();
 
     Route::middleware('auth')->group(function ()
     {
-        Route::get('/', 'BossController@index');
         Route::get('/home', 'HomeController@index')->name('home');
+
+        Route::name('user.')->group(function ()
+        {
+            Route::get('/', 'UserCharacteristicsController@index')->name('hero');
+        });
 
         Route::name('boss.')->group(function ()
         {
@@ -34,5 +38,4 @@ Auth::routes();
         });
 
         Route::view('/levelup', 'levelup')->name('lvlup');
-        Route::view('/hero', 'user.index')->name('user.hero');
     });

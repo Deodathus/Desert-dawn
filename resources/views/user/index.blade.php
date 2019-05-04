@@ -13,49 +13,79 @@
                 <div class="hero-attributes">
                     <p class="user-attribute">
                         Strength:
-                        {{ Auth::user()->attributes->first()->strength }}
+                        {{ Auth::user()->attributes->strength }}
                     </p>
                     <p class="user-attribute">
                         Stamina:
-                        {{ Auth::user()->attributes->first()->stamina }}
+                        {{ Auth::user()->attributes->stamina }}
                     </p>
                     <p class="user-attribute">
                         Agility:
-                        {{ Auth::user()->attributes->first()->agility }}
+                        {{ Auth::user()->attributes->agility }}
                     </p>
                     <p class="user-attribute">
                         Intellect:
-                        {{ Auth::user()->attributes->first()->intellect }}
+                        {{ Auth::user()->attributes->intellect }}
                     </p>
                     <p class="user-attribute">
                         Luck:
-                        {{ Auth::user()->attributes->first()->luck }}
+                        {{ Auth::user()->attributes->luck }}
                     </p>
                     <p class="user-attribute">
                         Wisdom:
-                        {{ Auth::user()->attributes->first()->wisdom }}
+                        {{ Auth::user()->attributes->wisdom }}
                     </p>
                 </div>
             </div>
 
             <div class="col-lg-8 col-md-8">
+                <h2>Active cards:</h2>
                 <div class="items row">
-                    @foreach(Auth::user()->items as $item)
+                    @foreach($activeCards as $item)
                             <div class="col-lg-5 col-md-5 card-div text-center">
-                                <img src="images/legendaryCard.png" alt="">
+                                <img src="images/{{ $item->rarity->name }}.png" alt="">
                                 <p class="user-attribute">
                                     {{ $item->name }}
                                 </p>
                                 <div class="card-info text-left">
-                                    <p class="{{ $item->rarity->name }}">{{ $item->rarity->name }}</p>
-                                    <p>{{ $item->name }}</p>
-                                    <p>Stamina: {{ $item->itemAttribute->stamina }}</p>
+                                    <p class="{{ $item->rarity->name }} card-attribute">{{ $item->rarity->name }}</p>
+                                    <a class="card-attribute {{ $item->rarity->name }}" href="#">{{ $item->name }}</a>
+                                    <p class="card-attribute">Strength: {{ $item->itemAttribute->strength }}</p>
+                                    <p class="card-attribute">Stamina: {{ $item->itemAttribute->stamina }}</p>
+                                    <p class="card-attribute">Agility: {{ $item->itemAttribute->agility }}</p>
+                                    <p class="card-attribute">Intellect: {{ $item->itemAttribute->intellect }}</p>
+                                    <p class="card-attribute">Luck: {{ $item->itemAttribute->luck }}</p>
+                                    <p class="card-attribute">Wisdom: {{ $item->itemAttribute->wisdom }}</p>
                                 </div>
                             </div>
                     @endforeach
                 </div>
             </div>
-
+        </div>
+        <div class="row not-active-cards">
+            <h2>Deactivated cards:</h2>
+            <div class="col-lg-12 col-md-12">
+                <div class="row">
+                    @foreach($notActiveCards as $item)
+                        <div class="card-div text-center">
+                            <img src='images/{{ $item->rarity->name }}.png' alt="">
+                            <p class="user-attribute">
+                                {{ $item->name }}
+                            </p>
+                            <div class="card-info text-left">
+                                <p class="{{ $item->rarity->name }} card-attribute">{{ $item->rarity->name }}</p>
+                                <a class="card-attribute {{ $item->rarity->name }}" href="#">{{ $item->name }}</a>
+                                <p class="card-attribute">Strength: {{ $item->itemAttribute->strength }}</p>
+                                <p class="card-attribute">Stamina: {{ $item->itemAttribute->stamina }}</p>
+                                <p class="card-attribute">Agility: {{ $item->itemAttribute->agility }}</p>
+                                <p class="card-attribute">Intellect: {{ $item->itemAttribute->intellect }}</p>
+                                <p class="card-attribute">Luck: {{ $item->itemAttribute->luck }}</p>
+                                <p class="card-attribute">Wisdom: {{ $item->itemAttribute->wisdom }}</p>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
         </div>
     </div>
 
