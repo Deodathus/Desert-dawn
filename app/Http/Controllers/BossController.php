@@ -24,10 +24,9 @@ class BossController extends Controller
     /**
      * @return View
      */
-    public function index(CardService $cardService): View
+    public function index(): View
     {
         $bosses = $this->bossService->getAllBosses();
-//        $cardService->createNewCard('Alfa');
 
         return view('bosses.index', compact('bosses'));
     }

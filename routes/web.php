@@ -38,4 +38,9 @@ Auth::routes();
         });
 
         Route::view('/levelup', 'levelup')->name('lvlup');
+
+        Route::name('item.')->group(function ()
+        {
+            Route::patch('/update-activity-status/{item}', 'ItemController@updateCardActiveStatus')->name('change.status');
+        });
     });

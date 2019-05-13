@@ -29,9 +29,9 @@ class CardService
      */
     public function getNotActiveCardsForView(): Collection
     {
-        $deactivatedCards = $this->userService->getUser()->items()->where('active', '=', '0')->get();
+        $notActiveCards = $this->userService->getUser()->items()->where('active', '=', '0')->get();
 
-        return $deactivatedCards;
+        return $notActiveCards;
     }
 
     /**
@@ -58,14 +58,44 @@ class CardService
         ]);
     }
 
-    public function getAttributesFromCards()
+    /**
+     * @return array
+     */
+    public function getAttributesFromCards(): array
     {
         $cards = $this->getActiveCardsForView();
+        $strength = $cards->map(function ($item)
+        {
+            return $item->itemAttribute->strength;
+        })->sum();
         $stamina = $cards->map(function ($item)
         {
             return $item->itemAttribute->stamina;
         })->sum();
+        $agility = $cards->map(function ($item)
+        {
+            return $item->itemAttribute->agility;
+        })->sum();
+        $intellect = $cards->map(function ($item)
+        {
+            return $item->itemAttribute->intellect;
+        })->sum();
+        $luck = $cards->map(function ($item)
+        {
+            return $item->itemAttribute->luck;
+        })->sum();
+        $wisdom = $cards->map(function ($item)
+        {
+            return $item->itemAttribute->wisdom;
+        })->sum();
 
-        return $stamina;
+        return [
+                'strength' => $strength,
+                'stamina' => $stamina,
+                'agility' => $agility,
+                'intellect' => $intellect,
+                'luck' => $luck,
+                'wisdom' => $wisdom,
+        ];
     }
 }

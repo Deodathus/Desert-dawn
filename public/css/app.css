@@ -10798,6 +10798,10 @@ h4 {
   border-radius: 5px;
 }
 
+.hero-attributes {
+  margin-bottom: 20px;
+}
+
 .user-attribute {
   padding: 10px 0 0 15px;
 }
@@ -10869,5 +10873,9 @@ h4 {
 .not-active-cards .card-div {
   padding: 50px 20px 50px;
   width: 20%;
+}
+
+.card-checkbox {
+  position: absolute;
 }
 
