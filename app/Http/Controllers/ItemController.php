@@ -3,13 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\Item\Item;
+use App\Services\CardService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 
 class ItemController extends Controller
 {
-    public function __construct()
+    private $cardService;
+
+    public function __construct(CardService $cardService)
     {
+        $this->cardService = $cardService;
     }
 
     /**
@@ -19,13 +23,8 @@ class ItemController extends Controller
     public function updateCardActiveStatus(Item $item): RedirectResponse
     {
         $user = Auth::user();
-        if ($user->items()->where('id', '=', $item->id)->first()->pivot->active == 0)
-        {
-            $activityStatus = 1;
-        } else {
-            $activityStatus = 0;
-        }
-        $user->items()->updateExistingPivot($item->id, ['active' => $activityStatus]);
+        $this->cardService->updateCardStatus($user, $item);
+        //TODO if -> redirect back else return view(error - 6 cards already are active)
 
         return redirect()->back();
     }

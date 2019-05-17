@@ -19,8 +19,8 @@ class UserCharacteristicsController extends Controller
      */
     public function index(): View
     {
-        $activeCards = $this->cardService->getActiveCardsForView();
-        $notActiveCards = $this->cardService->getNotActiveCardsForView();
+        $activeCards = $this->cardService->getActiveCards();
+        $notActiveCards = $this->cardService->getNotActiveCards();
         $attributes = $this->cardService->getAttributesFromCards();
 
         return view('user.index', compact('activeCards', 'notActiveCards', 'attributes'));

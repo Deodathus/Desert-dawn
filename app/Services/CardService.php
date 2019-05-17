@@ -17,7 +17,7 @@ class CardService
     /**
      * @return Collection
      */
-    public function getActiveCardsForView(): Collection
+    public function getActiveCards(): Collection
     {
         $activeCards = $this->userService->getUser()->items()->where('active', '=', '1')->get();
 
@@ -27,7 +27,7 @@ class CardService
     /**
      * @return Collection
      */
-    public function getNotActiveCardsForView(): Collection
+    public function getNotActiveCards(): Collection
     {
         $notActiveCards = $this->userService->getUser()->items()->where('active', '=', '0')->get();
 
@@ -63,7 +63,7 @@ class CardService
      */
     public function getAttributesFromCards(): array
     {
-        $cards = $this->getActiveCardsForView();
+        $cards = $this->getActiveCards();
         $strength = $cards->map(function ($item)
         {
             return $item->itemAttribute->strength;
@@ -97,5 +97,28 @@ class CardService
                 'luck' => $luck,
                 'wisdom' => $wisdom,
         ];
+    }
+
+    /**
+     * @param $user
+     * @param $item
+     * @return mixed
+     */
+    public function updateCardStatus($user, $item): ?bool
+    {
+        if ($this->getActiveCards()->count() < 6)
+        {
+            if ($user->items()->where('id', '=', $item->id)->first()->pivot->active == 0)
+            {
+                $activityStatus = 1;
+            } else {
+                $activityStatus = 0;
+            }
+            return $user->items()->updateExistingPivot($item->id, ['active' => $activityStatus]);
+        } else {
+            $activityStatus = 0;
+
+            return $user->items()->updateExistingPivot($item->id, ['active' => $activityStatus]);
+        }
     }
 }

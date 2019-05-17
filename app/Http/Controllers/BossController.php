@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Boss\Boss;
 use App\Services\BossService;
-use App\Services\CardService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
