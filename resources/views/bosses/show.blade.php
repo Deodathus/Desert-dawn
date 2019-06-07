@@ -19,7 +19,7 @@
                     {{ $user->skill_1 }} <br>
                     <i class="fas fa-ghost fa-3x"></i>
                     <h4 class="skill-disc">Ghost attack</h4>
-                    <h4 class="skill-disc">Damage: {{ $user->skill_1_damage }}</h4>
+                    <h4 class="skill-disc">Damage: {{ $user->skill_1_damage + $damageFromCards }}</h4>
 
                     @if($user->skill_1 > 0)
                     <a href="{{ route('attack.first', $boss->id) }}" class="btn btn-danger boss-btn boss-btn-show">Damage</a>
@@ -33,7 +33,7 @@
                     {{ $user->skill_2 }} <br>
                     <i class="fas fa-book-dead fa-3x"></i>
                     <h4 class="skill-disc">Soul corruption</h4>
-                    <h4 class="skill-disc">Damage: {{ $user->skill_2_damage }}</h4>
+                    <h4 class="skill-disc">Damage: {{ $user->skill_2_damage + $damageFromCards }}</h4>
 
                     @if($user->skill_2 > 0)
                         <a href="{{ route('attack.second', $boss->id) }}" class="btn btn-danger boss-btn boss-btn-show">Damage</a>
@@ -47,7 +47,7 @@
                     {{ $user->skill_3 }} <br>
                     <i class="fas fa-meh-blank fa-3x"></i>
                     <h4 class="skill-disc">Lost of mind control</h4>
-                    <h4 class="skill-disc">Damage: {{ $user->skill_3_damage }}</h4>
+                    <h4 class="skill-disc">Damage: {{ $user->skill_3_damage + $damageFromCards }}</h4>
 
                     @if($user->skill_3 > 0)
                         <a href="{{ route('attack.third', $boss->id) }}" class="btn btn-danger boss-btn boss-btn-show">Damage</a>

@@ -79,8 +79,7 @@ class UserService
             ]);
 
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }

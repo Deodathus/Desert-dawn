@@ -5,6 +5,10 @@
 
     <div class="container user-hero-container">
 
+        <h2>
+            <i class="fas fa-fist-raised"></i>
+            {{ $userPower }}
+        </h2>
         <h2>{{ Auth::user()->name }}'s attributes</h2>
         <div class="row">
             <div class="col-lg-4 col-md-4">

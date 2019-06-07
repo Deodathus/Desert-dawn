@@ -10,11 +10,13 @@ class BossService
 {
     private $bossSessionService;
     private $userService;
+    private $cardService;
 
-    public function __construct(BossSessionService $bossSessionService, UserService $userService)
+    public function __construct(BossSessionService $bossSessionService, UserService $userService, CardService $cardService)
     {
         $this->bossSessionService = $bossSessionService;
         $this->userService = $userService;
+        $this->cardService = $cardService;
     }
 
     /**
@@ -51,8 +53,7 @@ class BossService
             $this->userService->setReward($reward);
 
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }
@@ -70,19 +71,19 @@ class BossService
      * @param $user
      * @param $damage
      * @param $skill
+     * @param $damageFromCards
      * @return bool
      */
-    public function attack($user, $damage, $skill): bool
+    public function attack($user, $damage, $skill, $damageFromCards): bool
     {
         $hp = $this->bossSessionService->getBossHpFromSession();
         if ($hp)
         {
-            $this->bossSessionService->minusHpAccordingSkillDamage($hp, $user->$damage);
+            $this->bossSessionService->minusHpAccordingSkillDamage($hp, $user->$damage, $damageFromCards);
             $this->userService->minusSkillsCount($user->id ,$user->$skill, $skill);
 
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }
@@ -95,11 +96,11 @@ class BossService
     public function attackOrNot($skill, $damage): bool
     {
         $user = $this->getUser();
+        $damageFromCards = $user->getDamageAccordingCardsAttributes($this->cardService);
         if ($user->$skill > 0)
         {
-            return $this->attack($user, $damage, $skill);
-        }
-        else {
+            return $this->attack($user, $damage, $skill, $damageFromCards);
+        } else {
             return false;
         }
     }

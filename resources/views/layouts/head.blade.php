@@ -20,7 +20,7 @@
                 {{ Auth::user()->name }}
             </div>
             <div class="col-md-2">
-                <i class="fas fa-fist-raised"></i>
+                <i class="fas fa-long-arrow-alt-up"></i>
                 {{ Auth::user()->level }}
             </div>
             <div class="col-md-2">

@@ -47,10 +47,11 @@ class BossSessionService
     /**
      * @param $hp
      * @param $damage
+     * @param $damageFromCards
      */
-    public function minusHpAccordingSkillDamage($hp, $damage): void
+    public function minusHpAccordingSkillDamage($hp, $damage, $damageFromCards): void
     {
-        $hp -= $damage;
+        $hp -= $damage + $damageFromCards;
         session()->put('hp', $hp);
     }
 

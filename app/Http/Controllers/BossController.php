@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Boss\Boss;
 use App\Services\BossService;
+use App\Services\CardService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
@@ -34,14 +35,16 @@ class BossController extends Controller
      * Display the specified resource.
      *
      * @param Boss $boss
+     * @param CardService $cardService
      * @return View
      */
-    public function show(Boss $boss): View
+    public function show(Boss $boss, CardService $cardService): View
     {
         $user = $this->bossService->getUser();
         $this->bossService->fillSessionIfEmpty($boss);
+        $damageFromCards = $user->getDamageAccordingCardsAttributes($cardService);
 
-        return view('bosses.show', compact('boss', 'user'));
+        return view('bosses.show', compact('boss', 'user', 'damageFromCards'));
     }
 
     /**
@@ -52,13 +55,11 @@ class BossController extends Controller
         if (!$this->bossService->attackOrNot('skill_1', 'skill_1_damage'))
         {
             return back();
-        }
-        else {
+        } else {
             if ($this->bossService->checkIsHpZero())
             {
                 return redirect()->route('boss.index');
-            }
-            else {
+            } else {
                 return back();
             }
         }
@@ -72,13 +73,11 @@ class BossController extends Controller
         if (!$this->bossService->attackOrNot('skill_2', 'skill_2_damage'))
         {
             return back();
-        }
-        else {
+        } else {
             if ($this->bossService->checkIsHpZero())
             {
                 return redirect()->route('boss.index');
-            }
-            else {
+            } else {
                 return back();
             }
         }
@@ -92,13 +91,11 @@ class BossController extends Controller
         if (!$this->bossService->attackOrNot('skill_3', 'skill_3_damage'))
         {
             return back();
-        }
-        else {
+        } else {
             if ($this->bossService->checkIsHpZero())
             {
                 return redirect()->route('boss.index');
-            }
-            else {
+            } else {
                 return back();
             }
         }
