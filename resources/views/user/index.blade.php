@@ -3,7 +3,6 @@
 
 @section('content')
 
-
     <div class="container user-hero-container">
 
         <h2>{{ Auth::user()->name }}'s attributes</h2>
@@ -70,6 +69,9 @@
 
 
             <div class="col-lg-8 col-md-8">
+                @if(session('error'))
+                    <h1 class="card-error">6 cards are already active.</h1>
+                @endif
                 <h2>Active cards:</h2>
                 <div class="items row">
                     @foreach($activeCards as $item)
@@ -129,13 +131,5 @@
             </div>
         </div>
     </div>
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('.card-checkbox').click(function () {
-                console.log($(this).val());
-            });
-        });
-    </script>
 
 @endsection

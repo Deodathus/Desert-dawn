@@ -10879,3 +10879,8 @@ h4 {
   position: absolute;
 }
 
+.card-error {
+  text-decoration: overline;
+  color: #ff4b00;
+}
+

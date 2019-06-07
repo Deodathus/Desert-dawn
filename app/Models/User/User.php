@@ -2,7 +2,7 @@
 
 namespace App\Models\User;
 
-use Illuminate\Database\Eloquent\Builder;
+use App\Services\CardService;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -51,5 +51,10 @@ class User extends Authenticatable
     public function items()
     {
         return $this->belongsToMany('App\Models\Item\Item')->withPivot('active');
+    }
+
+    public function getDamageAccordingCardsAttributes(CardService $cardService)
+    {
+        return $damageFromCards = $cardService->getAttributesFromCards()['strength'] * 10;
     }
 }

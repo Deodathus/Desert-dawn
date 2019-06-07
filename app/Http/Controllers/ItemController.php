@@ -23,9 +23,11 @@ class ItemController extends Controller
     public function updateCardActiveStatus(Item $item): RedirectResponse
     {
         $user = Auth::user();
-        $this->cardService->updateCardStatus($user, $item);
-        //TODO if -> redirect back else return view(error - 6 cards already are active)
-
-        return redirect()->back();
+        if ($this->cardService->updateCardStatus($user, $item))
+        {
+            return redirect()->back();
+        } else {
+            return redirect()->back()->with('error', 'card_limit');
+        }
     }
 }
