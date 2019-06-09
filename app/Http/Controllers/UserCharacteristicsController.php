@@ -7,6 +7,9 @@ use Illuminate\View\View;
 
 class UserCharacteristicsController extends Controller
 {
+    /**
+     * @var CardService
+     */
     private $cardService;
 
     public function __construct(CardService $cardService)

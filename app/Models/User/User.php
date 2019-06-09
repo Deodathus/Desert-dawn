@@ -71,8 +71,6 @@ class User extends Authenticatable
      */
     public function getDamageAccordingCardsAttributes(CardService $cardService): int
     {
-        $damageFromCards = $cardService->getAttributesFromCards()['strength'] * 10;
-
-        return $damageFromCards;
+        return $cardService->getAttributesFromCards()['strength'] * 10;
     }
 }

@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Auth;
 
 class UserService
 {
+    /**
+     * Experience multiplier
+     *
+     * @var int $expMult
+     */
     protected $expMult = 5;
 
     /**
