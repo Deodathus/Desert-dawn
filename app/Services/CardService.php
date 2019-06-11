@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Collection;
 
 class CardService
 {
+    /**
+     * @var UserService
+     */
     private $userService;
 
     public function __construct(UserService $userService)
@@ -36,18 +39,18 @@ class CardService
 
     /**
      * @param $name
+     * @param $requiredLevel
+     * @param $rarity
      */
-    public function createNewCard($name): void
+    public function createNewCard($name, $requiredLevel, $rarity): void
     {
         $user = $this->userService->getUser();
-        $requiredLevel = 5;
-        $rarity = rand(1, 2);
         $newCard = Item::create([
             'item_rarity_id' => $rarity,
             'name' => $name,
             'required_level' => $requiredLevel,
         ]);
-        $user->items()->save($newCard, ['active' => 1]);
+        $user->items()->save($newCard, ['active' => 0]);
         $newCard->itemAttribute()->create([
             'strength' => rand($newCard->rarity->min_stat_multiply, $newCard->rarity->max_stat_multiply),
             'stamina' => rand($newCard->rarity->min_stat_multiply, $newCard->rarity->max_stat_multiply),

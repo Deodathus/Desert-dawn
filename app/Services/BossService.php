@@ -43,14 +43,16 @@ class BossService
     }
 
     /**
+     * @param Boss $boss
      * @return bool
      */
-    public function checkIsHpZero(): bool
+    public function checkIsHpZero(Boss $boss): bool
     {
         if ($this->bossSessionService->checkIsBossHpZero())
         {
             $reward = $this->bossSessionService->getBossReward();
             $this->userService->setReward($reward);
+            $this->createRewardCard($boss);
 
             return true;
         } else {
@@ -103,5 +105,13 @@ class BossService
         } else {
             return false;
         }
+    }
+
+    /**
+     * @param Boss $boss
+     */
+    public function createRewardCard(Boss $boss): void 
+    {
+        $this->cardService->createNewCard($boss->name . ' Card', 15, $boss->reward_item_rarity);
     }
 }
