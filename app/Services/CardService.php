@@ -100,13 +100,21 @@ class CardService
     }
 
     /**
+     * @return int
+     */
+    public function getActiveCardsCount(): int
+    {
+        return $this->getActiveCards()->count();
+    }
+
+    /**
      * @param $user
      * @param $item
      * @return bool|null
      */
     public function updateCardStatus($user, $item): ? bool
     {
-        if ($this->getActiveCards()->count() < 6)
+        if ($this->getActiveCardsCount() < 6)
         {
             if ($user->items()->where('id', '=', $item->id)->first()->pivot->active == 0)
             {
@@ -115,9 +123,7 @@ class CardService
                 return $user->items()->updateExistingPivot($item->id, ['active' => 0]);
             }
         } else {
-            $user->items()->updateExistingPivot($item->id, ['active' => 0]);
-
-            return false;
+            return $user->items()->updateExistingPivot($item->id, ['active' => 0]);
         }
     }
 }

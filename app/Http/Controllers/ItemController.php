@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Auth;
 
 class ItemController extends Controller
 {
+    /**
+     * @var CardService
+     */
     private $cardService;
 
     public function __construct(CardService $cardService)
@@ -23,7 +26,7 @@ class ItemController extends Controller
     public function updateCardActiveStatus(Item $item): RedirectResponse
     {
         $user = Auth::user();
-        if ($this->cardService->updateCardStatus($user, $item))
+        if ($this->cardService->updateCardStatus($user, $item) && $this->cardService->getActiveCardsCount() < 7)
         {
             return redirect()->back();
         } else {
