@@ -25,6 +25,10 @@
                             <i class="far fa-gem"></i>
                             {{ $boss->reward_gems }}
                         </p>
+                        <p>
+                            <i class="fas fa-passport"></i>
+                            <span class="{{ $boss->itemRarity()->first()->name }}">{{ $boss->itemRarity()->first()->name }}</span>
+                        </p>
                     </div>
                     <div class="col-lg-1 col-lg-1">
                         <a class="btn btn-danger boss-btn" href="{{ route('boss.show', $boss->id) }}">Attack!</a>

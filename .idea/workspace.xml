@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="30884bd5-0dcd-45ca-a722-c0d43fb9e526" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BossController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BossController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/BossService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/BossService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/CardService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/CardService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Boss/Boss.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Boss/Boss.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_04_14_204118_create_bosses_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_04_14_204118_create_bosses_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/bosses/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/bosses/index.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -48,70 +50,34 @@
     </expand>
     <select />
   </component>
-  <component name="DockManager">
-    <window id="2">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file pinned="false" current-in-tab="false">
-              <entry file="das://5bc7a316-3142-4624-a826-1f2e9028c47b/schema/laravel-studying/table/bosses">
-                <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-                  <state projectRestartId="2e67dbd2-1fb4-4e36-a7d8-acff2382308b">
-                    <filtering>
-                      <filter text="" />
-                    </filtering>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file pinned="false" current-in-tab="true">
-              <entry file="das://5bc7a316-3142-4624-a826-1f2e9028c47b/schema/laravel-studying/table/item_rarities">
-                <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-                  <state projectRestartId="2e67dbd2-1fb4-4e36-a7d8-acff2382308b">
-                    <filtering>
-                      <filter text="" />
-                    </filtering>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file pinned="false" current-in-tab="false">
-              <entry file="das://5bc7a316-3142-4624-a826-1f2e9028c47b/schema/laravel-studying/table/items">
-                <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-                  <state projectRestartId="2e67dbd2-1fb4-4e36-a7d8-acff2382308b">
-                    <filtering>
-                      <filter text="" />
-                    </filtering>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file pinned="false" current-in-tab="false">
-              <entry file="das://5bc7a316-3142-4624-a826-1f2e9028c47b/schema/laravel-studying/table/item_attributes">
-                <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-                  <state projectRestartId="2e67dbd2-1fb4-4e36-a7d8-acff2382308b">
-                    <filtering>
-                      <filter text="" />
-                    </filtering>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="FavoritesManager">
     <favorites_list name="Studing" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Services/BossService.php">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/bosses/show.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="624">
-              <caret line="112" column="55" selection-start-line="112" selection-start-column="55" selection-end-line="112" selection-end-column="55" />
+            <state relative-caret-position="208">
+              <caret line="19" column="47" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/bosses/index.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="416">
+              <caret line="29" column="81" selection-start-line="29" selection-start-column="81" selection-end-line="29" selection-end-column="81" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Services/CardService.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="364">
+              <caret line="111" lean-forward="true" selection-start-line="111" selection-end-line="111" />
               <folding>
                 <element signature="e#32#57#0#PHP" expanded="true" />
               </folding>
@@ -122,8 +88,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/BossController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="92" column="5" selection-start-line="92" selection-start-column="5" selection-end-line="92" selection-end-column="5" />
+            <state relative-caret-position="390">
+              <caret line="15" column="25" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
               <folding>
                 <element signature="e#40#65#0#PHP" expanded="true" />
               </folding>
@@ -132,24 +98,12 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Services/UserService.php">
+        <entry file="file://$PROJECT_DIR$/app/Models/Boss/Boss.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
-              <caret line="42" column="33" selection-start-line="42" selection-start-column="33" selection-end-line="42" selection-end-column="33" />
+            <state relative-caret-position="598">
+              <caret line="33" column="41" selection-start-line="33" selection-start-column="41" selection-end-line="33" selection-end-column="41" />
               <folding>
-                <element signature="e#32#57#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Services/CardService.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="44" column="71" lean-forward="true" selection-start-line="44" selection-start-column="71" selection-end-line="44" selection-end-column="71" />
-              <folding>
-                <element signature="e#32#57#0#PHP" expanded="true" />
+                <element signature="e#35#74#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -209,7 +163,6 @@
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/5bc7a316-3142-4624-a826-1f2e9028c47b/console.sql" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/5bc7a316-3142-4624-a826-1f2e9028c47b/console_1.sql" />
         <option value="$PROJECT_DIR$/database/migrations/2019_04_27_112751_create_user_attribute_table.php" />
-        <option value="$PROJECT_DIR$/resources/views/bosses/index.blade.php" />
         <option value="$PROJECT_DIR$/app/Models/Attribute.php" />
         <option value="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" />
         <option value="$PROJECT_DIR$/app/Models/ItemRarity.php" />
@@ -225,7 +178,6 @@
         <option value="$PROJECT_DIR$/app/Models/Boss.php" />
         <option value="$PROJECT_DIR$/app/Models/User/Attribute.php" />
         <option value="$PROJECT_DIR$/app/Models/Item/ItemRarity.php" />
-        <option value="$PROJECT_DIR$/app/Models/Boss/Boss.php" />
         <option value="$PROJECT_DIR$/../Kwiaty PL/private_html/themes/kwiaty/template/homepage.html" />
         <option value="$PROJECT_DIR$/app/Models/Item/ItemAttribute.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_04_27_154516_create_item_rarities_table.php" />
@@ -247,10 +199,12 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/ItemController.php" />
         <option value="$PROJECT_DIR$/resources/views/bosses/show.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_04_14_204118_create_bosses_table.php" />
-        <option value="$PROJECT_DIR$/app/Services/CardService.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/BossController.php" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
+        <option value="$PROJECT_DIR$/app/Models/Boss/Boss.php" />
+        <option value="$PROJECT_DIR$/resources/views/bosses/index.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/BossController.php" />
         <option value="$PROJECT_DIR$/app/Services/BossService.php" />
+        <option value="$PROJECT_DIR$/app/Services/CardService.php" />
       </list>
     </option>
   </component>
@@ -377,7 +331,63 @@
               <item name="Studing" type="b2602c69:ProjectViewProjectNode" />
               <item name="Studing" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Studing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Studing" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Studing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Studing" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Studing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Studing" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Models" type="462c0819:PsiDirectoryNode" />
+              <item name="Boss" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Studing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Studing" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Models" type="462c0819:PsiDirectoryNode" />
+              <item name="Item" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Studing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Studing" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Services" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Studing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Studing" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Studing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Studing" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Studing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Studing" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Studing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Studing" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="bosses" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -476,7 +486,9 @@
       <workItem from="1559932865822" duration="313000" />
       <workItem from="1559933607142" duration="6755000" />
       <workItem from="1560060737967" duration="6547000" />
-      <workItem from="1560284203202" duration="3940000" />
+      <workItem from="1560284203202" duration="5015000" />
+      <workItem from="1560364032590" duration="76000" />
+      <workItem from="1560366627793" duration="941000" />
     </task>
     <servers />
   </component>
@@ -495,7 +507,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="179190000" />
+    <option name="totallyTimeSpent" value="181282000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -510,7 +522,7 @@
     <frame x="1365" y="0" width="1922" height="1081" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49841604" visible="true" weight="0.24866596" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49841604" visible="true" weight="0.25400212" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.50158393" side_tool="true" weight="0.255603" />
       <window_info anchor="bottom" id="Database Console" order="0" weight="0.32946146" />
@@ -555,13 +567,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="156">
           <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/Boss/Boss.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -629,9 +634,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-650" />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/config/database.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -791,27 +793,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/bosses/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-234" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/bosses/show.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="19" column="47" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://5bc7a316-3142-4624-a826-1f2e9028c47b/schema/laravel-studying/table/items">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="2e67dbd2-1fb4-4e36-a7d8-acff2382308b">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_26_190637_create_items_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
@@ -828,13 +809,6 @@
           <filtering>
             <filter text="" />
           </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_14_204118_create_bosses_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="23" column="65" lean-forward="true" selection-start-line="23" selection-start-column="65" selection-end-line="23" selection-end-column="65" />
         </state>
       </provider>
     </entry>
@@ -864,26 +838,6 @@
     <entry file="file://$PROJECT_DIR$/database/factories/UserFactory.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Services/CardService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="44" column="71" lean-forward="true" selection-start-line="44" selection-start-column="71" selection-end-line="44" selection-end-column="71" />
-          <folding>
-            <element signature="e#32#57#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Services/UserService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="42" column="33" selection-start-line="42" selection-start-column="33" selection-end-line="42" selection-end-column="33" />
-          <folding>
-            <element signature="e#32#57#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Services/BossSessionService.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="832">
@@ -891,17 +845,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/BossController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="92" column="5" selection-start-line="92" selection-start-column="5" selection-end-line="92" selection-end-column="5" />
-          <folding>
-            <element signature="e#40#65#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://5bc7a316-3142-4624-a826-1f2e9028c47b/schema/laravel-studying/table/bosses">
+    <entry file="das://5bc7a316-3142-4624-a826-1f2e9028c47b/schema/laravel-studying/table/items">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state projectRestartId="2e67dbd2-1fb4-4e36-a7d8-acff2382308b">
           <filtering>
@@ -919,10 +863,83 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Services/UserService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="42" column="33" selection-start-line="42" selection-start-column="33" selection-end-line="42" selection-end-column="33" />
+          <folding>
+            <element signature="e#32#57#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_14_204118_create_bosses_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="23" column="52" selection-start-line="23" selection-start-column="52" selection-end-line="23" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/bosses/show.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="19" column="47" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/bosses/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="29" column="81" selection-start-line="29" selection-start-column="81" selection-end-line="29" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://5bc7a316-3142-4624-a826-1f2e9028c47b/schema/laravel-studying/table/bosses">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="72da7e6f-7bf3-4e04-b216-e331d214a81d">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/BossController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="15" column="25" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
+          <folding>
+            <element signature="e#40#65#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Services/BossService.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="624">
-          <caret line="112" column="55" selection-start-line="112" selection-start-column="55" selection-end-line="112" selection-end-column="55" />
+          <caret line="112" column="32" selection-start-line="112" selection-start-column="32" selection-end-line="112" selection-end-column="32" />
+          <folding>
+            <element signature="e#32#57#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/Boss/Boss.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="598">
+          <caret line="33" column="41" selection-start-line="33" selection-start-column="41" selection-end-line="33" selection-end-column="41" />
+          <folding>
+            <element signature="e#35#74#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Services/CardService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="111" lean-forward="true" selection-start-line="111" selection-end-line="111" />
           <folding>
             <element signature="e#32#57#0#PHP" expanded="true" />
           </folding>

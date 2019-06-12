@@ -10,6 +10,9 @@ use Illuminate\View\View;
 
 class BossController extends Controller
 {
+    /**
+     * @var BossService
+     */
     private $bossService;
 
     /**
