@@ -52,6 +52,7 @@ class BossService
         {
             $reward = $this->bossSessionService->getBossReward();
             $this->userService->setReward($reward);
+            $this->bossSessionService->fillSessionWithRewardItem($boss);
             $this->createRewardCard($boss);
 
             return true;
@@ -110,8 +111,11 @@ class BossService
     /**
      * @param Boss $boss
      */
-    public function createRewardCard(Boss $boss): void 
+    public function createRewardCard(Boss $boss): void
     {
-        $this->cardService->createNewCard($boss->name . ' Card', 15, $boss->reward_item_rarity);
+        if ($boss->reward_item_rarity != 0)
+        {
+            $this->cardService->createNewCard($boss->name . ' Card', 15, $boss->reward_item_rarity);
+        }
     }
 }

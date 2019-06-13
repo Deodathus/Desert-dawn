@@ -69,4 +69,13 @@ class BossSessionService
             'gems' => $bossGems,
         ];
     }
+
+    /**
+     * @param $boss
+     */
+    public function fillSessionWithRewardItem($boss): void
+    {
+        if ($boss->reward_item_rarity != null)
+            session()->put('reward_item', true);
+    }
 }

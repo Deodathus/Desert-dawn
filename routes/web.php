@@ -17,30 +17,55 @@ Auth::routes();
 
     Route::middleware('auth')->group(function ()
     {
+        /**
+         * Home route
+         */
         Route::get('/home', 'HomeController@index')->name('home');
 
+        /**
+         * User routes
+         */
         Route::name('user.')->group(function ()
         {
             Route::get('/', 'UserCharacteristicsController@index')->name('hero');
         });
 
-        Route::name('boss.')->group(function ()
+        /**
+         * Boss routes
+         */
+        Route::middleware('item.reward.check')->group(function ()
         {
-            Route::get('/boss', 'BossController@index')->name('index')->middleware('hp.check');
-            Route::get('/boss/{boss}', 'BossController@show')->name('show')->middleware('boss.check');
+            Route::name('boss.')->group(function ()
+            {
+                Route::get('/boss', 'BossController@index')->name('index')->middleware('hp.check');
+                Route::get('/boss/{boss}', 'BossController@show')->name('show')->middleware('boss.check');
+            });
         });
 
-        Route::name('attack.')->group(function ()
+        /**
+         * Attack routes
+         */
+        Route::middleware('item.reward.check')->group(function ()
         {
-            Route::get('/boss/{boss}/firstSkill', 'BossController@firstSkill')->name('first');
-            Route::get('/boss/{boss}/secondSkill', 'BossController@secondSkill')->name('second');
-            Route::get('/boss/{boss}/thirdSkill', 'BossController@thirdSkill')->name('third');
+            Route::name('attack.')->group(function ()
+            {
+                Route::get('/boss/{boss}/firstSkill', 'BossController@firstSkill')->name('first');
+                Route::get('/boss/{boss}/secondSkill', 'BossController@secondSkill')->name('second');
+                Route::get('/boss/{boss}/thirdSkill', 'BossController@thirdSkill')->name('third');
+            });
         });
 
-        Route::view('/levelup', 'levelup')->name('lvlup');
+        /**
+         * Level-up routes
+         */
+        Route::view('/levelup', 'popup.levelup')->name('lvlup');
 
+        /**
+         * Item routes
+         */
         Route::name('item.')->group(function ()
         {
             Route::patch('/update-activity-status/{item}', 'ItemController@updateCardActiveStatus')->name('change.status');
+            Route::get('/item-reward', 'ItemController@getRewardItem')->name('reward');
         });
     });

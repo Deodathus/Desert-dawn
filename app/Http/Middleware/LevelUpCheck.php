@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Auth;
 
 class LevelUpCheck
 {
+    /**
+     * @var UserService
+     */
     private $userService;
 
     public function __construct(UserService $userService)

@@ -57,6 +57,7 @@ class UserService
         session()->forget('boss_reward_gold');
         session()->forget('boss_reward_exp');
         session()->forget('boss_reward_gems');
+        session()->forget('reward_item');
     }
 
     /**
