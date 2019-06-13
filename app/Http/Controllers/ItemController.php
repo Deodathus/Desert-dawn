@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Item\Item;
 use App\Services\CardService;
-use App\Services\ItemSessionService;
+use App\Services\UserService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
@@ -25,10 +25,18 @@ class ItemController extends Controller
      */
     private $cardService;
 
-    public function __construct(Item $item, CardService $cardService)
+    /**
+     * User service instance
+     *
+     * @var UserService
+     */
+    private $userService;
+
+    public function __construct(Item $item, CardService $cardService, UserService $userService)
     {
         $this->item = $item;
         $this->cardService = $cardService;
+        $this->userService = $userService;
     }
 
     /**
@@ -51,8 +59,7 @@ class ItemController extends Controller
      */
     public function getRewardItem(): View
     {
-        $user = auth()->user();
-        $rewardCard = $user->items->last();
+        $rewardCard = $this->userService->getUser()->items->last();
 
         return view('popup.rewardItem', compact('rewardCard'));
     }
