@@ -68,4 +68,12 @@ Auth::routes();
             Route::patch('/update-activity-status/{item}', 'ItemController@updateCardActiveStatus')->name('change.status');
             Route::get('/item-reward', 'ItemController@getRewardItem')->name('reward');
         });
+
+        Route::name('shop.')->group(function ()
+        {
+            Route::get('/shop', 'ShopController@index')->name('index');
+            Route::get('/shop/buy/first', 'ShopController@buyFirstSkill')->name('buy::default.skill.1');
+            Route::get('/shop/buy/second', 'ShopController@buySecondSkill')->name('buy::default.skill.2');
+            Route::get('/shop/buy/third', 'ShopController@buyThirdSkill')->name('buy::default.skill.3');
+        });
     });

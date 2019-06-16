@@ -76,17 +76,33 @@ class UserService
             $userSkillThirdDamage = $user->skill_3_damage + ($userLvlNow * $this->expMult);
             $userLvlUp = $userLvlNow + 1;
 
-            User::where('id', $userId)->update([
+            return User::where('id', $userId)->update([
                 'level' => $userLvlUp,
                 'exp' => 0,
                 'skill_1_damage' => $userSkillFirstDamage,
                 'skill_2_damage' => $userSkillSecondDamage,
                 'skill_3_damage' => $userSkillThirdDamage,
             ]);
-
-            return true;
         } else {
             return false;
         }
+    }
+
+    /**
+     * @param User $user
+     * @param int $price
+     * @return bool
+     */
+    public function paymentForItemByCoins (User $user, int $price): bool
+    {
+        if ($user->coins >= $price)
+        {
+            $coins = $user->coins - $price;
+            return $user->update([
+                'coins' => $coins
+            ]);
+        }
+
+        return false;
     }
 }

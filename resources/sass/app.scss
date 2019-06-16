@@ -227,11 +227,15 @@ h4{
   position: absolute;
 }
 
-.card-error {
+.error {
   text-decoration: overline;
   color: #ff4b00;
 }
 
+.success {
+  text-decoration: underline;
+  color: green;
+}
 /*----------------------------ITEM REWARD PAGE----------------------------*/
 .item-reward-img:hover {
   .card-info {
@@ -246,4 +250,14 @@ h4{
     top: auto;
     left: 40%;
   }
+}
+
+/*----------------------------SHOP PAGE----------------------------*/
+
+.shop-container {
+  margin: 100px auto 110px;
+}
+
+.shop-items-row {
+  margin-top: 20px;
 }

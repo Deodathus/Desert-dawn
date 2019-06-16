@@ -47,7 +47,7 @@
 
         <div class="footer fixed-bottom text-center">
             <a href="{{ route('user.hero') }}"><i class="fas fa-store-alt fa-3x"></i></a>
-            <a href=""><i class="fas fa-store fa-3x"></i></a>
+            <a href="{{ route('shop.index') }}"><i class="fas fa-store fa-3x"></i></a>
             <a href="{{ route('boss.index') }}"><i class="fas fa-khanda fa-3x"></i></a>
         </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>

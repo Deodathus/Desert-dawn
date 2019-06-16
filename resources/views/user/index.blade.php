@@ -74,7 +74,7 @@
 
             <div class="col-lg-8 col-md-8">
                 @if(session('error'))
-                    <h1 class="card-error">6 cards are already active.</h1>
+                    <h1 class="error">6 cards are already active.</h1>
                 @endif
                 <h2>Active cards:</h2>
                 <div class="items row">
