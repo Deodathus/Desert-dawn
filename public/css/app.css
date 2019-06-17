@@ -10675,6 +10675,15 @@ a:hover {
   text-decoration: none;
 }
 
+/*----------------------------CONTAINERS----------------------------*/
+
+.shop-container,
+.bosses,
+.user-hero-container,
+.quest-container {
+  margin: 100px auto 110px;
+}
+
 /*----------------------------NAV BAR----------------------------*/
 
 .user-bar,
@@ -10709,10 +10718,6 @@ a:hover {
 }
 
 /*----------------------------BOSS BAR----------------------------*/
-
-.bosses {
-  margin: 100px auto 110px;
-}
 
 .boss-block {
   margin-top: 10px;
@@ -10787,10 +10792,6 @@ h4 {
 }
 
 /*----------------------------USER HERO PAGE----------------------------*/
-
-.user-hero-container {
-  margin: 100px auto 110px;
-}
 
 .hero-attributes,
 .card-div {
@@ -10906,11 +10907,48 @@ h4 {
 
 /*----------------------------SHOP PAGE----------------------------*/
 
-.shop-container {
-  margin: 100px auto 110px;
-}
-
 .shop-items-row {
   margin-top: 20px;
+}
+
+/*----------------------------QUESTS PAGE----------------------------*/
+
+.quest-row {
+  border: 1px solid #a9c6de;
+  border-radius: 5px;
+  padding: 15px 30px 15px;
+}
+
+.drop-item-div {
+  padding-left: 45%;
+}
+
+.drop-item-info,
+.drop-card-info {
+  display: none;
+  font-size: 12px;
+  position: absolute;
+  border: 1px solid gray;
+  background-color: #0000009e;
+  width: 50%;
+  color: #fff;
+}
+
+.drop-item-mark,
+.drop-item-div {
+  height: 28px;
+  width: 28px;
+}
+
+.drop-item-div:hover .drop-item-info {
+  display: block;
+}
+
+.drop-card-div:hover .drop-card-info {
+  display: block;
+}
+
+.drop-card-span {
+  display: block;
 }
 
