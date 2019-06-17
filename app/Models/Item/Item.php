@@ -47,4 +47,20 @@ class Item extends Model
     {
         return $this->hasOne('App\Models\Item\ItemAttribute');
     }
+
+    /**
+     * @return BelongsTo
+     */
+    public function mission(): BelongsTo
+    {
+        return $this->belongsTo('App\Models\Quest\Mission', 'id', 'reward_item');
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    public function quest(): BelongsTo
+    {
+        return $this->belongsTo('App\Models\Quest\Quest', 'id', 'reward_item');
+    }
 }

@@ -76,4 +76,14 @@ Auth::routes();
             Route::get('/shop/buy/second', 'ShopController@buySecondSkill')->name('buy::default.skill.2');
             Route::get('/shop/buy/third', 'ShopController@buyThirdSkill')->name('buy::default.skill.3');
         });
+
+        Route::name('quest.')->group(function ()
+        {
+            Route::get('/quests', 'QuestController@index')->name('index');
+        });
+
+        Route::name('mission.')->group(function ()
+        {
+            Route::get('/quests/{quest}/missions', 'MissionController@index')->name('index');
+        });
     });
