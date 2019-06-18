@@ -10948,6 +10948,12 @@ h4 {
   display: block;
 }
 
+.quest-description {
+  color: #808080a3;
+  font-style: italic;
+  text-decoration: underline;
+}
+
 .drop-card-span {
   display: block;
 }

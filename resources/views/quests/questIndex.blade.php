@@ -19,7 +19,7 @@
                     @if($quest->reward_item != 0)
                         <p>
                             <div class="drop-item-div">
-                                <img src="images/item.png" alt="" class="drop-item-mark">
+                                <img src="/images/item.png" alt="" class="drop-item-mark">
                                 <div class="drop-item-info">
                                     Name: {{ $quest->item->name }}
                                     <span class="{{ $quest->item->rarity->name }}">
@@ -32,7 +32,7 @@
                     @if($quest->reward_item_rarity != 0)
                         <p>
                             <div class="drop-card-div">
-                                <img src="images/cards.png" alt="" class="drop-item-mark">
+                                <img src="/images/cards.png" alt="" class="drop-item-mark">
                                 <div class="drop-card-info">
                                     <span class="drop-card-span {{ $quest->itemRarity->name }}">{{ $quest->itemRarity->name }}</span>
                                     <span class="drop-card-span">Min stats: {{ $quest->itemRarity->min_stat_multiply }}</span>
@@ -44,7 +44,7 @@
                     @endif
                 </div>
                 <div class="col-lg-3 text-center">
-                    <a class="btn btn-danger boss-btn" href="">Go!</a>
+                    <a class="btn btn-danger boss-btn" href="{{ route('quest.show', $quest) }}">Go!</a>
                 </div>
             </div>
             @endforeach

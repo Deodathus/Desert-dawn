@@ -80,6 +80,7 @@ Auth::routes();
         Route::name('quest.')->group(function ()
         {
             Route::get('/quests', 'QuestController@index')->name('index');
+            Route::get('/quest/{quest}', 'QuestController@show')->name('show');
         });
 
         Route::name('mission.')->group(function ()

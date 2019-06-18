@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="30884bd5-0dcd-45ca-a722-c0d43fb9e526" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/quests/questShow.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_06_16_161306_create_quests_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_06_16_161306_create_quests_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/QuestController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/QuestController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/QuestService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/QuestService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/quests/questIndex.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/quests/questIndex.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -57,8 +60,19 @@
       <content type="file-editors">
         <state>
           <leaf>
-            <file pinned="false" current-in-tab="true">
+            <file pinned="false" current-in-tab="false">
               <entry file="das://5bc7a316-3142-4624-a826-1f2e9028c47b/schema/laravel-studying/table/quests">
+                <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+                  <state projectRestartId="5334b373-419b-4a84-91a9-34cc8ae807e8">
+                    <filtering>
+                      <filter text="" />
+                    </filtering>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file pinned="false" current-in-tab="true">
+              <entry file="das://5bc7a316-3142-4624-a826-1f2e9028c47b/schema/laravel-studying/table/missions">
                 <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
                   <state projectRestartId="5334b373-419b-4a84-91a9-34cc8ae807e8">
                     <filtering>
@@ -79,10 +93,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/user/index.blade.php">
+        <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="89" column="40" selection-start-line="89" selection-start-column="40" selection-end-line="89" selection-end-column="40" />
+            <state relative-caret-position="596">
+              <caret line="82" column="79" selection-start-line="82" selection-start-column="79" selection-end-line="82" selection-end-column="79" />
             </state>
           </provider>
         </entry>
@@ -90,8 +104,41 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/quests/questIndex.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="10" column="47" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="47" />
+            <state relative-caret-position="728">
+              <caret line="34" column="43" selection-start-line="34" selection-start-column="43" selection-end-line="34" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/quests/questShow.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="650">
+              <caret line="34" column="39" selection-start-line="34" selection-start-column="39" selection-end-line="34" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/QuestController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="650">
+              <caret line="36" selection-start-line="36" selection-end-line="36" />
+              <folding>
+                <element signature="e#40#67#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Services/QuestService.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="624">
+              <caret line="24" column="62" selection-start-line="24" selection-start-column="62" selection-end-line="24" selection-end-column="62" />
+              <folding>
+                <element signature="e#32#59#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -151,7 +198,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/database/migrations/2019_04_28_210238_create_item_attributes_table.php" />
         <option value="$PROJECT_DIR$/config/auth.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" />
         <option value="$PROJECT_DIR$/app/Models/Boss.php" />
@@ -187,20 +233,21 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/ShopController.php" />
         <option value="$PROJECT_DIR$/resources/views/shop/index.blade.php" />
         <option value="$PROJECT_DIR$/app/Quest.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/Mission.php" />
         <option value="$PROJECT_DIR$/app/Models/Item/Item.php" />
         <option value="$PROJECT_DIR$/app/Models/Quest/Mission.php" />
         <option value="$PROJECT_DIR$/app/Models/Item/ItemRarity.php" />
         <option value="$PROJECT_DIR$/app/Models/Quest/Quest.php" />
-        <option value="$PROJECT_DIR$/app/Services/QuestService.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/QuestController.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/head.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_06_16_174514_create_missions_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_06_16_161306_create_quests_table.php" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
         <option value="$PROJECT_DIR$/resources/views/user/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/sass/app.scss" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
+        <option value="$PROJECT_DIR$/app/Services/QuestService.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/QuestController.php" />
+        <option value="$PROJECT_DIR$/resources/views/quests/questShow.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/quests/questIndex.blade.php" />
       </list>
     </option>
@@ -335,6 +382,13 @@
               <item name="Studing" type="b2602c69:ProjectViewProjectNode" />
               <item name="Studing" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Studing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Studing" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Models" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -367,24 +421,7 @@
             <path>
               <item name="Studing" type="b2602c69:ProjectViewProjectNode" />
               <item name="Studing" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Studing" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Studing" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Studing" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Studing" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Studing" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Studing" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="sass" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Studing" type="b2602c69:ProjectViewProjectNode" />
@@ -426,6 +463,11 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="user" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Studing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Studing" type="462c0819:PsiDirectoryNode" />
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -564,7 +606,7 @@
       <workItem from="1560665966488" duration="7735000" />
       <workItem from="1560693962380" duration="11191000" />
       <workItem from="1560789574624" duration="8290000" />
-      <workItem from="1560879304013" duration="2956000" />
+      <workItem from="1560879304013" duration="4335000" />
     </task>
     <servers />
   </component>
@@ -586,7 +628,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="220525000" />
+    <option name="totallyTimeSpent" value="221904000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -636,11 +678,6 @@
     <SUITE FILE_PATH="coverage/Studing$phpunit_xml.xml" NAME="phpunit.xml Coverage Results" MODIFIED="1560437533017" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/css/app.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-780" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Services/CardService.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1560">
@@ -878,16 +915,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Services/QuestService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="10" column="34" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
-          <folding>
-            <element signature="e#32#59#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/popup/rewardItem.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="832">
@@ -920,13 +947,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="702">
-          <caret line="87" column="8" selection-start-line="87" selection-start-column="8" selection-end-line="87" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_27_172052_create_item_user_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="104">
@@ -938,25 +958,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="546">
           <caret line="24" column="63" selection-start-line="24" selection-start-column="63" selection-end-line="24" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/QuestController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="22" column="7" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
-          <folding>
-            <element signature="e#40#70#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://5bc7a316-3142-4624-a826-1f2e9028c47b/schema/laravel-studying/table/missions">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="2f86f068-34ad-499b-b2b8-982098bd45c0">
-          <filtering>
-            <filter text="" />
-          </filtering>
         </state>
       </provider>
     </entry>
@@ -999,22 +1000,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://5bc7a316-3142-4624-a826-1f2e9028c47b/schema/laravel-studying/table/quests">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="5334b373-419b-4a84-91a9-34cc8ae807e8">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/user/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="89" column="40" selection-start-line="89" selection-start-column="40" selection-end-line="89" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_16_161306_create_quests_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="416">
@@ -1029,10 +1014,69 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/user/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2314">
+          <caret line="89" column="40" selection-start-line="89" selection-start-column="40" selection-end-line="89" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="596">
+          <caret line="82" column="79" selection-start-line="82" selection-start-column="79" selection-end-line="82" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Services/QuestService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="624">
+          <caret line="24" column="62" selection-start-line="24" selection-start-column="62" selection-end-line="24" selection-end-column="62" />
+          <folding>
+            <element signature="e#32#59#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://5bc7a316-3142-4624-a826-1f2e9028c47b/schema/laravel-studying/table/quests">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="5334b373-419b-4a84-91a9-34cc8ae807e8">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/QuestController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="650">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
+          <folding>
+            <element signature="e#40#67#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://5bc7a316-3142-4624-a826-1f2e9028c47b/schema/laravel-studying/table/missions">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="5334b373-419b-4a84-91a9-34cc8ae807e8">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/quests/questShow.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="650">
+          <caret line="34" column="39" selection-start-line="34" selection-start-column="39" selection-end-line="34" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/quests/questIndex.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="10" column="47" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="47" />
+        <state relative-caret-position="728">
+          <caret line="34" column="43" selection-start-line="34" selection-start-column="43" selection-end-line="34" selection-end-column="43" />
         </state>
       </provider>
     </entry>

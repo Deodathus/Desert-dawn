@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Quest\Quest;
 use App\Services\QuestService;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -28,5 +29,12 @@ class QuestController extends Controller
         $quests = $this->questService->getAllQuests();
 
         return view('quests.questIndex', compact('quests'));
+    }
+
+    public function show(Quest $quest): View
+    {
+        $missions = $this->questService->getQuestMissions($quest);
+
+        return view('quests.questShow', compact('missions'));
     }
 }
