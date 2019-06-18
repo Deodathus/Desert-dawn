@@ -8,6 +8,7 @@
             <div class="row quest-row">
                 <div class="col-lg-3 quest-title text-center">
                     <p>{{ $quest->name }}</p>
+                    <p class="quest-description">{{ $quest->description }}</p>
                 </div>
                 <div class="col-lg-3 text-center">
                     <p><i class="fas fa-coins"></i> {{ $quest->reward_gold }}</p>
@@ -34,9 +35,9 @@
                                 <img src="images/cards.png" alt="" class="drop-item-mark">
                                 <div class="drop-card-info">
                                     <span class="drop-card-span {{ $quest->itemRarity->name }}">{{ $quest->itemRarity->name }}</span>
-                                    <span class="drop-card-span">{{ $quest->itemRarity->min_stat_multiply }}</span>
-                                    <span class="drop-card-span">{{ $quest->itemRarity->max_stat_multiply }}</span>
-                                    <span class="drop-card-span">{{ $quest->itemRarity->skill_amount }}</span>
+                                    <span class="drop-card-span">Min stats: {{ $quest->itemRarity->min_stat_multiply }}</span>
+                                    <span class="drop-card-span">Max stats: {{ $quest->itemRarity->max_stat_multiply }}</span>
+{{--                                    <span class="drop-card-span">{{ $quest->itemRarity->skill_amount }}</span>--}}
                                 </div>
                             </div>
                         </p>

@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="30884bd5-0dcd-45ca-a722-c0d43fb9e526" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2019_06_16_161306_create_quests_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_06_16_161306_create_quests_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_06_16_174514_create_missions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_06_16_174514_create_missions_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/quests/questIndex.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/quests/questIndex.blade.php" afterDir="false" />
     </list>
@@ -54,25 +53,14 @@
     <select />
   </component>
   <component name="DockManager">
-    <window id="3">
+    <window id="1">
       <content type="file-editors">
         <state>
           <leaf>
-            <file pinned="false" current-in-tab="false">
+            <file pinned="false" current-in-tab="true">
               <entry file="das://5bc7a316-3142-4624-a826-1f2e9028c47b/schema/laravel-studying/table/quests">
                 <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-                  <state projectRestartId="2f86f068-34ad-499b-b2b8-982098bd45c0">
-                    <filtering>
-                      <filter text="" />
-                    </filtering>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file pinned="false" current-in-tab="true">
-              <entry file="das://5bc7a316-3142-4624-a826-1f2e9028c47b/schema/laravel-studying/table/item_rarities">
-                <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-                  <state projectRestartId="2f86f068-34ad-499b-b2b8-982098bd45c0">
+                  <state projectRestartId="5334b373-419b-4a84-91a9-34cc8ae807e8">
                     <filtering>
                       <filter text="" />
                     </filtering>
@@ -102,8 +90,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/quests/questIndex.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="520">
-              <caret line="35" column="94" selection-start-line="35" selection-start-column="94" selection-end-line="35" selection-end-column="94" />
+            <state relative-caret-position="260">
+              <caret line="10" column="47" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -111,8 +99,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/sass/app.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="806">
-              <caret line="303" column="17" selection-start-line="303" selection-start-column="17" selection-end-line="303" selection-end-column="17" />
+            <state relative-caret-position="754">
+              <caret line="305" column="29" selection-start-line="305" selection-start-column="29" selection-end-line="305" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -193,7 +181,6 @@
         <option value="$PROJECT_DIR$/resources/views/popup/rewardItem.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ItemController.php" />
         <option value="$PROJECT_DIR$/app/Shop.php" />
-        <option value="$PROJECT_DIR$/resources/views/user/index.blade.php" />
         <option value="$PROJECT_DIR$/app/Models/User/User.php" />
         <option value="$PROJECT_DIR$/app/Services/ShopService.php" />
         <option value="$PROJECT_DIR$/app/Services/UserService.php" />
@@ -209,9 +196,10 @@
         <option value="$PROJECT_DIR$/app/Services/QuestService.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/QuestController.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/head.blade.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_06_16_161306_create_quests_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_06_16_174514_create_missions_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_06_16_161306_create_quests_table.php" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
+        <option value="$PROJECT_DIR$/resources/views/user/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/sass/app.scss" />
         <option value="$PROJECT_DIR$/resources/views/quests/questIndex.blade.php" />
       </list>
@@ -314,10 +302,10 @@
   </component>
   <component name="PhpXdebugProxy" ide_key="PHPSTORM" host="localhost" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="2118" />
-    <option name="y" value="203" />
-    <option name="width" value="1026" />
-    <option name="height" value="559" />
+    <option name="x" value="1516" />
+    <option name="y" value="244" />
+    <option name="width" value="1018" />
+    <option name="height" value="554" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -325,35 +313,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
-          <expand>
-            <path>
-              <item name="Studing" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/Projects/Studing" type="442cc68d:ScopeViewTreeModel$RootNode" />
-            </path>
-            <path>
-              <item name="Studing" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/Projects/Studing" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="Studing" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/Projects/Studing" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="Http" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="Studing" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/Projects/Studing" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="Http" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="Controllers" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -371,13 +330,6 @@
               <item name="Studing" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Http" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Studing" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Studing" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Studing" type="b2602c69:ProjectViewProjectNode" />
@@ -416,6 +368,12 @@
               <item name="Studing" type="b2602c69:ProjectViewProjectNode" />
               <item name="Studing" type="462c0819:PsiDirectoryNode" />
               <item name="database" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Studing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Studing" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="migrations" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Studing" type="b2602c69:ProjectViewProjectNode" />
@@ -468,6 +426,35 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="user" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="Studing" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/Projects/Studing" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+            <path>
+              <item name="Studing" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/Projects/Studing" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="Studing" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/Projects/Studing" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Http" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="Studing" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/Projects/Studing" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Http" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Controllers" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
           </expand>
           <select />
@@ -576,7 +563,8 @@
       <workItem from="1560584467503" duration="44000" />
       <workItem from="1560665966488" duration="7735000" />
       <workItem from="1560693962380" duration="11191000" />
-      <workItem from="1560789574624" duration="7690000" />
+      <workItem from="1560789574624" duration="8290000" />
+      <workItem from="1560879304013" duration="2956000" />
     </task>
     <servers />
   </component>
@@ -598,7 +586,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="216969000" />
+    <option name="totallyTimeSpent" value="220525000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -613,7 +601,7 @@
     <frame x="1365" y="0" width="1922" height="1081" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49736008" visible="true" weight="0.19316968" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49736008" visible="true" weight="0.19530416" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.5026399" side_tool="true" weight="0.19103523" />
       <window_info anchor="bottom" id="Database Console" order="0" weight="0.32946146" />
@@ -953,13 +941,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_16_161306_create_quests_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="23" column="50" selection-start-line="23" selection-start-column="50" selection-end-line="23" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/QuestController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="468">
@@ -1002,9 +983,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://5bc7a316-3142-4624-a826-1f2e9028c47b/schema/laravel-studying/table/quests">
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-impl.jar!/resources/html5-schema/html5/phrase.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="345" column="16" selection-start-line="345" selection-start-column="16" selection-end-line="345" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://5bc7a316-3142-4624-a826-1f2e9028c47b/schema/laravel-studying/table/item_rarities">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state projectRestartId="2f86f068-34ad-499b-b2b8-982098bd45c0">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://5bc7a316-3142-4624-a826-1f2e9028c47b/schema/laravel-studying/table/quests">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="5334b373-419b-4a84-91a9-34cc8ae807e8">
           <filtering>
             <filter text="" />
           </filtering>
@@ -1018,33 +1015,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://5bc7a316-3142-4624-a826-1f2e9028c47b/schema/laravel-studying/table/item_rarities">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="2f86f068-34ad-499b-b2b8-982098bd45c0">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-impl.jar!/resources/html5-schema/html5/phrase.rnc">
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_16_161306_create_quests_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="345" column="16" selection-start-line="345" selection-start-column="16" selection-end-line="345" selection-end-column="16" />
+        <state relative-caret-position="416">
+          <caret line="18" column="39" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/sass/app.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="806">
-          <caret line="303" column="17" selection-start-line="303" selection-start-column="17" selection-end-line="303" selection-end-column="17" />
+        <state relative-caret-position="754">
+          <caret line="305" column="29" selection-start-line="305" selection-start-column="29" selection-end-line="305" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/quests/questIndex.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="35" column="94" selection-start-line="35" selection-start-column="94" selection-end-line="35" selection-end-column="94" />
+        <state relative-caret-position="260">
+          <caret line="10" column="47" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="47" />
         </state>
       </provider>
     </entry>

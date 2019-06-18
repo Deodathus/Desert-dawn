@@ -16,6 +16,7 @@ class CreateQuestsTable extends Migration
         Schema::create('quests', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+            $table->string('description');
             $table->integer('reward_gold');
             $table->integer('reward_gems');
             $table->integer('reward_exp');
