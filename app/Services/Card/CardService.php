@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\Card;
 
 use App\Models\Item\Item;
+use App\Services\User\UserService;
 use Illuminate\Database\Eloquent\Collection;
 
 class CardService

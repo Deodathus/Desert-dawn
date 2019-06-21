@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\Quest;
 
 use App\Models\Quest\Quest;
 use Illuminate\Database\Eloquent\Collection;

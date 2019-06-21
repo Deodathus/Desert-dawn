@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Quest\Mission;
-use App\Services\MissionService;
-use App\Services\UserService;
+use App\Services\Quest\MissionService;
+use App\Services\User\UserService;
 use Illuminate\Http\RedirectResponse;
 
 class MissionController extends Controller

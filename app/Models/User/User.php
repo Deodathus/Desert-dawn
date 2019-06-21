@@ -2,7 +2,7 @@
 
 namespace App\Models\User;
 
-use App\Services\CardService;
+use App\Services\Card\CardService;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Notifications\Notifiable;

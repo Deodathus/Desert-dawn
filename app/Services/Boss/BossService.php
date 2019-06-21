@@ -3,6 +3,8 @@
 namespace App\Services\Boss;
 
 use App\Models\Boss\Boss;
+use App\Services\Card\CardService;
+use App\Services\User\UserService;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Collection;
 

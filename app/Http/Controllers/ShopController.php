@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\ShopService;
+use App\Services\Shop\ShopService;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class ShopController extends Controller

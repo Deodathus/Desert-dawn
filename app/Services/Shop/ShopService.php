@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\Shop;
 
 use App\Models\User\User;
+use App\Services\User\UserService;
 
 class ShopService
 {

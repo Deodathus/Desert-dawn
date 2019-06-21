@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\Quest;
 
 use App\Models\Quest\Mission;
+use App\Services\Card\CardService;
 
 class MissionService
 {

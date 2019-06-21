@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\CardService;
+use App\Services\Card\CardService;
 use Illuminate\View\View;
 
 class UserCharacteristicsController extends Controller

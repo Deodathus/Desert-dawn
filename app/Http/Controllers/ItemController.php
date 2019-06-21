@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Item\Item;
-use App\Services\CardService;
-use App\Services\UserService;
+use App\Services\Card\CardService;
+use App\Services\User\UserService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;

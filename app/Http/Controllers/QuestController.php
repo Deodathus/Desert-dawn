@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Quest\Quest;
-use App\Services\QuestService;
+use App\Services\Quest\QuestService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 

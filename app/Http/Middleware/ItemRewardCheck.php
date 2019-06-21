@@ -2,7 +2,7 @@
 
 namespace App\Http\Middleware;
 
-use App\Services\BossService;
+use App\Services\Boss\BossService;
 use Closure;
 
 class ItemRewardCheck
