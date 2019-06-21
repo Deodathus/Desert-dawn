@@ -5,10 +5,10 @@ namespace App\Services\Quest;
 use App\Models\Quest\Quest;
 use Illuminate\Database\Eloquent\Collection;
 
-class QuestService
+class QuestService extends AbstractQuestService
 {
     /**
-     * Return collection ob quests
+     * Return collection of quests
      *
      * @return Collection
      */
@@ -32,7 +32,7 @@ class QuestService
      * @param Quest $quest
      * @return bool
      */
-    public function checkQuestProgress(Quest $quest): bool
+    public function markQuestAsDone(Quest $quest): bool
     {
         if ($quest->mission()->where('done', '=', '0')->count() == 0 && $quest->done == 0)
         {

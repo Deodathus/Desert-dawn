@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Quest\Quest;
 use App\Services\Quest\QuestService;
+use App\Services\User\UserService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
@@ -16,9 +17,17 @@ class QuestController extends Controller
      */
     private $questService;
 
-    public function __construct(QuestService $questService)
+    /**
+     * UserService instance
+     *
+     * @var UserService $userService
+     */
+    private $userService;
+
+    public function __construct(QuestService $questService, UserService $userService)
     {
         $this->questService = $questService;
+        $this->userService = $userService;
     }
 
     /**
@@ -50,11 +59,20 @@ class QuestController extends Controller
      */
     public function getQuestReward(Quest $quest): RedirectResponse
     {
-        if ($this->questService->checkQuestProgress($quest))
+        if (!$quest->done)
         {
-            return redirect()->back()->with('quest_reward', true);
+            if ($this->questService->markQuestAsDone($quest))
+            {
+                $reward = $this->questService->getRewardFromQuest($quest);
+                $this->userService->setRewardAfterQuest($reward);
+                $this->questService->setItemsReward($quest);
+
+                return redirect()->back()->with('quest_reward', true);
+            } else {
+                return redirect()->back()->with('quest_reward', false);
+            }
         } else {
-            return redirect()->back()->with('quest_reward', false);
+            return redirect()->back()->with('quest', false);
         }
     }
 }
