@@ -4,7 +4,6 @@ namespace App\Services;
 
 use App\Models\Quest\Quest;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class QuestService
 {
@@ -25,5 +24,23 @@ class QuestService
     public function getQuestMissions(Quest $quest): Collection
     {
         return $quest->mission;
+    }
+
+    /**
+     * Checking the quest progress
+     *
+     * @param Quest $quest
+     * @return bool
+     */
+    public function checkQuestProgress(Quest $quest): bool
+    {
+        if ($quest->mission()->where('done', '=', '0')->count() == 0 && $quest->done == 0)
+        {
+            return $quest->update([
+                'done' => true,
+            ]);
+        } else {
+            return false;
+        }
     }
 }

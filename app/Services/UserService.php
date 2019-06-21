@@ -16,6 +16,8 @@ class UserService
     protected $expMult = 5;
 
     /**
+     * Get authentificated user
+     *
      * @return Authenticatable|null
      */
     public function getUser(): ? Authenticatable
@@ -24,6 +26,8 @@ class UserService
     }
 
     /**
+     * Minus skill cound after using
+     *
      * @param $userId
      * @param $skillCount
      * @param $skill
@@ -38,9 +42,12 @@ class UserService
     }
 
     /**
+     * Set reward after boss
+     *
      * @param $reward
+     * @return bool
      */
-    public function setReward($reward): void
+    public function setReward($reward): bool
     {
         $user = $this->getUser();
         $userId = $user->id;
@@ -48,12 +55,29 @@ class UserService
         $userExp = $user->exp + $reward['exp'];
         $userGems = $user->gems + $reward['gems'];
 
-        User::where('id', $userId)->update([
+        return User::where('id', $userId)->update([
             'coins' => $userGold,
             'exp' => $userExp,
             'gems' => $userGems
         ]);
+    }
 
+    /**
+     * Set reward after boss fight
+     *
+     * @param $reward
+     */
+    public function setRewardAfterBoss($reward): void
+    {
+        $this->setReward($reward);
+        $this->cleanSessionAfterBoss();
+    }
+
+    /**
+     * Clean session after boss fight
+     */
+    public function cleanSessionAfterBoss(): void
+    {
         session()->forget('boss_reward_gold');
         session()->forget('boss_reward_exp');
         session()->forget('boss_reward_gems');
@@ -104,5 +128,16 @@ class UserService
         }
 
         return false;
+    }
+
+    /**
+     * Set reward after quest or mission
+     *
+     * @param $reward
+     * @return bool
+     */
+    public function setRewardAfterQuest($reward): bool
+    {
+        return $this->setReward($reward);
     }
 }

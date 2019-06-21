@@ -14,6 +14,7 @@ class Mission extends Model
         'reward_gold',
         'reward_exp',
         'reward_gems',
+        'done'
     ];
 
     /**

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\Boss;
 
 use App\Models\Boss\Boss;
 use Illuminate\Contracts\Auth\Authenticatable;
@@ -8,8 +8,25 @@ use Illuminate\Database\Eloquent\Collection;
 
 class BossService
 {
+    /**
+     * BossSessionService instance
+     *
+     * @var BossSessionService $bossSessionService
+     */
     private $bossSessionService;
+
+    /**
+     * UserService instance
+     *
+     * @var UserService $userService
+     */
     private $userService;
+
+    /**
+     * CardService instance
+     *
+     * @var CardService $cardService
+     */
     private $cardService;
 
     public function __construct(BossSessionService $bossSessionService, UserService $userService, CardService $cardService)
@@ -20,6 +37,8 @@ class BossService
     }
 
     /**
+     * Get all bosses
+     *
      * @return Collection
      */
     public function getAllBosses(): Collection
@@ -28,13 +47,18 @@ class BossService
     }
 
     /**
+     * Get authentificated user
+     *
      * @return \Illuminate\Contracts\Auth\Authenticatable|null
      */
     public function getUser(): ? Authenticatable
     {
         return $this->userService->getUser();
     }
+
     /**
+     * Filling the session before boss fight
+     *
      * @param $boss
      */
     public function fillSessionIfEmpty($boss): void
@@ -43,6 +67,8 @@ class BossService
     }
 
     /**
+     * Methods to execute after killing the boss
+     *
      * @param Boss $boss
      * @return bool
      */
@@ -51,7 +77,7 @@ class BossService
         if ($this->bossSessionService->checkIsBossHpZero())
         {
             $reward = $this->bossSessionService->getBossReward();
-            $this->userService->setReward($reward);
+            $this->userService->setRewardAfterBoss($reward);
             $this->bossSessionService->fillSessionWithRewardItem($boss);
             $this->createRewardCard($boss);
 
@@ -61,16 +87,10 @@ class BossService
         }
     }
 
-    /**
-     * @param $skill
-     * @return bool
-     */
-    public function checkSkillCount($skill): bool
-    {
-        return $skill > 0;
-    }
 
     /**
+     * Attacking the boss
+     *
      * @param $user
      * @param $damage
      * @param $skill
@@ -92,6 +112,8 @@ class BossService
     }
 
     /**
+     * Checking skill count and attack
+     *
      * @param $skill
      * @param $damage
      * @return bool
@@ -109,6 +131,8 @@ class BossService
     }
 
     /**
+     * Making boss's reward card
+     *
      * @param Boss $boss
      */
     public function createRewardCard(Boss $boss): void

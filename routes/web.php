@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
 
-    Route::middleware('auth')->group(function ()
+    Route::middleware('auth')->group(function (): void
     {
         /**
          * Home route
@@ -25,7 +25,7 @@ Auth::routes();
         /**
          * User routes
          */
-        Route::name('user.')->group(function ()
+        Route::name('user.')->group(function (): void
         {
             Route::get('/', 'UserCharacteristicsController@index')->name('hero');
         });
@@ -33,9 +33,9 @@ Auth::routes();
         /**
          * Boss routes
          */
-        Route::middleware('item.reward.check')->group(function ()
+        Route::middleware('item.reward.check')->group(function (): void
         {
-            Route::name('boss.')->group(function ()
+            Route::name('boss.')->group(function (): void
             {
                 Route::get('/boss', 'BossController@index')->name('index')->middleware('hp.check');
                 Route::get('/boss/{boss}', 'BossController@show')->name('show')->middleware('boss.check');
@@ -45,9 +45,9 @@ Auth::routes();
         /**
          * Attack routes
          */
-        Route::middleware('item.reward.check')->group(function ()
+        Route::middleware('item.reward.check')->group(function (): void
         {
-            Route::name('attack.')->group(function ()
+            Route::name('attack.')->group(function (): void
             {
                 Route::get('/boss/{boss}/firstSkill', 'BossController@firstSkill')->name('first');
                 Route::get('/boss/{boss}/secondSkill', 'BossController@secondSkill')->name('second');
@@ -63,13 +63,13 @@ Auth::routes();
         /**
          * Item routes
          */
-        Route::name('item.')->group(function ()
+        Route::name('item.')->group(function (): void
         {
             Route::patch('/update-activity-status/{item}', 'ItemController@updateCardActiveStatus')->name('change.status');
             Route::get('/item-reward', 'ItemController@getRewardItem')->name('reward');
         });
 
-        Route::name('shop.')->group(function ()
+        Route::name('shop.')->group(function (): void
         {
             Route::get('/shop', 'ShopController@index')->name('index');
             Route::get('/shop/buy/first', 'ShopController@buyFirstSkill')->name('buy::default.skill.1');
@@ -77,14 +77,16 @@ Auth::routes();
             Route::get('/shop/buy/third', 'ShopController@buyThirdSkill')->name('buy::default.skill.3');
         });
 
-        Route::name('quest.')->group(function ()
+        Route::name('quest.')->group(function (): void
         {
             Route::get('/quests', 'QuestController@index')->name('index');
             Route::get('/quest/{quest}', 'QuestController@show')->name('show');
+            Route::get('/{quest}/reward', 'QuestController@getQuestReward')->name('get.reward');
         });
 
-        Route::name('mission.')->group(function ()
+        Route::name('mission.')->group(function (): void
         {
             Route::get('/quests/{quest}/missions', 'MissionController@index')->name('index');
+            Route::get('/quest/{mission}/done', 'MissionController@doneMission')->name('done');
         });
     });

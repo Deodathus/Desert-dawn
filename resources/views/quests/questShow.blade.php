@@ -4,10 +4,19 @@
 @section('content')
 
     <div class="container quest-container">
+        @if (session('mission_error') == true)
+            <h3 class="error">
+                Mission is allready done.
+            </h3>
+        @endif
         @foreach($missions as $mission)
             <div class="row quest-row">
                 <div class="col-lg-3 quest-title text-center">
-                    <p>{{ $mission->name }}</p>
+                    @if($mission->done)
+                        <p style="text-decoration:line-through">{{ $mission->name }}</p>
+                    @else
+                        <p>{{ $mission->name }}</p>
+                    @endif
                     <p class="quest-description">{{ $mission->description }}</p>
                 </div>
                 <div class="col-lg-3 text-center">
@@ -20,11 +29,17 @@
                         <p>
                         <div class="drop-item-div">
                             <img src="/images/item.png" alt="" class="drop-item-mark">
-                            <div class="drop-item-info">
+                            <div class="drop-item-info text-left">
                                 Name: {{ $mission->item->name }}
                                 <span class="{{ $mission->item->rarity->name }}">
                                         {{ $mission->item->rarity->name }}
-                                    </span>
+                                </span>
+                                <span class="drop-card-span">Strength: {{ $mission->item->itemAttribute->strength }}</span>
+                                <span class="drop-card-span">Stamina: {{ $mission->item->itemAttribute->stamina }}</span>
+                                <span class="drop-card-span">Agility: {{ $mission->item->itemAttribute->agility }}</span>
+                                <span class="drop-card-span">Intellect: {{ $mission->item->itemAttribute->intellect }}</span>
+                                <span class="drop-card-span">Luck: {{ $mission->item->itemAttribute->luck }}</span>
+                                <span class="drop-card-span">Wisdom: {{ $mission->item->itemAttribute->wisdom }}</span>
                             </div>
                         </div>
                         </p>
@@ -44,7 +59,7 @@
                     @endif
                 </div>
                 <div class="col-lg-3 text-center">
-                    <a class="btn btn-danger boss-btn" href="">Do It!</a>
+                    <a class="btn btn-danger boss-btn" href="{{ route('mission.done', $mission) }}">Do It!</a>
                 </div>
             </div>
         @endforeach

@@ -7,7 +7,11 @@
             @foreach($quests as $quest)
             <div class="row quest-row">
                 <div class="col-lg-3 quest-title text-center">
-                    <p>{{ $quest->name }}</p>
+                    @if($quest->done)
+                        <p style="text-decoration:line-through">{{ $quest->name }}</p>
+                    @else
+                        <p>{{ $quest->name }}</p>
+                    @endif
                     <p class="quest-description">{{ $quest->description }}</p>
                 </div>
                 <div class="col-lg-3 text-center">
@@ -20,11 +24,17 @@
                         <p>
                             <div class="drop-item-div">
                                 <img src="/images/item.png" alt="" class="drop-item-mark">
-                                <div class="drop-item-info">
+                                <div class="drop-item-info text-left">
                                     Name: {{ $quest->item->name }}
                                     <span class="{{ $quest->item->rarity->name }}">
-                                        {{ $quest->item->rarity->name }}
+                                            {{ $quest->item->rarity->name }}
                                     </span>
+                                    <span class="drop-card-span">Strength: {{ $quest->item->itemAttribute->strength }}</span>
+                                    <span class="drop-card-span">Stamina: {{ $quest->item->itemAttribute->stamina }}</span>
+                                    <span class="drop-card-span">Agility: {{ $quest->item->itemAttribute->agility }}</span>
+                                    <span class="drop-card-span">Intellect: {{ $quest->item->itemAttribute->intellect }}</span>
+                                    <span class="drop-card-span">Luck: {{ $quest->item->itemAttribute->luck }}</span>
+                                    <span class="drop-card-span">Wisdom: {{ $quest->item->itemAttribute->wisdom }}</span>
                                 </div>
                             </div>
                         </p>
@@ -44,7 +54,8 @@
                     @endif
                 </div>
                 <div class="col-lg-3 text-center">
-                    <a class="btn btn-danger boss-btn" href="{{ route('quest.show', $quest) }}">Go!</a>
+                    <span class="drop-card-span"><a class="btn btn-danger boss-btn" href="{{ route('quest.show', $quest) }}">Go!</a></span>
+                    <span class="drop-card-span"><a class="btn btn-danger boss-btn" href="{{ route('quest.get.reward', $quest) }}">Get reward!</a></span>
                 </div>
             </div>
             @endforeach

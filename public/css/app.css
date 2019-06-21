@@ -10917,10 +10917,15 @@ h4 {
   border: 1px solid #a9c6de;
   border-radius: 5px;
   padding: 15px 30px 15px;
+  margin-bottom: 15px;
 }
 
 .drop-item-div {
   padding-left: 45%;
+}
+
+.drop-item-info {
+  padding-left: 15px;
 }
 
 .drop-item-info,

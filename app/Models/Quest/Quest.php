@@ -13,6 +13,7 @@ class Quest extends Model
         'reward_gold',
         'reward_gems',
         'reward_exp',
+        'done',
     ];
 
     /**

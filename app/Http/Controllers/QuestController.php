@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Quest\Quest;
 use App\Services\QuestService;
-use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
 class QuestController extends Controller
@@ -31,10 +31,30 @@ class QuestController extends Controller
         return view('quests.questIndex', compact('quests'));
     }
 
+    /**
+     * @param Quest $quest
+     * @return View
+     */
     public function show(Quest $quest): View
     {
         $missions = $this->questService->getQuestMissions($quest);
 
         return view('quests.questShow', compact('missions'));
+    }
+
+    /**
+     * Getting quest reward
+     *
+     * @param Quest $quest
+     * @return RedirectResponse
+     */
+    public function getQuestReward(Quest $quest): RedirectResponse
+    {
+        if ($this->questService->checkQuestProgress($quest))
+        {
+            return redirect()->back()->with('quest_reward', true);
+        } else {
+            return redirect()->back()->with('quest_reward', false);
+        }
     }
 }

@@ -2,9 +2,51 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Quest\Mission;
+use App\Services\MissionService;
+use App\Services\UserService;
+use Illuminate\Http\RedirectResponse;
 
 class MissionController extends Controller
 {
-    //
+    /**
+     * MissionService instance
+     *
+     * @var MissionService $missionService
+     */
+    private $missionService;
+
+    /**
+     * UserService instance
+     *
+     * @var UserService $userService
+     */
+    private $userService;
+
+    public function __construct(MissionService $missionService, UserService $userService)
+    {
+        $this->missionService = $missionService;
+        $this->userService = $userService;
+    }
+
+    /**
+     * Mark mission as done
+     *
+     * @param Mission $mission
+     * @return RedirectResponse
+     */
+    public function doneMission(Mission $mission): RedirectResponse
+    {
+        if (!$mission->done)
+        {
+            $this->missionService->markMissionAsDone($mission);
+            $reward = $this->missionService->getRewardFromQuest($mission);
+            $this->userService->setRewardAfterQuest($reward);
+            $this->missionService->setItemsReward($mission);
+
+            return redirect()->back();
+        } else {
+            return redirect()->back()->with('mission_error', true);
+        }
+    }
 }
