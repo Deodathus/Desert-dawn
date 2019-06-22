@@ -84,9 +84,9 @@ class BossService
             $this->createRewardCard($boss);
 
             return true;
-        } else {
-            return false;
         }
+
+        return false;
     }
 
 
@@ -108,9 +108,9 @@ class BossService
             $this->userService->minusSkillsCount($user->id ,$user->$skill, $skill);
 
             return true;
-        } else {
-            return false;
         }
+
+        return false;
     }
 
     /**
@@ -127,9 +127,9 @@ class BossService
         if ($user->$skill > 0)
         {
             return $this->attack($user, $damage, $skill, $damageFromCards);
-        } else {
-            return false;
         }
+
+        return false;
     }
 
     /**
@@ -139,7 +139,7 @@ class BossService
      */
     public function createRewardCard(Boss $boss): void
     {
-        if ($boss->reward_item_rarity != 0)
+        if ($boss->reward_item_rarity !== 0)
         {
             $this->cardService->createNewCard($boss->name . ' Card', 15, $boss->reward_item_rarity);
         }

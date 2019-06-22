@@ -21,6 +21,8 @@ class Boss extends Model
     ];
 
     /**
+     * Relation with Item model.
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function items(): HasMany
@@ -29,6 +31,8 @@ class Boss extends Model
     }
 
     /**
+     * Raletion with ItemRarity model.
+     *
      * @return HasMany
      */
     public function itemRarity(): HasMany

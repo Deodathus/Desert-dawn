@@ -17,6 +17,8 @@ class Quest extends Model
     ];
 
     /**
+     * Relation with ItemRarity model.
+     *
      * @return HasOne
      */
     public function itemRarity(): HasOne
@@ -25,6 +27,8 @@ class Quest extends Model
     }
 
     /**
+     * Relation with Item model.
+     *
      * @return HasOne
      */
     public function item(): HasOne
@@ -33,6 +37,8 @@ class Quest extends Model
     }
 
     /**
+     * Relation with Mission model.
+     *
      * @return HasMany
      */
     public function mission(): HasMany

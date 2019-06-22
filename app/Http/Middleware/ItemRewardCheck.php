@@ -2,21 +2,10 @@
 
 namespace App\Http\Middleware;
 
-use App\Services\Boss\BossService;
 use Closure;
 
 class ItemRewardCheck
 {
-    /**
-     * @var $bossService
-     */
-    private $bossService;
-
-    public function __construct(BossService $bossService)
-    {
-        $this->bossService = $bossService;
-    }
-
     /**
      * Handle an incoming request.
      *
@@ -26,7 +15,7 @@ class ItemRewardCheck
      */
     public function handle($request, Closure $next)
     {
-        if (session()->get('reward_item') == true)
+        if (session()->get('reward_item') === true)
         {
             session()->forget('reward_item');
 

@@ -49,7 +49,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * Relation with attributes.
+     * Relation with Attribute model.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
@@ -59,7 +59,7 @@ class User extends Authenticatable
     }
 
     /**
-     * Relation with items.
+     * Relation with Item model.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
@@ -69,6 +69,8 @@ class User extends Authenticatable
     }
 
     /**
+     * Return damage with plus from cards.
+     *
      * @param CardService $cardService
      * @return float|int
      */

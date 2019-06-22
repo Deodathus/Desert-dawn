@@ -19,8 +19,7 @@ class RedirectIfAlreadyInFight
         {
             return redirect()->route('boss.show', session()->get('boss_id'));
         }
-        else {
-            return $next($request);
-        }
+
+        return $next($request);
     }
 }

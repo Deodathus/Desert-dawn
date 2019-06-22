@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class ItemRarity extends Model
 {
     /**
+     * Relation with Item model.
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function items(): HasMany
@@ -17,6 +19,8 @@ class ItemRarity extends Model
     }
 
     /**
+     * Relation with Mission model.
+     *
      * @return BelongsTo
      */
     public function mission(): BelongsTo
@@ -25,6 +29,8 @@ class ItemRarity extends Model
     }
 
     /**
+     * Relation with Quest model.
+     *
      * @return BelongsTo
      */
     public function quest(): BelongsTo

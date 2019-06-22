@@ -61,18 +61,17 @@ class QuestController extends Controller
     {
         if (!$quest->done)
         {
-            if ($this->questService->markQuestAsDone($quest))
-            {
+            if ($this->questService->markQuestAsDone($quest)) {
                 $reward = $this->questService->getRewardFromQuest($quest);
                 $this->userService->setRewardAfterQuest($reward);
                 $this->questService->setItemsReward($quest);
 
                 return redirect()->back()->with('quest_reward', true);
-            } else {
-                return redirect()->back()->with('quest_reward', false);
             }
-        } else {
-            return redirect()->back()->with('quest', false);
+
+            return redirect()->back()->with('quest_reward', false);
         }
+
+        return redirect()->back()->with('quest', false);
     }
 }

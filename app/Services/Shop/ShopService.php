@@ -22,6 +22,7 @@ class ShopService
 
     /**
      * @param $skill
+     * @param $price
      * @return bool
      */
     public function buySkill($skill, $price): bool

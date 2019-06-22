@@ -26,7 +26,7 @@ abstract class AbstractQuestService
      */
     public function getRewardFromQuest($quest): array
     {
-        return $reward = [
+        return [
             'gold' => $quest->reward_gold,
             'exp' => $quest->reward_exp,
             'gems' => $quest->reward_gems,
@@ -41,7 +41,7 @@ abstract class AbstractQuestService
      */
     public function getItemRarityReward($quest): ?int
     {
-        if ($quest->itemRarity()->count() != 0)
+        if ($quest->itemRarity()->count() !== 0)
         {
             return $quest->reward_item_rarity;
         }
@@ -57,7 +57,7 @@ abstract class AbstractQuestService
      */
     public function getItemReward($quest): ?int
     {
-        if ($quest->item()->count() != 0)
+        if ($quest->item()->count() !== 0)
         {
             return $quest->reward_item;
         }
@@ -69,6 +69,7 @@ abstract class AbstractQuestService
      * Setting items reward from mission
      *
      * @param $quest
+     * @throws \Exception
      */
     public function setItemsReward($quest): void
     {

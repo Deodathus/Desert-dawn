@@ -56,17 +56,11 @@ class BossController extends Controller
      */
     public function firstSkill(Boss $boss): RedirectResponse
     {
-        if (!$this->bossService->attackOrNot('skill_1', 'skill_1_damage'))
-        {
+        if (!$this->bossService->checkIsHpZero($boss)) {
             return back();
-        } else {
-            if ($this->bossService->checkIsHpZero($boss))
-            {
-                return redirect()->route('boss.index');
-            } else {
-                return back();
-            }
         }
+
+        return $this->bossService->attackOrNot('skill_1', 'skill_1_damage') ? redirect()->route('boss.index') : back();
     }
 
     /**
@@ -78,14 +72,9 @@ class BossController extends Controller
         if (!$this->bossService->attackOrNot('skill_2', 'skill_2_damage'))
         {
             return back();
-        } else {
-            if ($this->bossService->checkIsHpZero($boss))
-            {
-                return redirect()->route('boss.index');
-            } else {
-                return back();
-            }
         }
+
+        return $this->bossService->checkIsHpZero($boss) ? redirect()->route('boss.index') : back();
     }
 
     /**
@@ -97,13 +86,8 @@ class BossController extends Controller
         if (!$this->bossService->attackOrNot('skill_3', 'skill_3_damage'))
         {
             return back();
-        } else {
-            if ($this->bossService->checkIsHpZero($boss))
-            {
-                return redirect()->route('boss.index');
-            } else {
-                return back();
-            }
         }
+
+        return $this->bossService->checkIsHpZero($boss) ? redirect()->route('boss.index') : back();
     }
 }

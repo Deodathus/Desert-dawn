@@ -75,7 +75,9 @@ class BossSessionService
      */
     public function fillSessionWithRewardItem($boss): void
     {
-        if ($boss->reward_item_rarity != null)
+        if ($boss->reward_item_rarity !== null)
+        {
             session()->put('reward_item', true);
+        }
     }
 }

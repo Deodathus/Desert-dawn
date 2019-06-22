@@ -44,6 +44,7 @@ class CardService
      * @param $name
      * @param $requiredLevel
      * @param $rarity
+     * @throws \Exception
      */
     public function createNewCard($name, $requiredLevel, $rarity): void
     {
@@ -55,12 +56,12 @@ class CardService
         ]);
         $user->items()->save($newCard, ['active' => 0]);
         $newCard->itemAttribute()->create([
-            'strength' => rand($newCard->rarity->min_stat_multiply, $newCard->rarity->max_stat_multiply),
-            'stamina' => rand($newCard->rarity->min_stat_multiply, $newCard->rarity->max_stat_multiply),
-            'agility' => rand($newCard->rarity->min_stat_multiply, $newCard->rarity->max_stat_multiply),
-            'intellect' => rand($newCard->rarity->min_stat_multiply, $newCard->rarity->max_stat_multiply),
-            'luck' => rand($newCard->rarity->min_stat_multiply, $newCard->rarity->max_stat_multiply),
-            'wisdom' => rand($newCard->rarity->min_stat_multiply, $newCard->rarity->max_stat_multiply),
+            'strength' => random_int($newCard->rarity->min_stat_multiply, $newCard->rarity->max_stat_multiply),
+            'stamina' => random_int($newCard->rarity->min_stat_multiply, $newCard->rarity->max_stat_multiply),
+            'agility' => random_int($newCard->rarity->min_stat_multiply, $newCard->rarity->max_stat_multiply),
+            'intellect' => random_int($newCard->rarity->min_stat_multiply, $newCard->rarity->max_stat_multiply),
+            'luck' => random_int($newCard->rarity->min_stat_multiply, $newCard->rarity->max_stat_multiply),
+            'wisdom' => random_int($newCard->rarity->min_stat_multiply, $newCard->rarity->max_stat_multiply),
         ]);
     }
 
@@ -146,14 +147,14 @@ class CardService
     {
         if ($this->getActiveCardsCount() < 6)
         {
-            if ($user->items()->where('id', '=', $item->id)->first()->pivot->active == 0)
+            if ($user->items()->where('id', '=', $item->id)->first()->pivot->active === 0)
             {
                 return $user->items()->updateExistingPivot($item->id, ['active' => 1]);
-            } else {
-                return $user->items()->updateExistingPivot($item->id, ['active' => 0]);
             }
-        } else {
+
             return $user->items()->updateExistingPivot($item->id, ['active' => 0]);
         }
+
+        return $user->items()->updateExistingPivot($item->id, ['active' => 0]);
     }
 }

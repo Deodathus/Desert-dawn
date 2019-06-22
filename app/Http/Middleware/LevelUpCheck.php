@@ -33,12 +33,10 @@ class LevelUpCheck
             {
                 return redirect()->route('lvlup');
             }
-            else {
-                return $next($request);
-            }
-        }
-        else {
+
             return $next($request);
         }
+
+        return $next($request);
     }
 }

@@ -107,9 +107,9 @@ class UserService
                 'skill_2_damage' => $userSkillSecondDamage,
                 'skill_3_damage' => $userSkillThirdDamage,
             ]);
-        } else {
-            return false;
         }
+
+        return false;
     }
 
     /**

@@ -45,8 +45,8 @@ class MissionController extends Controller
             $this->missionService->setItemsReward($mission);
 
             return redirect()->back();
-        } else {
-            return redirect()->back()->with('mission_error', true);
         }
+
+        return redirect()->back()->with('mission_error', true);
     }
 }
