@@ -34,6 +34,7 @@ class MissionController extends Controller
      *
      * @param Mission $mission
      * @return RedirectResponse
+     * @throws \Exception
      */
     public function doneMission(Mission $mission): RedirectResponse
     {

@@ -56,11 +56,12 @@ class BossController extends Controller
      */
     public function firstSkill(Boss $boss): RedirectResponse
     {
-        if (!$this->bossService->checkIsHpZero($boss)) {
+        if (!$this->bossService->attackOrNot('skill_1', 'skill_1_damage'))
+        {
             return back();
         }
 
-        return $this->bossService->attackOrNot('skill_1', 'skill_1_damage') ? redirect()->route('boss.index') : back();
+        return $this->bossService->checkIsHpZero($boss) ? redirect()->route('boss.index') : back();
     }
 
     /**

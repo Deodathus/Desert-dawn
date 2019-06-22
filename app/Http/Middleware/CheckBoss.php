@@ -13,7 +13,7 @@ class CheckBoss
      */
     public function handle($request, Closure $next)
     {
-        $bossPath = str_replace('boss/', '', $request->path());
+        $bossPath = (int) str_replace('boss/', '', $request->path());
 
         if (session()->get('boss_id') && $bossPath === session()->get('boss_id'))
         {

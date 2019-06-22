@@ -56,6 +56,7 @@ class QuestController extends Controller
      *
      * @param Quest $quest
      * @return RedirectResponse
+     * @throws \Exception
      */
     public function getQuestReward(Quest $quest): RedirectResponse
     {
