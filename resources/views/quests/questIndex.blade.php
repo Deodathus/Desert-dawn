@@ -4,18 +4,18 @@
 @section('content')
 
     <div class="container quest-container">
-        @if (session('quest') !== null && session('quest') == false)
+        @if (session('quest') !== null && session('quest') === false)
             <h3 class="error">
-                Quest is already done
+                Quest is already done and reward is already taken.
             </h3>
         @endif
-        @if (session('quest_reward') !== null && session('quest_reward') == true)
+        @if (session('quest_reward') !== null && session('quest_reward') === true)
             <h3 class="success">
-                Succes
+                Succes.
             </h3>
-        @elseif (session('quest_reward') !== null && session('quest_reward') == false)
+        @elseif (session('quest_reward') !== null && session('quest_reward') === false)
             <h3 class="error">
-                Reward is allready taken
+                Reward is already taken.
             </h3>
         @endif
             @foreach($quests as $quest)

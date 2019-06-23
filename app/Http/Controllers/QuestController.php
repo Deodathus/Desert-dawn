@@ -11,14 +11,14 @@ use Illuminate\View\View;
 class QuestController extends Controller
 {
     /**
-     * QuestService instance
+     * QuestService instance.
      *
      * @var QuestService $questService
      */
     private $questService;
 
     /**
-     * UserService instance
+     * UserService instance.
      *
      * @var UserService $userService
      */
@@ -52,7 +52,7 @@ class QuestController extends Controller
     }
 
     /**
-     * Getting quest reward
+     * Getting quest reward.
      *
      * @param Quest $quest
      * @return RedirectResponse

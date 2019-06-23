@@ -6,7 +6,7 @@
     <div class="container quest-container">
         @if (session('mission_error') === true)
             <h3 class="error">
-                Mission is allready done or you don't have enought energy.
+                Mission is already done or you don't have enought energy.
             </h3>
         @endif
         @foreach($missions as $mission)
