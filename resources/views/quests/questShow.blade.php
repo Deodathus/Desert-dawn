@@ -4,9 +4,9 @@
 @section('content')
 
     <div class="container quest-container">
-        @if (session('mission_error') == true)
+        @if (session('mission_error') === true)
             <h3 class="error">
-                Mission is allready done.
+                Mission is allready done or you don't have enought energy.
             </h3>
         @endif
         @foreach($missions as $mission)
@@ -25,7 +25,7 @@
                     <p><i class="fas fa-angle-double-up"></i> {{ $mission->reward_exp }}</p>
                 </div>
                 <div class="col-lg-3 text-center">
-                    @if($mission->reward_item != 0)
+                    @if($mission->reward_item !== 0)
                         <p>
                         <div class="drop-item-div">
                             <img src="/images/item.png" alt="" class="drop-item-mark">
@@ -44,7 +44,7 @@
                         </div>
                         </p>
                     @endif
-                    @if($mission->reward_item_rarity != 0)
+                    @if($mission->reward_item_rarity !== 0)
                         <p>
                         <div class="drop-card-div">
                             <img src="/images/cards.png" alt="" class="drop-item-mark">
@@ -59,7 +59,7 @@
                     @endif
                 </div>
                 <div class="col-lg-3 text-center">
-                    <a class="btn btn-danger boss-btn" href="{{ route('mission.done', $mission) }}">Do It!</a>
+                    <a class="btn btn-danger boss-btn" href="{{ route('mission.done', $mission) }}">Do It! (-{{ $mission->energy_cost }} <i class="fas fa-bolt"></i>)</a>
                 </div>
             </div>
         @endforeach

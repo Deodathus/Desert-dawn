@@ -10,14 +10,14 @@ use Illuminate\Http\RedirectResponse;
 class MissionController extends Controller
 {
     /**
-     * MissionService instance
+     * MissionService instance.
      *
      * @var MissionService $missionService
      */
     private $missionService;
 
     /**
-     * UserService instance
+     * UserService instance.
      *
      * @var UserService $userService
      */
@@ -30,7 +30,7 @@ class MissionController extends Controller
     }
 
     /**
-     * Mark mission as done
+     * Mark mission as done.
      *
      * @param Mission $mission
      * @return RedirectResponse
@@ -38,7 +38,7 @@ class MissionController extends Controller
      */
     public function doneMission(Mission $mission): RedirectResponse
     {
-        if (!$mission->done)
+        if (!$mission->done && $this->missionService->minusEnergy($mission))
         {
             $this->missionService->markMissionAsDone($mission);
             $reward = $this->missionService->getRewardFromQuest($mission);

@@ -18,6 +18,7 @@ class CreateMissionsTable extends Migration
             $table->string('name');
             $table->bigInteger('quest_id');
             $table->text('description');
+            $table->integer('energy_cost');
             $table->integer('reward_gold');
             $table->integer('reward_exp');
             $table->integer('reward_gems');

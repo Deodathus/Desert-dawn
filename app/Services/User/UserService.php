@@ -9,14 +9,14 @@ use Illuminate\Support\Facades\Auth;
 class UserService
 {
     /**
-     * Experience multiplier
+     * Experience multiplier.
      *
      * @var int $expMult
      */
     protected $expMult = 5;
 
     /**
-     * Get authentificated user
+     * Get authentificated user.
      *
      * @return Authenticatable|null
      */
@@ -26,7 +26,7 @@ class UserService
     }
 
     /**
-     * Minus skill cound after using
+     * Minus skill cound after using.
      *
      * @param $userId
      * @param $skillCount
@@ -42,7 +42,7 @@ class UserService
     }
 
     /**
-     * Set reward after boss
+     * Set reward after boss.
      *
      * @param $reward
      * @return bool
@@ -50,12 +50,11 @@ class UserService
     public function setReward($reward): bool
     {
         $user = $this->getUser();
-        $userId = $user->id;
         $userGold = $user->coins + $reward['gold'];
         $userExp = $user->exp + $reward['exp'];
         $userGems = $user->gems + $reward['gems'];
 
-        return User::where('id', $userId)->update([
+        return User::where('id', '=', $user->id)->update([
             'coins' => $userGold,
             'exp' => $userExp,
             'gems' => $userGems
@@ -63,7 +62,7 @@ class UserService
     }
 
     /**
-     * Set reward after boss fight
+     * Set reward after boss fight.
      *
      * @param $reward
      */
@@ -74,7 +73,7 @@ class UserService
     }
 
     /**
-     * Clean session after boss fight
+     * Clean session after boss fight.
      */
     public function cleanSessionAfterBoss(): void
     {
@@ -90,7 +89,6 @@ class UserService
     public function levelUp(): bool
     {
         $user = $this->getUser();
-        $userId = $user->id;
         $userLvlNow = $user->level;
         $userExpNow = $user->exp;
         if ($userExpNow >= $userLvlNow * ($this->expMult * $userLvlNow * 2))
@@ -100,7 +98,7 @@ class UserService
             $userSkillThirdDamage = $user->skill_3_damage + ($userLvlNow * $this->expMult);
             $userLvlUp = $userLvlNow + 1;
 
-            return User::where('id', $userId)->update([
+            return User::where('id', '=', $user->id)->update([
                 'level' => $userLvlUp,
                 'exp' => 0,
                 'skill_1_damage' => $userSkillFirstDamage,
@@ -131,7 +129,7 @@ class UserService
     }
 
     /**
-     * Set reward after quest or mission
+     * Set reward after quest or mission.
      *
      * @param $reward
      * @return bool
@@ -139,5 +137,26 @@ class UserService
     public function setRewardAfterQuest($reward): bool
     {
         return $this->setReward($reward);
+    }
+
+    /**
+     * Decrement energy after mission.
+     *
+     * @param $mission
+     * @return mixed
+     */
+    public function minusEnergyAccordingMission($mission): int
+    {
+        $user = $this->getUser();
+        $energy = $user->energy - $mission->energy_cost;
+
+        if ($user->energy >= $mission->energy_cost)
+        {
+            return User::where('id', '=', $user->id)->update([
+                'energy' => $energy,
+            ]);
+        }
+
+        return 0;
     }
 }
