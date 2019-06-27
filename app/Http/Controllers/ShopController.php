@@ -35,10 +35,10 @@ class ShopController extends Controller
     {
         if ($this->shopService->buySkill('skill_1', 100))
         {
-            return redirect()->route('shop.index')->with('message', 'true');
+            return redirect()->route('shop.index')->with('message', true);
         }
 
-        return redirect()->route('shop.index')->with('message', 'false');
+        return redirect()->route('shop.index')->with('message', false);
     }
 
     /**

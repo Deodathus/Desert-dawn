@@ -10907,6 +10907,14 @@ h4 {
 
 /*----------------------------SHOP PAGE----------------------------*/
 
+.shop-links {
+  color: #212529;
+}
+
+.shop-links:hover {
+  color: #56868c;
+}
+
 .shop-items-row {
   margin-top: 20px;
 }

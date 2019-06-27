@@ -5,9 +5,20 @@
 
     <div class="container shop-container">
 
-        @if(session('message') == 'true')
+        <div class="row text-center">
+            <div class="col-md-1">
+                <a href=""><h4 class="shop-links">Buy</h4></a>
+            </div>
+            <div class="col-md-1">
+                <a href=""><h4 class="shop-links">Sell</h4></a>
+            </div>
+        </div>
+
+        <hr>
+
+        @if(session('message') === true)
             <h3 class="success">Success</h3>
-        @elseif(session('message') == 'false')
+        @elseif(session('message') === false)
             <h3 class="error">Error</h3>
         @endif
         <h2 class="text-center">Shop</h2>
