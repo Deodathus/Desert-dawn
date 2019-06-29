@@ -2,12 +2,15 @@
 
 namespace App\Http\Middleware;
 
-use App\Services\UserService;
+use App\Services\User\UserService;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
 class LevelUpCheck
 {
+    /**
+     * @var UserService
+     */
     private $userService;
 
     public function __construct(UserService $userService)
@@ -30,12 +33,10 @@ class LevelUpCheck
             {
                 return redirect()->route('lvlup');
             }
-            else {
-                return $next($request);
-            }
-        }
-        else {
+
             return $next($request);
         }
+
+        return $next($request);
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\Boss;
 
 class BossSessionService
 {
@@ -31,9 +31,8 @@ class BossSessionService
 
             return true;
         }
-        else {
-            return false;
-        }
+
+        return false;
     }
 
     /**
@@ -47,10 +46,11 @@ class BossSessionService
     /**
      * @param $hp
      * @param $damage
+     * @param $damageFromCards
      */
-    public function minusHpAccordingSkillDamage($hp, $damage): void
+    public function minusHpAccordingSkillDamage($hp, $damage, $damageFromCards): void
     {
-        $hp -= $damage;
+        $hp -= $damage + $damageFromCards;
         session()->put('hp', $hp);
     }
 
@@ -67,5 +67,16 @@ class BossSessionService
             'exp' => $bossExp,
             'gems' => $bossGems,
         ];
+    }
+
+    /**
+     * @param $boss
+     */
+    public function fillSessionWithRewardItem($boss): void
+    {
+        if ($boss->reward_item_rarity !== 0)
+        {
+            session()->put('reward_item', true);
+        }
     }
 }

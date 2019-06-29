@@ -5,6 +5,10 @@
 
     <div class="container user-hero-container">
 
+        <h2>
+            <i class="fas fa-fist-raised"></i>
+            {{ $userPower }}
+        </h2>
         <h2>{{ Auth::user()->name }}'s attributes</h2>
         <div class="row">
             <div class="col-lg-4 col-md-4">
@@ -70,7 +74,7 @@
 
             <div class="col-lg-8 col-md-8">
                 @if(session('error'))
-                    <h1 class="card-error">6 cards are already active.</h1>
+                    <h1 class="error">6 cards are already active.</h1>
                 @endif
                 <h2>Active cards:</h2>
                 <div class="items row">

@@ -17,6 +17,8 @@ class Item extends Model
     ];
 
     /**
+     * Relation with ItemRarity model.
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function rarity(): BelongsTo
@@ -25,6 +27,8 @@ class Item extends Model
     }
 
     /**
+     * Relation with User model.
+     *
      * @return BelongsToMany
      */
     public function users(): BelongsToMany
@@ -33,6 +37,8 @@ class Item extends Model
     }
 
     /**
+     * Relation with Boss model.
+     *
      * @return BelongsTo
      */
     public function boss(): BelongsTo
@@ -41,10 +47,32 @@ class Item extends Model
     }
 
     /**
+     * Relation with ItemAttribute model.
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
     public function itemAttribute(): HasOne
     {
         return $this->hasOne('App\Models\Item\ItemAttribute');
+    }
+
+    /**
+     * Relation with Mission model.
+     *
+     * @return BelongsTo
+     */
+    public function mission(): BelongsTo
+    {
+        return $this->belongsTo('App\Models\Quest\Mission', 'id', 'reward_item');
+    }
+
+    /**
+     * Relation with Quest model.
+     *
+     * @return BelongsTo
+     */
+    public function quest(): BelongsTo
+    {
+        return $this->belongsTo('App\Models\Quest\Quest', 'id', 'reward_item');
     }
 }

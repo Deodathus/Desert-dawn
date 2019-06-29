@@ -10675,6 +10675,31 @@ a:hover {
   text-decoration: none;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/*----------------------------CONTAINERS----------------------------*/
+
+.shop-container,
+.bosses,
+.user-hero-container,
+.quest-container {
+  margin: 100px auto 110px;
+}
+
 /*----------------------------NAV BAR----------------------------*/
 
 .user-bar,
@@ -10709,10 +10734,6 @@ a:hover {
 }
 
 /*----------------------------BOSS BAR----------------------------*/
-
-.bosses {
-  margin: 100px auto 110px;
-}
 
 .boss-block {
   margin-top: 10px;
@@ -10787,10 +10808,6 @@ h4 {
 }
 
 /*----------------------------USER HERO PAGE----------------------------*/
-
-.user-hero-container {
-  margin: 100px auto 110px;
-}
 
 .hero-attributes,
 .card-div {
@@ -10879,8 +10896,115 @@ h4 {
   position: absolute;
 }
 
-.card-error {
+.error {
   text-decoration: overline;
   color: #ff4b00;
+}
+
+.success {
+  text-decoration: underline;
+  color: green;
+}
+
+/*----------------------------ITEM REWARD PAGE----------------------------*/
+
+.item-reward-img:hover .card-info {
+  display: block;
+  position: absolute;
+  border: 1px solid gray;
+  background-color: #0000009e;
+  color: #fff;
+  padding: 15px 20px 15px;
+  width: 20%;
+  z-index: 1;
+  top: auto;
+  left: 40%;
+}
+
+/*----------------------------SHOP PAGE----------------------------*/
+
+.shop-links {
+  color: #212529;
+}
+
+.shop-links:hover {
+  color: #56868c;
+}
+
+.shop-items-row {
+  margin-top: 20px;
+}
+
+.item-shop-div {
+  margin-bottom: 20px;
+}
+
+.item-shop-img {
+  height: 150px;
+}
+
+.item-shop-img:hover .card-info {
+  display: block;
+  position: absolute;
+  border: 1px solid gray;
+  background-color: #0000009e;
+  color: #fff;
+  padding: 15px 20px 15px;
+  width: 80%;
+  z-index: 1;
+  top: auto;
+  left: auto;
+}
+
+/*----------------------------QUESTS PAGE----------------------------*/
+
+.quest-row {
+  border: 1px solid #a9c6de;
+  border-radius: 5px;
+  padding: 15px 30px 15px;
+  margin-bottom: 15px;
+}
+
+.drop-item-div {
+  padding-left: 45%;
+}
+
+.drop-item-info {
+  padding-left: 15px;
+}
+
+.drop-item-info,
+.drop-card-info {
+  display: none;
+  font-size: 12px;
+  position: absolute;
+  border: 1px solid gray;
+  background-color: #0000009e;
+  width: 50%;
+  color: #fff;
+}
+
+.drop-item-mark,
+.drop-item-div {
+  height: 28px;
+  width: 28px;
+}
+
+.drop-item-div:hover .drop-item-info {
+  display: block;
+}
+
+.drop-card-div:hover .drop-card-info {
+  display: block;
+}
+
+.quest-description {
+  color: #808080a3;
+  font-style: italic;
+  text-decoration: underline;
+}
+
+.drop-card-span {
+  display: block;
 }
 

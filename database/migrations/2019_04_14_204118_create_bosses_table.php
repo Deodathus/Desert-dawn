@@ -21,7 +21,7 @@ class CreateBossesTable extends Migration
             $table->integer('reward_gold');
             $table->integer('reward_gems');
             $table->integer('reward_exp');
-            $table->integer('reward_item');
+            $table->bigInteger('reward_item_rarity');
             $table->timestamps();
         });
     }

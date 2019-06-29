@@ -49279,6 +49279,49 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 var app = new Vue({
   el: '#app'
 });
+$(document).ready(function () {
+  // change shop content
+  function changeShopContent(id, div) {
+    $.get($('.shop-container').data('change-shop-url'), {
+      type: id
+    }, function (data) {
+      div.html(data);
+      div.fadeIn();
+    });
+  }
+
+  $('.shop-links').click(function () {
+    var shopContent = $('.shop-content');
+    shopContent.fadeOut();
+    setTimeout(changeShopContent, 300, $(this).data('shop-id'), shopContent);
+  }); //selling items
+
+  function updateUserBar() {
+    var div = $('.user-bar');
+    var link = div.data('update-user-bar-url');
+    $.get(link, function (data) {
+      div.fadeIn();
+      div.html(data);
+    });
+  }
+
+  function sellItem(url) {
+    $.get(url, function (data) {
+      $('.shop-content').html(data);
+      setTimeout(updateUserBar, 300);
+      $('.user-bar').fadeOut();
+    });
+    return true;
+  }
+
+  $('body').on('click', '.item-sell', function () {
+    var link = $(this).data('item-selling-url');
+
+    if (setTimeout(sellItem, 500, link)) {
+      $('#response').html('Sucess');
+    }
+  });
+});
 
 /***/ }),
 

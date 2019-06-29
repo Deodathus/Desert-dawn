@@ -2,7 +2,9 @@
 
 namespace App\Models\User;
 
-use App\Services\CardService;
+use App\Services\Card\CardService;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -22,6 +24,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'coins',
+        'gems',
+        'energy',
     ];
 
     /**
@@ -43,18 +48,34 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function attributes()
+    /**
+     * Relation with Attribute model.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function attributes(): HasOne
     {
         return $this->hasOne('App\Models\User\Attribute');
     }
 
-    public function items()
+    /**
+     * Relation with Item model.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function items(): BelongsToMany
     {
         return $this->belongsToMany('App\Models\Item\Item')->withPivot('active');
     }
 
-    public function getDamageAccordingCardsAttributes(CardService $cardService)
+    /**
+     * Return damage with plus from cards.
+     *
+     * @param CardService $cardService
+     * @return float|int
+     */
+    public function getDamageAccordingCardsAttributes(CardService $cardService): int
     {
-        return $damageFromCards = $cardService->getAttributesFromCards()['strength'] * 10;
+        return $cardService->getAttributesFromCards()['strength'] * 10;
     }
 }
