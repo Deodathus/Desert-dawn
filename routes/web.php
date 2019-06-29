@@ -70,6 +70,9 @@ Auth::routes();
             Route::get('/item-reward', 'ItemController@getRewardItem')->name('reward');
         });
 
+        /**
+         * Shop routes
+         */
         Route::name('shop.')->group(function (): void
         {
             Route::get('/shop', 'ShopController@index')->name('index');
@@ -80,6 +83,9 @@ Auth::routes();
             Route::get('/shop/buy/third', 'ShopController@buyThirdSkill')->name('buy::default.skill.3');
         });
 
+        /**
+         * Quest routes.
+         */
         Route::name('quest.')->group(function (): void
         {
             Route::get('/quests', 'QuestController@index')->name('index');
@@ -87,6 +93,9 @@ Auth::routes();
             Route::get('/{quest}/reward', 'QuestController@getQuestReward')->name('get.reward');
         });
 
+        /**
+         * Mission routes.
+         */
         Route::name('mission.')->group(function (): void
         {
             Route::get('/quests/{quest}/missions', 'MissionController@index')->name('index');
