@@ -3,7 +3,6 @@
 namespace App\Services\User;
 
 use App\Models\User\User;
-use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Support\Facades\Auth;
 
 class UserService
@@ -18,11 +17,13 @@ class UserService
     /**
      * Get authentificated user.
      *
-     * @return Authenticatable|null
+     * @return User
      */
-    public function getUser(): ? Authenticatable
+    public function getUser(): User
     {
-        return Auth::user();
+        $userId = Auth::id();
+
+        return User::find($userId);
     }
 
     /**
@@ -158,5 +159,21 @@ class UserService
         }
 
         return 0;
+    }
+
+    /**
+     * Adding coins according price of item
+     *
+     * @param User $user
+     * @param int $price
+     * @return bool
+     */
+    public function getCoinsFromSellingItem(User $user, int $price): bool
+    {
+        $gold = $user->coins + $price;
+
+        return $user->update([
+            'coins' => $gold,
+        ]);
     }
 }

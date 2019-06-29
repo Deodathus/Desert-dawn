@@ -5,23 +5,30 @@ namespace App\Http\Controllers;
 use App\Models\Boss\Boss;
 use App\Services\Boss\BossService;
 use App\Services\Card\CardService;
+use App\Services\User\UserService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
 class BossController extends Controller
 {
     /**
-     * @var BossService
+     * BossService instance.
+     *
+     * @var BossService $bossService
      */
     private $bossService;
 
     /**
-     * BossController constructor.
-     * @param BossService $bossService
+     * UserService instance.
+     *
+     * @var UserService $userService
      */
-    public function __construct(BossService $bossService)
+    private $userService;
+
+    public function __construct(BossService $bossService, UserService $userService)
     {
         $this->bossService = $bossService;
+        $this->userService = $userService;
     }
 
     /**
@@ -43,7 +50,7 @@ class BossController extends Controller
      */
     public function show(Boss $boss, CardService $cardService): View
     {
-        $user = $this->bossService->getUser();
+        $user = $this->userService->getUser();
         $this->bossService->fillSessionIfEmpty($boss);
         $damageFromCards = $user->getDamageAccordingCardsAttributes($cardService);
 
@@ -53,6 +60,7 @@ class BossController extends Controller
     /**
      * @param Boss $boss
      * @return RedirectResponse
+     * @throws \Exception
      */
     public function firstSkill(Boss $boss): RedirectResponse
     {
@@ -67,6 +75,7 @@ class BossController extends Controller
     /**
      * @param Boss $boss
      * @return RedirectResponse
+     * @throws \Exception
      */
     public function secondSkill(Boss $boss): RedirectResponse
     {
@@ -81,6 +90,7 @@ class BossController extends Controller
     /**
      * @param Boss $boss
      * @return RedirectResponse
+     * @throws \Exception
      */
     public function thirdSkill(Boss $boss): RedirectResponse
     {

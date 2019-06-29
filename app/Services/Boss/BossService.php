@@ -5,7 +5,6 @@ namespace App\Services\Boss;
 use App\Models\Boss\Boss;
 use App\Services\Card\CardService;
 use App\Services\User\UserService;
-use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Collection;
 
 class BossService
@@ -49,16 +48,6 @@ class BossService
     }
 
     /**
-     * Get authentificated user
-     *
-     * @return \Illuminate\Contracts\Auth\Authenticatable|null
-     */
-    public function getUser(): ? Authenticatable
-    {
-        return $this->userService->getUser();
-    }
-
-    /**
      * Filling the session before boss fight
      *
      * @param $boss
@@ -73,6 +62,7 @@ class BossService
      *
      * @param Boss $boss
      * @return bool
+     * @throws \Exception
      */
     public function checkIsHpZero(Boss $boss): bool
     {
@@ -122,7 +112,7 @@ class BossService
      */
     public function attackOrNot($skill, $damage): bool
     {
-        $user = $this->getUser();
+        $user = $this->userService->getUser();
         $damageFromCards = $user->getDamageAccordingCardsAttributes($this->cardService);
         if ($user->$skill > 0)
         {
@@ -136,6 +126,7 @@ class BossService
      * Making boss's reward card
      *
      * @param Boss $boss
+     * @throws \Exception
      */
     public function createRewardCard(Boss $boss): void
     {

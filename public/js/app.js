@@ -49279,6 +49279,22 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 var app = new Vue({
   el: '#app'
 });
+$(document).ready(function () {
+  function changeShopContent(id, div) {
+    $.get($('.shop-container').data('change-shop-url'), {
+      type: id
+    }, function (data) {
+      div.html(data);
+      div.fadeIn();
+    });
+  }
+
+  $('.shop-links').click(function () {
+    var shopContent = $('.shop-content');
+    shopContent.fadeOut();
+    setTimeout(changeShopContent, 300, $(this).data('shop-id'), shopContent);
+  });
+});
 
 /***/ }),
 

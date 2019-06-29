@@ -72,6 +72,8 @@ Auth::routes();
         Route::name('shop.')->group(function (): void
         {
             Route::get('/shop', 'ShopController@index')->name('index');
+            Route::get('/shop/getType', 'ShopController@getType')->name('get.type');
+            Route::get('/shop/sell/{item}', 'ShopController@sell')->name('sell');
             Route::get('/shop/buy/first', 'ShopController@buyFirstSkill')->name('buy::default.skill.1');
             Route::get('/shop/buy/second', 'ShopController@buySecondSkill')->name('buy::default.skill.2');
             Route::get('/shop/buy/third', 'ShopController@buyThirdSkill')->name('buy::default.skill.3');

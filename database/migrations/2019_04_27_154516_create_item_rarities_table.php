@@ -19,6 +19,7 @@ class CreateItemRaritiesTable extends Migration
             $table->integer('min_stat_multiply');
             $table->integer('max_stat_multiply');
             $table->integer('skill_amount');
+            $table->integer('price');
             $table->timestamps();
         });
     }

@@ -31,3 +31,20 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const app = new Vue({
     el: '#app'
 });
+
+$(document).ready(function () {
+    function changeShopContent(id, div) {
+        $.get($('.shop-container').data('change-shop-url'), {
+            type:id,
+        }, function (data) {
+            div.html(data);
+            div.fadeIn();
+        });
+    }
+
+    $('.shop-links').click(function () {
+        let shopContent = $('.shop-content');
+        shopContent.fadeOut();
+        setTimeout(changeShopContent,  300, $(this).data('shop-id'), shopContent);
+    });
+});
