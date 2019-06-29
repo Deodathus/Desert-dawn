@@ -33,21 +33,3 @@
       </div>
     @endforeach
 </div>
-
-<script>
-    function sellItem(url)
-    {
-        $.get(url, function(data) {
-            $('.shop-content').html(data);
-        });
-
-        return true;
-    }
-
-    $('.item-sell').click(function () {
-        let link = $(this).data('item-selling-url');
-        if (setTimeout(sellItem, 500, link)) {
-            $('#response').html('Sucess');
-        }
-    });
-</script>

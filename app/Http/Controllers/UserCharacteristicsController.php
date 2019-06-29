@@ -8,7 +8,9 @@ use Illuminate\View\View;
 class UserCharacteristicsController extends Controller
 {
     /**
-     * @var CardService
+     * CardSerivce instace.
+     *
+     * @var CardService $cardService
      */
     private $cardService;
 
@@ -18,6 +20,8 @@ class UserCharacteristicsController extends Controller
     }
 
     /**
+     * Index page of user characretistics.
+     *
      * @return View
      */
     public function index(): View
@@ -28,5 +32,15 @@ class UserCharacteristicsController extends Controller
         $userPower = auth()->user()->getDamageAccordingCardsAttributes($this->cardService);
 
         return view('user.index', compact('activeCards', 'notActiveCards', 'attributes', 'userPower'));
+    }
+
+    /**
+     * Updates user bar.
+     *
+     * @return View
+     */
+    public function updateUserBar(): View
+    {
+        return view('user.updatedUserBar');
     }
 }

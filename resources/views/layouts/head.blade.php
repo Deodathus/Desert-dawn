@@ -13,7 +13,7 @@
 
     <body>
 @if(Auth::user())
-    <div class="container-fluid user-bar fixed-top">
+    <div class="container-fluid user-bar fixed-top" data-update-user-bar-url="{{ route('user.update.user.bar') }}">
         <div class="row user-row-info">
             <div class="col-md-2">
                 <i class="fas fa-signature"></i>

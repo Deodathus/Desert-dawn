@@ -28,6 +28,7 @@ Auth::routes();
         Route::name('user.')->group(function (): void
         {
             Route::get('/', 'UserCharacteristicsController@index')->name('hero');
+            Route::get('/update-user-bar', 'UserCharacteristicsController@updateUserBar')->name('update.user.bar');
         });
 
         /**
