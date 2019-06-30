@@ -27,7 +27,7 @@
               <span>Rarity:</span> {{ $item->rarity->name }}
           </p>
           <p>
-              <span>Price:</span> Item cost
+              <span>Price:</span> {{ $item->rarity->price }} <i class="fas fa-coins"></i>
           </p>
           <a href="javascript:void(0)" data-item-selling-url="{{ route('shop.sell', $item) }}" class="btn btn-danger boss-btn boss-btn-show item-sell">Sell</a>
       </div>
