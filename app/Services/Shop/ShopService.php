@@ -37,7 +37,7 @@ class ShopService
         if ($this->userService->paymentForItemByCoins($user, $price))
         {
             return $user->update([
-                $skill => $skillCount
+                $skill => $skillCount,
             ]);
         }
 

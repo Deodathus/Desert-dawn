@@ -2,7 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="30884bd5-0dcd-45ca-a722-c0d43fb9e526" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/Shop/ShopService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Shop/ShopService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/bosses/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/bosses/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/shop/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/shop/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/shop/shop1.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/shop/shop1.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -54,50 +61,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ShopController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-8">
-              <caret line="101" column="59" selection-start-line="101" selection-start-column="59" selection-end-line="101" selection-end-column="59" />
-              <folding>
-                <element signature="e#40#65#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/sass/app.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-8">
-              <caret line="24" column="14" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/routes/web.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="624">
-              <caret line="96" column="22" selection-start-line="96" selection-start-column="22" selection-end-line="96" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/js/app.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-8">
-              <caret line="64" column="39" selection-start-line="64" selection-start-column="39" selection-end-line="64" selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/shop/shop2.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-8">
-              <caret line="31" column="149" selection-start-line="31" selection-start-column="140" selection-end-line="31" selection-end-column="149" />
+            <state relative-caret-position="520">
+              <caret line="356" column="19" selection-start-line="356" selection-start-column="19" selection-end-line="356" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -106,17 +74,11 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>create</find>
-      <find>create()</find>
-      <find>User</find>
-      <find>hero-attributes</find>
-      <find>getActiveCards</find>
       <find>updateCardStatus</find>
       <find>checkSkillCount</find>
       <find>Xdebug</find>
       <find>zend_</find>
       <find>zend_extension=&lt;path_to_zend_debugger&gt; zend_extension=&lt;path_to_zend_optimizer&gt;</find>
-      <find>user</find>
       <find>setReward</find>
       <find>reward_item</find>
       <find>error</find>
@@ -136,6 +98,12 @@
       <find>getRewardFromQuest</find>
       <find>allready</find>
       <find>getUser</find>
+      <find>user</find>
+      <find>.user-bar</find>
+      <find>hero-attributes</find>
+      <find>.shop-links</find>
+      <find>body</find>
+      <find>quest-descr</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -153,8 +121,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Mission.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_06_16_161306_create_quests_table.php" />
         <option value="$PROJECT_DIR$/resources/views/user/index.blade.php" />
         <option value="$PROJECT_DIR$/app/Services/UserService.php" />
         <option value="$PROJECT_DIR$/app/Services/CardService.php" />
@@ -176,7 +142,6 @@
         <option value="$PROJECT_DIR$/app/Models/Quest/Mission.php" />
         <option value="$PROJECT_DIR$/app/Models/Quest/Quest.php" />
         <option value="$PROJECT_DIR$/app/Models/User/Attribute.php" />
-        <option value="$PROJECT_DIR$/app/Models/User/User.php" />
         <option value="$PROJECT_DIR$/app/Http/Middleware/CheckBoss.php" />
         <option value="$PROJECT_DIR$/app/Http/Middleware/ItemRewardCheck.php" />
         <option value="$PROJECT_DIR$/app/Services/Boss/BossSessionService.php" />
@@ -194,16 +159,19 @@
         <option value="$PROJECT_DIR$/app/Services/Boss/BossService.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/BossController.php" />
         <option value="$PROJECT_DIR$/app/Services/User/UserService.php" />
-        <option value="$PROJECT_DIR$/app/Services/Shop/ShopService.php" />
-        <option value="$PROJECT_DIR$/resources/views/shop/index.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ShopController.php" />
-        <option value="$PROJECT_DIR$/resources/sass/app.scss" />
         <option value="$PROJECT_DIR$/resources/views/layouts/head.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/shop/shop2.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/user/updatedUserBar.blade.php" />
         <option value="$PROJECT_DIR$/resources/js/app.js" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/UserCharacteristicsController.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/resources/views/bosses/show.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/shop/shop1.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/shop/index.blade.php" />
+        <option value="$PROJECT_DIR$/app/Services/Shop/ShopService.php" />
+        <option value="$PROJECT_DIR$/app/Models/User/User.php" />
+        <option value="$PROJECT_DIR$/resources/sass/app.scss" />
       </list>
     </option>
   </component>
@@ -304,8 +272,8 @@
   </component>
   <component name="PhpXdebugProxy" ide_key="PHPSTORM" host="localhost" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1275" />
-    <option name="y" value="25" />
+    <option name="x" value="1604" />
+    <option name="y" value="81" />
     <option name="width" value="960" />
     <option name="height" value="1080" />
   </component>
@@ -315,35 +283,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
-          <expand>
-            <path>
-              <item name="Studing" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/Projects/Studing" type="442cc68d:ScopeViewTreeModel$RootNode" />
-            </path>
-            <path>
-              <item name="Studing" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/Projects/Studing" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="Studing" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/Projects/Studing" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="Http" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="Studing" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/Projects/Studing" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="Http" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="Controllers" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -372,39 +311,7 @@
             <path>
               <item name="Studing" type="b2602c69:ProjectViewProjectNode" />
               <item name="Studing" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Studing" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Studing" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Models" type="462c0819:PsiDirectoryNode" />
-              <item name="Item" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Studing" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Studing" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Services" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Studing" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Studing" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Services" type="462c0819:PsiDirectoryNode" />
-              <item name="Shop" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Studing" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Studing" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Studing" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Studing" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Studing" type="b2602c69:ProjectViewProjectNode" />
@@ -415,27 +322,36 @@
             <path>
               <item name="Studing" type="b2602c69:ProjectViewProjectNode" />
               <item name="Studing" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Studing" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Studing" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="layouts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Studing" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Studing" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Studing" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Studing" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="Studing" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/Projects/Studing" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+            <path>
+              <item name="Studing" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/Projects/Studing" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="Studing" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/Projects/Studing" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Http" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="Studing" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/Projects/Studing" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Http" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Controllers" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
           </expand>
           <select />
@@ -560,7 +476,8 @@
       <workItem from="1561476031084" duration="218000" />
       <workItem from="1561791983144" duration="3904000" />
       <workItem from="1561820592127" duration="3802000" />
-      <workItem from="1561837494446" duration="5774000" />
+      <workItem from="1561837494446" duration="5868000" />
+      <workItem from="1561877107720" duration="4939000" />
     </task>
     <servers />
   </component>
@@ -582,7 +499,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="274517000" />
+    <option name="totallyTimeSpent" value="279550000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -597,7 +514,7 @@
     <frame x="1365" y="0" width="1922" height="1081" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49736008" visible="true" weight="0.15581644" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49736008" visible="true" weight="0.15741728" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.5026399" side_tool="true" weight="0.19103523" />
       <window_info anchor="bottom" id="Database Console" order="0" weight="0.32946146" />
@@ -633,23 +550,6 @@
     <SUITE FILE_PATH="coverage/Studing$phpunit_xml.xml" NAME="phpunit.xml Coverage Results" MODIFIED="1560437533017" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Models/Item/ItemAttribute.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
-          <folding>
-            <element signature="e#35#74#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/Item/ItemRarity.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="31" column="33" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Quest/Mission.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="494">
@@ -860,13 +760,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/shop/shop1.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="39" selection-start-column="39" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/BossController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1820">
@@ -921,16 +814,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/User/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="17" column="7" lean-forward="true" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
-          <folding>
-            <element signature="e#35#69#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="das://5bc7a316-3142-4624-a826-1f2e9028c47b/schema/laravel-studying/table/item_user">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state projectRestartId="96405e97-7d1f-4c4f-a111-4edd3cf3edb0">
@@ -950,23 +833,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/shop/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Services/Shop/ShopService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="84" column="21" selection-start-line="84" selection-start-column="21" selection-end-line="84" selection-end-column="21" />
-          <folding>
-            <element signature="e#37#62#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/user/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
@@ -974,48 +840,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/sass/app.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
-          <caret line="24" column="14" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ShopController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
-          <caret line="101" column="59" selection-start-line="101" selection-start-column="59" selection-end-line="101" selection-end-column="59" />
-          <folding>
-            <element signature="e#40#65#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/shop/shop2.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
-          <caret line="31" column="149" selection-start-line="31" selection-start-column="140" selection-end-line="31" selection-end-column="149" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/head.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="39" column="14" lean-forward="true" selection-start-line="16" selection-start-column="8" selection-end-line="39" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/user/updatedUserBar.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="529">
           <caret line="23" column="6" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
-          <caret line="64" column="39" selection-start-line="64" selection-start-column="39" selection-end-line="64" selection-end-column="39" />
         </state>
       </provider>
     </entry>
@@ -1029,10 +857,97 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/bosses/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/bosses/show.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="19" column="56" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="56" />
+          <folding>
+            <element signature="e#738#783#0#HTML" expanded="true" />
+            <element signature="e#1436#1477#0#HTML" expanded="true" />
+            <element signature="e#2136#2177#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/shop/shop1.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="3" selection-start-line="3" selection-end-line="22" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/shop/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="728">
+          <caret line="49" column="22" selection-start-line="49" selection-start-column="22" selection-end-line="49" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="93" column="11" selection-start-line="93" selection-start-column="11" selection-end-line="93" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="64" column="39" selection-start-line="64" selection-start-column="39" selection-end-line="64" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/head.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="16" column="39" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/shop/shop2.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="624">
-          <caret line="96" column="22" selection-start-line="96" selection-start-column="22" selection-end-line="96" selection-end-column="22" />
+          <caret line="31" column="149" selection-start-line="31" selection-start-column="140" selection-end-line="31" selection-end-column="149" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/User/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="31" column="18" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="18" />
+          <folding>
+            <element signature="e#35#69#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Services/Shop/ShopService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="674">
+          <caret line="38" column="21" selection-start-line="38" selection-start-column="21" selection-end-line="38" selection-end-column="21" />
+          <folding>
+            <element signature="e#37#62#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ShopController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="39" column="74" selection-start-line="39" selection-start-column="74" selection-end-line="39" selection-end-column="74" />
+          <folding>
+            <element signature="e#40#65#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/sass/app.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="520">
+          <caret line="356" column="19" selection-start-line="356" selection-start-column="19" selection-end-line="356" selection-end-column="19" />
         </state>
       </provider>
     </entry>

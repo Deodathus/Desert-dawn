@@ -27,6 +27,9 @@ class User extends Authenticatable
         'coins',
         'gems',
         'energy',
+        'skill_1',
+        'skill_2',
+        'skill_3',
     ];
 
     /**
