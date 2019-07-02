@@ -33,6 +33,7 @@ const app = new Vue({
 });
 
 $(document).ready(function () {
+
     // change shop content
     function changeShopContent(id, div) {
         $.get($('.shop-container').data('change-shop-url'), {
@@ -43,22 +44,7 @@ $(document).ready(function () {
         });
     }
 
-    $('.shop-links').click(function () {
-        let shopContent = $('.shop-content');
-        shopContent.fadeOut();
-        setTimeout(changeShopContent,  300, $(this).data('shop-id'), shopContent);
-    });
-
-    //selling items
-    function updateUserBar() {
-        let div = $('.user-bar');
-        let link = div.data('update-user-bar-url');
-        $.get(link, function (data) {
-            div.fadeIn();
-            div.html(data);
-        });
-    }
-
+    // selling item
     function sellItem(url) {
         $.get(url, function(data) {
             $('.shop-content').html(data);
@@ -69,6 +55,37 @@ $(document).ready(function () {
         return true;
     }
 
+    // buying items
+    function buyItem(url, itemId) {
+        $.get(url, {
+            id:itemId
+        }, function (data) {
+            if (data === true) {
+                $('.myH1').html('Success');
+            } else {
+                $('.myH1').html('Error');
+            }
+        });
+    }
+
+    // click ivent that changes shop content
+    $('.shop-links').click(function () {
+        let shopContent = $('.shop-content');
+        shopContent.fadeOut();
+        setTimeout(changeShopContent,  300, $(this).data('shop-id'), shopContent);
+    });
+
+    // changing userbar after selling items
+    function updateUserBar() {
+        let div = $('.user-bar');
+        let link = div.data('update-user-bar-url');
+        $.get(link, function (data) {
+            div.fadeIn();
+            div.html(data);
+        });
+    }
+
+    // click event for selling items
     $('body').on('click', '.item-sell',  function () {
         let link = $(this).data('item-selling-url');
         if (setTimeout(sellItem, 500, link)) {

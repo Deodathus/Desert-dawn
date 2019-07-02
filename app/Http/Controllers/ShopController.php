@@ -101,4 +101,15 @@ class ShopController extends Controller
 
         return view('shop.shop2')->with('selling', 'error');
     }
+
+    /**
+     * Buying items by ajax.
+     *
+     * @param Request $request
+     * @return bool
+     */
+    public function buyItem(Request $request): bool
+    {
+        return $this->shopService->buyItem($request->id) ? true : false;
+    }
 }

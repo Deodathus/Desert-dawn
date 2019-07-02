@@ -49288,22 +49288,8 @@ $(document).ready(function () {
       div.html(data);
       div.fadeIn();
     });
-  }
+  } // selling item
 
-  $('.shop-links').click(function () {
-    var shopContent = $('.shop-content');
-    shopContent.fadeOut();
-    setTimeout(changeShopContent, 300, $(this).data('shop-id'), shopContent);
-  }); //selling items
-
-  function updateUserBar() {
-    var div = $('.user-bar');
-    var link = div.data('update-user-bar-url');
-    $.get(link, function (data) {
-      div.fadeIn();
-      div.html(data);
-    });
-  }
 
   function sellItem(url) {
     $.get(url, function (data) {
@@ -49312,7 +49298,37 @@ $(document).ready(function () {
       $('.user-bar').fadeOut();
     });
     return true;
-  }
+  } // buying items
+
+
+  function buyItem(url, itemId) {
+    $.get(url, {
+      id: itemId
+    }, function (data) {
+      if (data === true) {
+        $('.myH1').html('Success');
+      } else {
+        $('.myH1').html('Error');
+      }
+    });
+  } // click ivent that changes shop content
+
+
+  $('.shop-links').click(function () {
+    var shopContent = $('.shop-content');
+    shopContent.fadeOut();
+    setTimeout(changeShopContent, 300, $(this).data('shop-id'), shopContent);
+  }); // changing userbar after selling items
+
+  function updateUserBar() {
+    var div = $('.user-bar');
+    var link = div.data('update-user-bar-url');
+    $.get(link, function (data) {
+      div.fadeIn();
+      div.html(data);
+    });
+  } // click event for selling items
+
 
   $('body').on('click', '.item-sell', function () {
     var link = $(this).data('item-selling-url');

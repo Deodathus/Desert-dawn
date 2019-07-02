@@ -3,9 +3,11 @@
 namespace App\Services\Shop;
 
 use App\Models\Item\Item;
+use App\Models\Item\ItemType;
 use App\Models\User\User;
 use App\Services\User\UserService;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Model;
 
 class ShopService
 {
@@ -47,20 +49,21 @@ class ShopService
     /**
      * Buy item.
      *
-     * @param Item $item
-     * @param int $price
-     * @return bool
+     * @param $itemId
+     * @return Model|null
      */
-    public function buyItem(Item $item, int $price): bool
+    public function buyItem($itemId): ?Model
     {
         $user = $this->userService->getUser();
+        $item = Item::find($itemId);
+        $price = $item->itemRarity->price;
 
         if ($this->userService->paymentForItemByCoins($user, $price))
         {
-            return $user->create($item);
+            return $user->items()->save($item);
         }
 
-        return false;
+        return null;
     }
 
     /**
@@ -70,7 +73,8 @@ class ShopService
      */
     public function prepareDataForSellingView(): Collection
     {
-        return $this->userService->getUser()->items;
+        // TODO: MAKE IT NORMAL
+        return $this->userService->getUser()->items->where('type', '=', '1');
     }
 
     /**
