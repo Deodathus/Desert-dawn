@@ -13,7 +13,8 @@ class Item extends Model
         'item_rarity_id',
         'name',
         'required_level',
-        'active'
+        'active',
+        'type'
     ];
 
     /**
@@ -74,5 +75,15 @@ class Item extends Model
     public function quest(): BelongsTo
     {
         return $this->belongsTo('App\Models\Quest\Quest', 'id', 'reward_item');
+    }
+
+    /**
+     * Relation with ItemType model.
+     *
+     * @return BelongsTo
+     */
+    public function itemType(): BelongsTo
+    {
+        return $this->belongsTo(ItemType::class, 'type', 'id');
     }
 }

@@ -9,6 +9,11 @@ use Illuminate\Database\Eloquent\Collection;
 class CardService
 {
     /**
+     * Item type.
+     */
+     private const type = 1;
+
+    /**
      * UserService instance
      *
      * @var UserService $userService
@@ -53,6 +58,7 @@ class CardService
             'item_rarity_id' => $rarity,
             'name' => $name,
             'required_level' => $requiredLevel,
+            'type' => self::type,
         ]);
         $user->items()->save($newCard, ['active' => 0]);
         $newCard->itemAttribute()->create([
@@ -76,7 +82,8 @@ class CardService
         $newCard = Item::create([
             'item_rarity_id' => $exampleCard->item_rarity_id,
             'name' => $exampleCard->name,
-            'required_level' => $exampleCard->required_level
+            'required_level' => $exampleCard->required_level,
+            'type' => $exampleCard->type,
         ]);
         $user->items()->save($newCard, ['active' => 0]);
         $newCard->itemAttribute()->create([
