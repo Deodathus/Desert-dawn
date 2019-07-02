@@ -3,6 +3,7 @@
 namespace App\Services\User;
 
 use App\Models\User\User;
+use App\Services\Card\CardService;
 use Illuminate\Support\Facades\Auth;
 
 class UserService

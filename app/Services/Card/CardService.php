@@ -30,9 +30,13 @@ class CardService
      */
     public function getActiveCards(): Collection
     {
-        $activeCards = $this->userService->getUser()->items()->where('active', '=', '1')->get();
-
-        return $activeCards;
+        return $this
+            ->userService
+            ->getUser()
+            ->items()
+            ->where('type', '=', '1')
+            ->where('active', '=', '1')
+            ->get();
     }
 
     /**
@@ -40,9 +44,13 @@ class CardService
      */
     public function getNotActiveCards(): Collection
     {
-        $notActiveCards = $this->userService->getUser()->items()->where('active', '=', '0')->get();
-
-        return $notActiveCards;
+        return $this
+            ->userService
+            ->getUser()
+            ->items()
+            ->where('type', '=', '1')
+            ->where('active', '=', '0')
+            ->get();
     }
 
     /**
