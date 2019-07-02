@@ -28,6 +28,22 @@ class UserService
     }
 
     /**
+     * Prepares data for user index view.
+     *
+     * @param CardService $cardService
+     * @return array
+     */
+    public function prepareDataForUserView(CardService $cardService): array
+    {
+        return [
+            'activeCards' => $cardService->getActiveCards(),
+            'notActiveCards' => $cardService->getNotActiveCards(),
+            'attributes' => $cardService->getAttributesFromCards(),
+            'userPower' => auth()->user()->getDamageAccordingCardsAttributes($cardService),
+        ];
+    }
+
+    /**
      * Minus skill cound after using.
      *
      * @param $userId

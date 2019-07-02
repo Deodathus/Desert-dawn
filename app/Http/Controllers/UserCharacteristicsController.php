@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Services\Card\CardService;
+use App\Services\User\UserService;
 use Illuminate\View\View;
 
 class UserCharacteristicsController extends Controller
@@ -14,9 +15,17 @@ class UserCharacteristicsController extends Controller
      */
     private $cardService;
 
-    public function __construct(CardService $cardService)
+    /**
+     * UserService instance.
+     *
+     * @var UserService $userService
+     */
+    private $userService;
+
+    public function __construct(CardService $cardService, UserService $userService)
     {
         $this->cardService = $cardService;
+        $this->userService = $userService;
     }
 
     /**
@@ -26,12 +35,7 @@ class UserCharacteristicsController extends Controller
      */
     public function index(): View
     {
-        $activeCards = $this->cardService->getActiveCards();
-        $notActiveCards = $this->cardService->getNotActiveCards();
-        $attributes = $this->cardService->getAttributesFromCards();
-        $userPower = auth()->user()->getDamageAccordingCardsAttributes($this->cardService);
-
-        return view('user.index', compact('activeCards', 'notActiveCards', 'attributes', 'userPower'));
+        return view('user.index', $this->userService->prepareDataForUserView($this->cardService));
     }
 
     /**
