@@ -2004,11 +2004,6 @@ pre code {
   opacity: 1;
 }
 
-.form-control::-moz-placeholder {
-  color: #6c757d;
-  opacity: 1;
-}
-
 .form-control:-ms-input-placeholder {
   color: #6c757d;
   opacity: 1;
@@ -4945,10 +4940,8 @@ input[type=button].btn-block {
 @media (min-width: 576px) {
   .card-columns {
     -webkit-column-count: 3;
-       -moz-column-count: 3;
             column-count: 3;
     -webkit-column-gap: 1.25rem;
-       -moz-column-gap: 1.25rem;
             column-gap: 1.25rem;
     orphans: 1;
     widows: 1;
@@ -10669,8 +10662,8 @@ a.text-dark:focus {
 
 body {
   font-size: 18px;
-  background-color: #19100fe8;
-  color: #fff;
+  background-color: #fff;
+  color: #000;
 }
 
 a:hover {
@@ -10706,7 +10699,7 @@ a:hover {
 
 .user-bar,
 .footer {
-  background-image: url("/../../images/userbar.png");
+  background: #2200a2;
   color: #fff;
 }
 
@@ -10925,7 +10918,7 @@ h4 {
 /*----------------------------SHOP PAGE----------------------------*/
 
 .shop-links {
-  color: #fff;
+  color: #000;
 }
 
 .shop-links:hover {

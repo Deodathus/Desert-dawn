@@ -17,7 +17,7 @@
             <div class="boss-attack col-lg-3 col-md-3">
                 <div class="skill-div">
                     <span style="position: absolute;bottom: 525px;">{{ $user->skill_1 }}</span>
-                    <img src="/images/first.png" alt="">
+                    <img src="images/first.png" alt="">
                     <h4 class="skill-disc">Skill 1</h4>
                     <h4 class="skill-disc">Damage: {{ $user->skill_1_damage + $damageFromCards }}</h4>
 
@@ -31,7 +31,7 @@
 
                 <div class="skill-div">
                     <span style="position: absolute;bottom: 316px;">{{ $user->skill_2 }}</span>
-                    <img src="/images/second.png" alt="">
+                    <img src="images/second.png" alt="">
                     <h4 class="skill-disc">Skill 2</h4>
                     <h4 class="skill-disc">Damage: {{ $user->skill_2_damage + $damageFromCards }}</h4>
 
@@ -45,7 +45,7 @@
 
                 <div class="skill-div">
                     <span style="position: absolute;bottom: 107px;">{{ $user->skill_3 }}</span>
-                    <img src="/images/third.png" alt="">
+                    <img src="images/third.png" alt="">
                     <h4 class="skill-disc">Skill 3</h4>
                     <h4 class="skill-disc">Damage: {{ $user->skill_3_damage + $damageFromCards }}</h4>
 

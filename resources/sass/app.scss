@@ -15,8 +15,8 @@
 
 body {
   font-size: 18px;
-  background-color: #19100fe8;
-  color: #fff;
+  background-color: #fff;
+  color: #000;
 }
 
 a:hover {
@@ -51,7 +51,7 @@ a:hover {
 
 .user-bar,
 .footer{
-  background-image: url("/../../images/userbar.png");
+  background: #2200a2;
   color: #fff;
 }
 
@@ -272,7 +272,7 @@ h4{
 /*----------------------------SHOP PAGE----------------------------*/
 
 .shop-links {
-  color: #fff;
+  color: #000;
 }
 
 .shop-links:hover {
