@@ -15,6 +15,12 @@ class MissionService extends AbstractQuestService
      */
     private $userService;
 
+    /**
+     * MissionService constructor.
+     *
+     * @param CardService $cardService
+     * @param UserService $userService
+     */
     public function __construct(CardService $cardService, UserService $userService)
     {
         parent::__construct($cardService);

@@ -7,19 +7,24 @@ use App\Services\Card\CardService;
 abstract class AbstractQuestService
 {
     /**
-     * CardService instance
+     * CardService instance.
      *
      * @var CardService $cardService
      */
     private $cardService;
 
+    /**
+     * AbstractQuestService constructor.
+     *
+     * @param CardService $cardService
+     */
     public function __construct(CardService $cardService)
     {
         $this->cardService = $cardService;
     }
 
     /**
-     * Needs quest or mission as parameter
+     * Needs quest or mission as parameter.
      *
      * @param $quest
      * @return array
@@ -34,7 +39,7 @@ abstract class AbstractQuestService
     }
 
     /**
-     * Return reward item rarity id
+     * Return reward item rarity id.
      *
      * @param $quest
      * @return int|null
@@ -50,7 +55,7 @@ abstract class AbstractQuestService
     }
 
     /**
-     * Return reward item id
+     * Return reward item id.
      *
      * @param $quest
      * @return mixed
@@ -66,7 +71,7 @@ abstract class AbstractQuestService
     }
 
     /**
-     * Setting items reward from mission
+     * Setting items reward from mission.
      *
      * @param $quest
      * @throws \Exception

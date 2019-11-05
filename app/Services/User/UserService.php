@@ -5,7 +5,6 @@ namespace App\Services\User;
 use App\Models\Item\Item;
 use App\Models\User\User;
 use App\Services\Card\CardService;
-use Illuminate\Support\Facades\Auth;
 
 class UserService
 {
@@ -55,15 +54,15 @@ class UserService
     /**
      * Minus skill cound after using.
      *
-     * @param $userId
      * @param $skillCount
      * @param $skill
      */
-    public function minusSkillsCount($userId, $skillCount, $skill): void
+    public function minusSkillsCount($skillCount, $skill): void
     {
+        $user = $this->getUser();
         $this->$skillCount = $skillCount - 1;
 
-        User::where('id', $userId)->update([
+        $user->update([
             $skill => $this->$skillCount,
         ]);
     }
@@ -126,7 +125,7 @@ class UserService
             $userSkillThirdDamage = $user->skill_3_damage + ($userLvlNow * $this->expMult);
             $userLvlUp = $userLvlNow + 1;
 
-            return User::where('id', '=', $user->id)->update([
+            return $user->update([
                 'level' => $userLvlUp,
                 'exp' => 0,
                 'skill_1_damage' => $userSkillFirstDamage,
@@ -148,6 +147,7 @@ class UserService
         if ($user->coins >= $price)
         {
             $coins = $user->coins - $price;
+
             return $user->update([
                 'coins' => $coins
             ]);
@@ -180,7 +180,7 @@ class UserService
 
         if ($user->energy >= $mission->energy_cost)
         {
-            return User::where('id', '=', $user->id)->update([
+            return $user->update([
                 'energy' => $energy,
             ]);
         }

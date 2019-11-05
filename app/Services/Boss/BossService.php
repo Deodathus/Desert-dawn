@@ -5,7 +5,6 @@ namespace App\Services\Boss;
 use App\Models\Boss\Boss;
 use App\Services\Card\CardService;
 use App\Services\User\UserService;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
 
 class BossService
@@ -38,7 +37,11 @@ class BossService
      * @param UserService $userService
      * @param CardService $cardService
      */
-    public function __construct(BossSessionService $bossSessionService, UserService $userService, CardService $cardService)
+    public function __construct(
+        BossSessionService $bossSessionService,
+        UserService $userService,
+        CardService $cardService
+    )
     {
         $this->bossSessionService = $bossSessionService;
         $this->userService = $userService;
@@ -123,10 +126,11 @@ class BossService
     public function attack($user, $damage, $skill, $damageFromCards): bool
     {
         $hp = $this->bossSessionService->getBossHpFromSession();
+
         if ($hp)
         {
             $this->bossSessionService->minusHpAccordingSkillDamage($hp, $user->$damage, $damageFromCards);
-            $this->userService->minusSkillsCount($user->id ,$user->$skill, $skill);
+            $this->userService->minusSkillsCount($user->$skill, $skill);
 
             return true;
         }

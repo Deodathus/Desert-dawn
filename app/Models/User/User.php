@@ -16,6 +16,11 @@ class User extends Authenticatable
     use Notifiable;
 
     /**
+     * Multiplier for damage from cards.
+     */
+    public const MULTIPLIER_FOR_DAMAGE = 10;
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
@@ -23,6 +28,8 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'exp',
+        'level',
         'password',
         'coins',
         'gems',
@@ -79,6 +86,6 @@ class User extends Authenticatable
      */
     public function getDamageAccordingCardsAttributes(CardService $cardService): int
     {
-        return $cardService->getAttributesFromCards()['strength'] * 10;
+        return $cardService->getAttributesFromCards()['strength'] * self::MULTIPLIER_FOR_DAMAGE;
     }
 }

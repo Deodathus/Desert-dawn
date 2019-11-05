@@ -61,8 +61,15 @@ class QuestService extends AbstractQuestService
      */
     public function markQuestAsDone(Quest $quest): bool
     {
-        return $quest->mission()->where('done', '=', '0')->count() === 0 && $quest->done === 0 ? $quest->update([
-            'done' => true,
-        ]) : false;
+        return $quest
+            ->mission()
+            ->where('done', '=', '0')
+            ->count() === 0 && $quest->done === 0
+            ?
+                $quest->update([
+                'done' => true,
+                ])
+            :
+                false;
     }
 }

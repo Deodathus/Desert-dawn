@@ -3,12 +3,8 @@
 namespace App\Services\Shop;
 
 use App\Models\Item\Item;
-use App\Models\Item\ItemType;
-use App\Models\User\User;
 use App\Services\User\UserService;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Pagination\LengthAwarePaginator;
 
 class ShopService
 {
@@ -92,7 +88,8 @@ class ShopService
     public function sellItem(Item $item): int
     {
         $user = $this->userService->getUser();
-        $price = 500;
+        $price = $item->rarity->price;
+
         if ($this->userService->getCoinsFromSellingItem($user, $price))
         {
             return $user->items()->detach($item->id);

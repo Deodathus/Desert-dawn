@@ -62,6 +62,7 @@ class BossSessionService
         $bossGold = session()->get('boss_reward_gold');
         $bossExp = session()->get('boss_reward_exp');
         $bossGems = session()->get('boss_reward_gems');
+
         return [
             'gold' => $bossGold,
             'exp' => $bossExp,

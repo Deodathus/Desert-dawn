@@ -14,6 +14,11 @@ class ItemService
      */
     private $userService;
 
+    /**
+     * ItemService constructor.
+     *
+     * @param UserService $userService
+     */
     public function __construct(UserService $userService)
     {
         $this->userService = $userService;
@@ -29,6 +34,11 @@ class ItemService
         return $this->userService->getUser()->items->where('type', '!=', '1');
     }
 
+    /**
+     * Prepares data for reward view.
+     *
+     * @return array
+     */
     public function prepareDataForRewardView(): array
     {
         return [

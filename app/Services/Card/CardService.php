@@ -5,13 +5,14 @@ namespace App\Services\Card;
 use App\Models\Item\Item;
 use App\Services\User\UserService;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class CardService
 {
     /**
      * Item type.
      */
-     private const type = 1;
+     private const TYPE = 1;
 
     /**
      * UserService instance
@@ -20,15 +21,20 @@ class CardService
      */
     private $userService;
 
+    /**
+     * CardService constructor.
+     *
+     * @param UserService $userService
+     */
     public function __construct(UserService $userService)
     {
         $this->userService = $userService;
     }
 
     /**
-     * @return Collection
+     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
-    public function getActiveCards(): Collection
+    public function getActiveCards(): \Illuminate\Contracts\Pagination\LengthAwarePaginator
     {
         return $this
             ->userService
@@ -36,13 +42,13 @@ class CardService
             ->items()
             ->where('type', '=', '1')
             ->where('active', '=', '1')
-            ->get();
+            ->paginate(10);
     }
 
     /**
-     * @return Collection
+     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
-    public function getNotActiveCards(): Collection
+    public function getNotActiveCards(): \Illuminate\Contracts\Pagination\LengthAwarePaginator
     {
         return $this
             ->userService
@@ -50,25 +56,29 @@ class CardService
             ->items()
             ->where('type', '=', '1')
             ->where('active', '=', '0')
-            ->get();
+            ->paginate(10);
     }
 
     /**
      * @param $name
      * @param $requiredLevel
      * @param $rarity
+     *
      * @throws \Exception
      */
     public function createNewCard($name, $requiredLevel, $rarity): void
     {
         $user = $this->userService->getUser();
+
         $newCard = Item::create([
             'item_rarity_id' => $rarity,
             'name' => $name,
             'required_level' => $requiredLevel,
-            'type' => self::type,
+            'type' => self::TYPE,
         ]);
+
         $user->items()->save($newCard, ['active' => 0]);
+
         $newCard->itemAttribute()->create([
             'strength' => random_int($newCard->rarity->min_stat_multiply, $newCard->rarity->max_stat_multiply),
             'stamina' => random_int($newCard->rarity->min_stat_multiply, $newCard->rarity->max_stat_multiply),
@@ -93,7 +103,9 @@ class CardService
             'required_level' => $exampleCard->required_level,
             'type' => $exampleCard->type,
         ]);
+
         $user->items()->save($newCard, ['active' => 0]);
+
         $newCard->itemAttribute()->create([
             'strength' => $exampleCard->itemAttribute->strength,
             'stamina' => $exampleCard->itemAttribute->stamina,
