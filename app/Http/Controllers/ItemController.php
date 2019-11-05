@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Item\Item;
 use App\Services\Card\CardService;
+use App\Services\Item\ItemService;
 use App\Services\User\UserService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
@@ -12,11 +13,11 @@ use Illuminate\View\View;
 class ItemController extends Controller
 {
     /**
-     * Item model instance
+     * ItemService instance
      *
      * @var $item
      */
-    private $item;
+    private $itemService;
 
     /**
      * CardService instance
@@ -32,9 +33,16 @@ class ItemController extends Controller
      */
     private $userService;
 
-    public function __construct(Item $item, CardService $cardService, UserService $userService)
+    /**
+     * ItemController constructor.
+     *
+     * @param ItemService $itemService
+     * @param CardService $cardService
+     * @param UserService $userService
+     */
+    public function __construct(ItemService $itemService, CardService $cardService, UserService $userService)
     {
-        $this->item = $item;
+        $this->itemService = $itemService;
         $this->cardService = $cardService;
         $this->userService = $userService;
     }
@@ -45,7 +53,8 @@ class ItemController extends Controller
      */
     public function updateCardActiveStatus(Item $item): RedirectResponse
     {
-        $user = Auth::user();
+        $user = $this->userService->getUser();
+
         if ($this->cardService->updateCardStatus($user, $item) && $this->cardService->getActiveCardsCount() < 7)
         {
             return redirect()->back();
@@ -59,8 +68,6 @@ class ItemController extends Controller
      */
     public function getRewardItem(): View
     {
-        $rewardCard = $this->userService->getUser()->items->last();
-
-        return view('popup.rewardItem', compact('rewardCard'));
+        return view('popup.rewardItem', $this->itemService->prepareDataForRewardView());
     }
 }

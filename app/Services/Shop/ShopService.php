@@ -8,6 +8,7 @@ use App\Models\User\User;
 use App\Services\User\UserService;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class ShopService
 {
@@ -18,11 +19,14 @@ class ShopService
      */
     private $userService;
 
+    /**
+     * ShopService constructor.
+     * @param UserService $userService
+     */
     public function __construct(UserService $userService)
     {
         $this->userService = $userService;
     }
-
 
     /**
      * Buy default skill.
@@ -69,12 +73,14 @@ class ShopService
     /**
      * Returns user's items.
      *
-     * @return Collection
+     * @return array
      */
-    public function prepareDataForSellingView(): Collection
+    public function prepareDataForSellingView(): array
     {
         // TODO: MAKE IT NORMAL
-        return $this->userService->getUser()->items->where('type', '=', '1');
+        return [
+            'items' => $this->userService->getUser()->items()->where('type', '=', '1')->paginate(10)
+        ];
     }
 
     /**

@@ -36,9 +36,7 @@ class BossController extends Controller
      */
     public function index(): View
     {
-        $bosses = $this->bossService->getAllBosses();
-
-        return view('bosses.index', compact('bosses'));
+        return view('bosses.index', $this->bossService->prepareDataForIndexView());
     }
 
     /**
@@ -50,11 +48,9 @@ class BossController extends Controller
      */
     public function show(Boss $boss, CardService $cardService): View
     {
-        $user = $this->userService->getUser();
         $this->bossService->fillSessionIfEmpty($boss);
-        $damageFromCards = $user->getDamageAccordingCardsAttributes($cardService);
 
-        return view('bosses.show', compact('boss', 'user', 'damageFromCards'));
+        return view('bosses.show', $this->bossService->prepareDataForShowView($boss));
     }
 
     /**

@@ -4,17 +4,44 @@ namespace App\Services\Quest;
 
 use App\Models\Quest\Quest;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class QuestService extends AbstractQuestService
 {
     /**
      * Return collection of quests
      *
-     * @return Collection
+     * @return LengthAwarePaginator
      */
-    public function getAllQuests(): Collection
+    public function getAllQuests(): LengthAwarePaginator
     {
-        return Quest::all();
+        return Quest::paginate(10);
+    }
+
+    /**
+     * Prepares data for index view.
+     *
+     * @return array
+     */
+    public function prepareDataForIndexView(): array
+    {
+        return [
+            'quests' => $this->getAllQuests(),
+        ];
+    }
+
+    /**
+     * Prepares data for show view.
+     *
+     * @param Quest $quest
+     *
+     * @return array
+     */
+    public function prepareDataForShowView(Quest $quest): array
+    {
+        return [
+            'missions' => $this->getQuestMissions($quest),
+        ];
     }
 
     /**

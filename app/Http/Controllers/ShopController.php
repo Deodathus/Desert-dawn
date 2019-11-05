@@ -17,6 +17,11 @@ class ShopController extends Controller
      */
     private $shopService;
 
+    /**
+     * ShopController constructor.
+     *
+     * @param ShopService $shopService
+     */
     public function __construct(ShopService $shopService)
     {
         $this->shopService = $shopService;
@@ -79,8 +84,7 @@ class ShopController extends Controller
     {
         if ($request->type === '2')
         {
-            $items = $this->shopService->prepareDataForSellingView();
-            return view('shop.shop' . $request->type, compact('items'));
+            return view('shop.shop' . $request->type, $this->shopService->prepareDataForSellingView());
         }
         return view('shop.shop' . $request->type);
     }
@@ -95,8 +99,7 @@ class ShopController extends Controller
     {
         if ($this->shopService->sellItem($item))
         {
-            $items = $this->shopService->prepareDataForSellingView();
-            return view('shop.shop2', compact('items'))->with('selling', 'sucess');
+            return view('shop.shop2', $this->shopService->prepareDataForSellingView())->with('selling', 'sucess');
         }
 
         return view('shop.shop2')->with('selling', 'error');

@@ -35,9 +35,7 @@ class QuestController extends Controller
      */
     public function index(): View
     {
-        $quests = $this->questService->getAllQuests();
-
-        return view('quests.questIndex', compact('quests'));
+        return view('quests.questIndex', $this->questService->prepareDataForIndexView());
     }
 
     /**
@@ -46,9 +44,7 @@ class QuestController extends Controller
      */
     public function show(Quest $quest): View
     {
-        $missions = $this->questService->getQuestMissions($quest);
-
-        return view('quests.questShow', compact('missions'));
+        return view('quests.questShow', $this->questService->prepareDataForShowView($quest));
     }
 
     /**

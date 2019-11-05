@@ -6,6 +6,7 @@ use App\Models\Boss\Boss;
 use App\Services\Card\CardService;
 use App\Services\User\UserService;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class BossService
 {
@@ -30,6 +31,13 @@ class BossService
      */
     private $cardService;
 
+    /**
+     * BossService constructor.
+     *
+     * @param BossSessionService $bossSessionService
+     * @param UserService $userService
+     * @param CardService $cardService
+     */
     public function __construct(BossSessionService $bossSessionService, UserService $userService, CardService $cardService)
     {
         $this->bossSessionService = $bossSessionService;
@@ -40,11 +48,11 @@ class BossService
     /**
      * Get all bosses
      *
-     * @return Collection
+     * @return LengthAwarePaginator
      */
-    public function getAllBosses(): Collection
+    public function getAllBosses(): LengthAwarePaginator
     {
-        return Boss::all();
+        return Boss::paginate(10);
     }
 
     /**
@@ -55,6 +63,29 @@ class BossService
     public function fillSessionIfEmpty($boss): void
     {
         $this->bossSessionService->fillSessionIfEmpty($boss);
+    }
+
+    /**
+     * Prepares data for index view.
+     *
+     * @return array
+     */
+    public function prepareDataForIndexView(): array
+    {
+        return [
+            'bosses' =>  $this->getAllBosses(),
+        ];
+    }
+
+    public function prepareDataForShowView(Boss $boss): array
+    {
+        $user = $this->userService->getUser();
+
+        return [
+            'user' => $user,
+            'damageFromCards' => $user->getDamageAccordingCardsAttributes($this->cardService),
+            'boss' => $boss,
+        ];
     }
 
     /**

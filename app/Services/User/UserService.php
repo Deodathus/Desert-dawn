@@ -2,6 +2,7 @@
 
 namespace App\Services\User;
 
+use App\Models\Item\Item;
 use App\Models\User\User;
 use App\Services\Card\CardService;
 use Illuminate\Support\Facades\Auth;
@@ -22,9 +23,17 @@ class UserService
      */
     public function getUser(): User
     {
-        $userId = Auth::id();
+        return auth()->user();
+    }
 
-        return User::find($userId);
+    /**
+     * Returns last user item.
+     *
+     * @return Item
+     */
+    public function getLastUserItem(): Item
+    {
+        return $this->getUser()->items->last();
     }
 
     /**
@@ -109,6 +118,7 @@ class UserService
         $user = $this->getUser();
         $userLvlNow = $user->level;
         $userExpNow = $user->exp;
+
         if ($userExpNow >= $userLvlNow * ($this->expMult * $userLvlNow * 2))
         {
             $userSkillFirstDamage = $user->skill_1_damage + ($userLvlNow * $this->expMult);

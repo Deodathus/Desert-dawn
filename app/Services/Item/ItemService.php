@@ -28,4 +28,11 @@ class ItemService
     {
         return $this->userService->getUser()->items->where('type', '!=', '1');
     }
+
+    public function prepareDataForRewardView(): array
+    {
+        return [
+            'rewardCard' => $this->userService->getLastUserItem(),
+        ];
+    }
 }

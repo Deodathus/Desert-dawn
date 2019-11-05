@@ -23,6 +23,12 @@ class MissionController extends Controller
      */
     private $userService;
 
+    /**
+     * MissionController constructor.
+     *
+     * @param MissionService $missionService
+     * @param UserService $userService
+     */
     public function __construct(MissionService $missionService, UserService $userService)
     {
         $this->missionService = $missionService;
