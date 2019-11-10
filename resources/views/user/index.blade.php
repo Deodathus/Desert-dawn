@@ -132,6 +132,7 @@
                         </div>
                     @endforeach
                 </div>
+                {{ $notActiveCards->links() }}
             </div>
         </div>
     </div>

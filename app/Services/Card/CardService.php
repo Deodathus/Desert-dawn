@@ -32,9 +32,9 @@ class CardService
     }
 
     /**
-     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
+     * @return Collection
      */
-    public function getActiveCards(): \Illuminate\Contracts\Pagination\LengthAwarePaginator
+    public function getActiveCards(): Collection
     {
         return $this
             ->userService
@@ -42,7 +42,7 @@ class CardService
             ->items()
             ->where('type', '=', '1')
             ->where('active', '=', '1')
-            ->paginate(10);
+            ->get();
     }
 
     /**

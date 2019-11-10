@@ -16,22 +16,22 @@
             </div>
             <div class="boss-attack col-lg-3 col-md-3">
                 <div class="skill-div">
-                    <span style="position: absolute;bottom: 525px;">{{ $user->skill_1 }}</span>
-                    <img src="images/first.png" alt="">
+                    <div>{{ $user->skill_1 }}</div>
+                    <img src="/images/first.png" alt="">
                     <h4 class="skill-disc">Skill 1</h4>
                     <h4 class="skill-disc">Damage: {{ $user->skill_1_damage + $damageFromCards }}</h4>
 
                     @if($user->skill_1 > 0)
-                    <a href="{{ route('attack.first', $boss->id) }}" class="btn btn-danger boss-btn boss-btn-show">Damage</a>
-                        @else
+                        <a href="{{ route('attack.first', $boss->id) }}" class="btn btn-danger boss-btn boss-btn-show">Damage</a>
+                    @else
                         <p class="btn btn-danger boss-btn boss-btn-show p-reward">Damage</p>
                     @endif
 
                 </div>
 
                 <div class="skill-div">
-                    <span style="position: absolute;bottom: 316px;">{{ $user->skill_2 }}</span>
-                    <img src="images/second.png" alt="">
+                    <div>{{ $user->skill_2 }}</div>
+                    <img src="/images/second.png" alt="">
                     <h4 class="skill-disc">Skill 2</h4>
                     <h4 class="skill-disc">Damage: {{ $user->skill_2_damage + $damageFromCards }}</h4>
 
@@ -44,8 +44,8 @@
                 </div>
 
                 <div class="skill-div">
-                    <span style="position: absolute;bottom: 107px;">{{ $user->skill_3 }}</span>
-                    <img src="images/third.png" alt="">
+                    <div>{{ $user->skill_3 }}</div>
+                    <img src="/images/third.png" alt="">
                     <h4 class="skill-disc">Skill 3</h4>
                     <h4 class="skill-disc">Damage: {{ $user->skill_3_damage + $damageFromCards }}</h4>
 
