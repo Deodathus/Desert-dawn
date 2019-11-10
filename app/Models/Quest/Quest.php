@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Quest extends Model
 {
+    /**
+     * @var array $fillable
+     */
     protected $fillable = [
         'name',
         'reward_gold',

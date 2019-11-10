@@ -9,6 +9,9 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Item extends Model
 {
+    /**
+     * @var array $fillable
+     */
     protected $fillable = [
         'item_rarity_id',
         'name',

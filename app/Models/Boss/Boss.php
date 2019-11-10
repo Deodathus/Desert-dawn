@@ -5,12 +5,11 @@ namespace App\Models\Boss;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-/**
- * @property mixed reward_gold
- * @property mixed reward_exp
- */
 class Boss extends Model
 {
+    /**
+     * @var array $fillable
+     */
     protected $fillable = [
         'name',
         'hp',

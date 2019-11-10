@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class ItemAttribute extends Model
 {
+    /**
+     * @var array $fillable
+     */
     protected $fillable = [
         'strength',
         'stamina',
