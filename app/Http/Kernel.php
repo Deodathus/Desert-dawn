@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\Admin;
 use App\Http\Middleware\ItemRewardCheck;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -65,6 +66,7 @@ class Kernel extends HttpKernel
         'hp.check' => \App\Http\Middleware\RedirectIfAlreadyInFight::class,
         'boss.check' => \App\Http\Middleware\CheckBoss::class,
         'item.reward.check' => \App\Http\Middleware\ItemRewardCheck::class,
+        'admin' => Admin::class,
     ];
 
     /**

@@ -15,6 +15,12 @@ use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
 
+    Route::middleware('admin')->group(function (): void {
+        Route::name('admin.')->group(function (): void {
+            Route::get('admin', 'AdminController@index');
+        });
+    });
+
     Route::middleware('auth')->group(function (): void
     {
         /**
