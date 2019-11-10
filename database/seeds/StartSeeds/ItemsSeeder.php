@@ -4,7 +4,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
-class ItemRaritiesSeeder extends Seeder
+class ItemsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,12 +13,11 @@ class ItemRaritiesSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('item_rarities')->insert([
+        DB::table('items')->insert([
+            'item_rarity_id' => 1,
             'name' => Str::random(10),
-            'min_stat_multiply' => rand(1, 100),
-            'max_stat_multiply' => rand(100, 200),
-            'skill_amount' => rand(1, 10),
-            'price' => rand(1, 10000),
+            'required_level' => 1,
+            'type' => 1,
         ]);
     }
 }

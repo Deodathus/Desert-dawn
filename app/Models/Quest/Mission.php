@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Mission extends Model
 {
+    /**
+     * @var array $fillable
+     */
     protected $fillable = [
         'name',
         'description',

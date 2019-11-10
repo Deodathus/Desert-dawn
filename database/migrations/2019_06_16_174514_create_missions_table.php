@@ -22,8 +22,8 @@ class CreateMissionsTable extends Migration
             $table->integer('reward_gold');
             $table->integer('reward_exp');
             $table->integer('reward_gems');
-            $table->bigInteger('reward_item')->default(0);
-            $table->bigInteger('reward_item_rarity')->default(0);
+            $table->bigInteger('reward_item')->default(null)->nullable();
+            $table->bigInteger('reward_item_rarity')->default(null)->nullable();
             $table->boolean('done')->default(false);
             $table->timestamps();
         });
