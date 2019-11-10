@@ -24,11 +24,19 @@
   font-weight: bold;
 }
 
-.admin-panel .left-bar,
-.admin-panel .main-content {
+.admin-panel .left-bar {
   margin-top: 70px;
+}
+
+.admin-panel .main-content {
+  margin-top: 50px;
+  min-height: 600px;
 }
 
 .admin-panel .left-bar .links:hover {
   text-decoration: none;
+}
+
+.admin-panel .main-content {
+  background-color: #f0f4ff;
 }

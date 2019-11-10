@@ -11,11 +11,11 @@ class AdminController extends Controller
         $links = [
                 [
                     'href' => 'titlein',
-                    'text' => 'link1',
+                    'text' => '<i v-html="rawHtml" class="fas fa-users"></i> Users',
                 ],
                 [
                     'href' => 'tasd',
-                    'text' => 'link 2',
+                    'text' => '<i class="fas fa-khanda"></i> Bosses',
                 ],
         ];
 

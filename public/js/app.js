@@ -66607,9 +66607,11 @@ var render = function() {
       return _c(
         "div",
         [
-          _c("b-link", { staticClass: "links", attrs: { href: link.href } }, [
-            _vm._v(_vm._s(link.text))
-          ])
+          _c("b-link", {
+            staticClass: "links",
+            attrs: { href: link.href },
+            domProps: { innerHTML: _vm._s(link.text) }
+          })
         ],
         1
       )
