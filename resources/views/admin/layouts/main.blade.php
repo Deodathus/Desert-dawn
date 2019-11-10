@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/admin.css">
+    <title>Desert Dawn Admin Panel</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <b-container fluid class="fixed-top">
+            <b-row class="admin-top-panel">
+                <b-col cols="3" class="logo text-center">
+                    Desert Dawn Admin Panel
+                </b-col>
+                <b-col cols="9" class="nav-bar text-right">
+                    {{ auth()->user()->name }}
+                </b-col>
+            </b-row>
+        </b-container>
+
+        <b-container fluid>
+            <b-row class="admin-panel">
+                <b-col cols="3" class="left-bar sticky-top" style="top: 70px">
+                    <admin-left-bar :links='@json($links)'></admin-left-bar>
+                </b-col>
+                <b-col cols="9" class="main-content">
+                    @yield('content')
+                </b-col>
+            </b-row>
+        </b-container>
+
+    </div>
+
+</body>
+
+<script src="/js/app.js"></script>
+
+</html>
