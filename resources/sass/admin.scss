@@ -7,7 +7,11 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-//TOP BAR
+.btn-light:focus, .btn-light.focus {
+  box-shadow: none !important;
+}
+
+//TOP BAR************************************************
 .admin-top-panel {
   min-height: 50px;
   border-bottom: 1px solid #e3e3e3;
@@ -25,7 +29,24 @@
 }
 
 .admin-panel .left-bar {
-  margin-top: 70px;
+  margin-top: 50px;
+  padding: 0;
+}
+
+.admin-panel .left-bar .left-bar-link,
+.admin-panel .left-bar .links-div,
+.admin-panel .left-bar .left-bar-button,
+.admin-panel .left-bar .collapse-content,
+.admin-panel .left-bar .left-bar-button-group {
+  width: 100%;
+}
+
+.admin-panel .left-bar .links-div {
+  background-color: #6c757d;
+}
+
+.admin-panel .left-bar .collapse-content {
+  margin: 0 !important;
 }
 
 .admin-panel .main-content {

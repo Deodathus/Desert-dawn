@@ -13,8 +13,10 @@ import '../sass/app.scss'
 
 //ADMIN*********************************************************
 import AdminLeftBar from './components/admin/AdminLeftBar'
+import LeftBarLinks from "./components/admin/LeftBarLinks"
 
 Vue.component('admin-left-bar', AdminLeftBar);
+Vue.component('left-bar-links', LeftBarLinks);
 
 
 const app = new Vue({
