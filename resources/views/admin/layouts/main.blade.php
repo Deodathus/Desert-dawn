@@ -17,7 +17,8 @@
         <b-container fluid class="fixed-top">
             <b-row class="admin-top-panel">
                 <b-col cols="3" class="logo text-center">
-                    <a href="{{ route('user.hero') }}"><i class="fas fa-dungeon"></i></a> Desert Dawn Admin Panel
+                    <a href="{{ route('user.hero') }}" class="game-link"><i class="fas fa-dungeon"></i></a>
+                    <a href="{{ route('admin.home') }}" class="home-link">Desert Dawn Admin Panel</a>
                 </b-col>
                 <b-col cols="9" class="nav-bar text-right">
                     {{ auth()->user()->name }}
@@ -29,7 +30,7 @@
             <b-row class="admin-panel">
                 <b-col cols="3" class="left-bar sticky-top" style="top: 50px">
                     <admin-left-bar
-                            :main-links='@json(config('globals.main_links'))'>
+                            :main-links='@json(app('links'))'>
                     </admin-left-bar>
                 </b-col>
                 <b-col cols="9" class="main-content">

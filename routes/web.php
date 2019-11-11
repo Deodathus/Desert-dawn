@@ -15,10 +15,15 @@ use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
 
-    Route::middleware('admin')->group(function (): void {
-        Route::name('admin.')->group(function (): void {
-            Route::get('admin', 'AdminController@index');
-        });
+    Route::middleware('admin')
+        ->namespace('Admin')
+        ->prefix('admin')
+        ->name('admin.')->group(function (): void {
+            Route::get('/', 'AdminController@index')->name('home');
+
+            Route::name('users.')->group(function (): void {
+                Route::get('users/manage', 'AdminUserManageController@index')->name('manage');
+            });
     });
 
     Route::middleware('auth')->group(function (): void

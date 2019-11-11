@@ -28,6 +28,16 @@
   font-weight: bold;
 }
 
+.admin-top-panel .logo a {
+  color: #212529;
+  transition: 1s;
+}
+
+.admin-top-panel .logo a:hover {
+  text-decoration: none;
+  color: #747e87;
+}
+
 .admin-panel .left-bar {
   margin-top: 50px;
   padding: 0;
@@ -51,6 +61,7 @@
 
 .admin-panel .main-content {
   margin-top: 50px;
+  padding-top: 10px;
   min-height: 600px;
 }
 
@@ -60,4 +71,8 @@
 
 .admin-panel .main-content {
   background-color: #f0f4ff;
+}
+
+.admin-panel .main-content .data-card .data-card-text {
+  font-size: 30px;
 }
