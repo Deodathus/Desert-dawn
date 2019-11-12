@@ -2,7 +2,9 @@
 
 @section('content')
 
-    <user-manage>
+    <user-manage
+        :users="{{ $users }}"
+        url="{{ route('admin.users.store') }}">
     </user-manage>
 
 @endsection

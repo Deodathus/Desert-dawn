@@ -2,6 +2,8 @@
 
 namespace App\Services\Admin;
 
+use App\Models\User\User;
+
 class AdminUserManageService
 {
     /**
@@ -12,7 +14,7 @@ class AdminUserManageService
     public function prepareDataForIndexView(): array
     {
         return [
-
+            'users' => User::all(),
         ];
     }
 }

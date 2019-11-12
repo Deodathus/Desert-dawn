@@ -37,7 +37,7 @@ class AppServiceProvider extends ServiceProvider
                     'name' => '<i v-html="rawHtml" class="fas fa-users"></i> Users',
                     'links' => [
                         [
-                            'href' => route('admin.users.manage'),
+                            'href' => route('admin.users.index'),
                             'text' => 'Manage',
                         ],
                         [

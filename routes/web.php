@@ -21,9 +21,7 @@ Auth::routes();
         ->name('admin.')->group(function (): void {
             Route::get('/', 'AdminController@index')->name('home');
 
-            Route::name('users.')->group(function (): void {
-                Route::get('users/manage', 'AdminUserManageController@index')->name('manage');
-            });
+            Route::resource('users', 'AdminUserManageController');
     });
 
     Route::middleware('auth')->group(function (): void

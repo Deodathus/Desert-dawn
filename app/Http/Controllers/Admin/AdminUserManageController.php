@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UserCreateRequest;
 use App\Services\Admin\AdminUserManageService;
 use Illuminate\View\View;
 
@@ -30,5 +31,9 @@ class AdminUserManageController extends Controller
         return view('admin.users.index', $this->adminUserManageService->prepareDataForIndexView());
     }
 
+    public function store(UserCreateRequest $request)
+    {
+        dd($request->all());
+    }
 
 }

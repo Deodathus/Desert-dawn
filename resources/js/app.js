@@ -21,14 +21,20 @@ Vue.use(VueSweetalert2);
 import AdminLeftBar from './components/admin/AdminLeftBar'
 import LeftBarLinks from "./components/admin/LeftBarLinks"
 import DataCard from "./components/admin/DataCard"
+import List from "./components/admin/List"
 import UserManage from "./components/admin/UserManage"
 import UserCreateForm from "./components/admin/UserCreateForm"
+import UserList from "./components/admin/UserList"
+import ValidationErrors from "./components/admin/ValidationErrors"
 
 Vue.component('admin-left-bar', AdminLeftBar);
 Vue.component('left-bar-links', LeftBarLinks);
 Vue.component('data-card', DataCard);
+Vue.component('list', List);
 Vue.component('user-manage', UserManage);
 Vue.component('user-create-form', UserCreateForm);
+Vue.component('user-list', UserList);
+Vue.component('validation-errors', ValidationErrors);
 
 
 const app = new Vue({

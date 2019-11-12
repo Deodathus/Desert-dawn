@@ -2,8 +2,13 @@
 
     <div>
 
+        <validation-errors
+            :errors="this.errors"
+            v-show="this.errors">
+        </validation-errors>
+
         <b-button v-b-toggle.user-creation variant="primary" class="creation-button">Creation +</b-button>
-        <b-collapse id="user-creation">
+        <b-collapse visible id="user-creation">
 
             <b-form @submit="onSubmit">
                 <b-row>
@@ -194,16 +199,22 @@
                     skillThree: 1,
                     skillThreeDamage: 1,
                     isAdmin: false
-                }
+                },
+                errors: [],
             }
         },
         methods: {
             onSubmit(event) {
                 event.preventDefault();
+                this.errors = [];
 
-                // axios.post('/admin/test', this.form).then((response) => {
-                //     this.$swal(response.data.success);
-                // });
+                axios.post(this.url, this.form).then((response) => {
+
+                }).catch(error => {
+                    if (error.response.status === 422){
+                        this.errors = error.response.data.errors;
+                    }
+                });
             }
         },
     }
