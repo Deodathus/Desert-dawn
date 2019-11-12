@@ -90,7 +90,8 @@
                             id="input-group-user-admin"
                             label="Admin"
                             label-for="checkbox-user-admin">
-                            <b-form-checkbox>
+                            <b-form-checkbox
+                                v-model="form.isAdmin">
                             </b-form-checkbox>
                         </b-form-group>
 
@@ -209,7 +210,7 @@
                 this.errors = [];
 
                 axios.post(this.url, this.form).then((response) => {
-
+                    this.$swal(response.data.success);
                 }).catch(error => {
                     if (error.response.status === 422){
                         this.errors = error.response.data.errors;

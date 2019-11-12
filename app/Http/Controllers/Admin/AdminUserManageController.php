@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exceptions\UserManageException;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserCreateRequest;
 use App\Services\Admin\AdminUserManageService;
+use Illuminate\Http\JsonResponse;
 use Illuminate\View\View;
 
 class AdminUserManageController extends Controller
@@ -31,9 +33,24 @@ class AdminUserManageController extends Controller
         return view('admin.users.index', $this->adminUserManageService->prepareDataForIndexView());
     }
 
-    public function store(UserCreateRequest $request)
+    /**
+     * @param \App\Http\Requests\UserCreateRequest $request
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function store(UserCreateRequest $request): JsonResponse
     {
-        dd($request->all());
+        try {
+            $this->adminUserManageService->createUser($request);
+        } catch (UserManageException $exception) {
+            return response()->json(
+                $exception->getMessage()
+            );
+        }
+
+        return response()->json([
+            'success' => 'User:' . $request->input('name') . ' was added'
+        ]);
     }
 
 }

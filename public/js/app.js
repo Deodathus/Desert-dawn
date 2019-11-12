@@ -2000,6 +2000,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['url'],
   data: function data() {
@@ -2030,7 +2031,9 @@ __webpack_require__.r(__webpack_exports__);
 
       event.preventDefault();
       this.errors = [];
-      axios.post(this.url, this.form).then(function (response) {})["catch"](function (error) {
+      axios.post(this.url, this.form).then(function (response) {
+        _this.$swal(response.data.success);
+      })["catch"](function (error) {
         if (error.response.status === 422) {
           _this.errors = error.response.data.errors;
         }
@@ -2069,8 +2072,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
 //
 //
 //
@@ -70297,7 +70298,17 @@ var render = function() {
                             "label-for": "checkbox-user-admin"
                           }
                         },
-                        [_c("b-form-checkbox")],
+                        [
+                          _c("b-form-checkbox", {
+                            model: {
+                              value: _vm.form.isAdmin,
+                              callback: function($$v) {
+                                _vm.$set(_vm.form, "isAdmin", $$v)
+                              },
+                              expression: "form.isAdmin"
+                            }
+                          })
+                        ],
                         1
                       ),
                       _vm._v(" "),
