@@ -10662,9 +10662,12 @@ a.text-dark:focus {
   }
 }
 
-.btn-light:focus,
-.btn-light.focus {
+button {
   box-shadow: none !important;
+}
+
+body {
+  background-color: #f0f4ff !important;
 }
 
 .admin-top-panel {
@@ -10696,6 +10699,8 @@ a.text-dark:focus {
 .admin-panel .left-bar {
   margin-top: 50px;
   padding: 0;
+  background-color: #fff;
+  height: 100vh;
 }
 
 .admin-panel .left-bar .left-bar-link,
@@ -10730,5 +10735,14 @@ a.text-dark:focus {
 
 .admin-panel .main-content .data-card .data-card-text {
   font-size: 30px;
+}
+
+.admin-panel .main-content #user-creation {
+  margin-bottom: 10px;
+}
+
+.admin-panel .main-content .creation-button {
+  width: 100%;
+  margin-bottom: 15px;
 }
 

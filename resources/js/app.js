@@ -1,28 +1,38 @@
 require('./bootstrap');
 
+const axios = require('axios');
+
 import Vue from 'vue'
 import BootstrapVue from 'bootstrap-vue'
+import VueSweetalert2 from "vue-sweetalert2"
 
 window.Vue = require('vue');
 Vue.use(BootstrapVue);
 
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
+import 'sweetalert2/dist/sweetalert2.min.css'
 
 import '../sass/app.scss'
+
+Vue.use(VueSweetalert2);
 
 //ADMIN*********************************************************
 import AdminLeftBar from './components/admin/AdminLeftBar'
 import LeftBarLinks from "./components/admin/LeftBarLinks"
 import DataCard from "./components/admin/DataCard"
+import UserManage from "./components/admin/UserManage"
+import UserCreateForm from "./components/admin/UserCreateForm"
 
 Vue.component('admin-left-bar', AdminLeftBar);
 Vue.component('left-bar-links', LeftBarLinks);
 Vue.component('data-card', DataCard);
+Vue.component('user-manage', UserManage);
+Vue.component('user-create-form', UserCreateForm);
 
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
 });
 
 $(document).ready(function () {
