@@ -1,7 +1,7 @@
 <template>
     <list
         :items="users"
-        rel="list">
+        ref="list">
     </list>
 </template>
 

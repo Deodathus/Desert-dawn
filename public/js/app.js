@@ -1806,7 +1806,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['items'],
+  props: {
+    items: {}
+  },
   methods: {
     pushRecord: function pushRecord(record) {
       this.items.push(record);
@@ -70080,7 +70082,12 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    [_c("b-table", { attrs: { striped: "", hover: "", items: _vm.items } })],
+    [
+      _c("b-table", {
+        ref: "table",
+        attrs: { striped: "", hover: "", items: _vm.items }
+      })
+    ],
     1
   )
 }
@@ -70564,7 +70571,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("list", { attrs: { items: _vm.users, rel: "list" } })
+  return _c("list", { ref: "list", attrs: { items: _vm.users } })
 }
 var staticRenderFns = []
 render._withStripped = true
