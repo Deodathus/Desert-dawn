@@ -21,7 +21,11 @@ Auth::routes();
         ->name('admin.')->group(function (): void {
             Route::get('/', 'AdminController@index')->name('home');
 
+            // users
             Route::resource('users', 'AdminUserManageController');
+
+            // users manage all
+            Route::get('manage-all/users', 'AdminUserManageController@manageAllIndex')->name('manage.all.users');
     });
 
     Route::middleware('auth')->group(function (): void
@@ -87,9 +91,9 @@ Auth::routes();
             Route::get('/shop', 'ShopController@index')->name('index');
             Route::get('/shop/getType', 'ShopController@getType')->name('get.type');
             Route::get('/shop/sell/{item}', 'ShopController@sell')->name('sell');
-            Route::get('/shop/buy/first', 'ShopController@buyFirstSkill')->name('buy::default.skill.1');
-            Route::get('/shop/buy/second', 'ShopController@buySecondSkill')->name('buy::default.skill.2');
-            Route::get('/shop/buy/third', 'ShopController@buyThirdSkill')->name('buy::default.skill.3');
+            Route::get('/shop/buy/first', 'ShopController@buyFirstSkill')->name('buy.default.skill.1');
+            Route::get('/shop/buy/second', 'ShopController@buySecondSkill')->name('buy.default.skill.2');
+            Route::get('/shop/buy/third', 'ShopController@buyThirdSkill')->name('buy.default.skill.3');
         });
 
         /**

@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Exceptions\UserManageException;
+use App\Exceptions\Users\UserManageAllException;
+use App\Exceptions\Users\UserManageException;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\UserCreateRequest;
+use App\Http\Requests\Users\UserAddCurrencyRequest;
+use App\Http\Requests\Users\UserCreateRequest;
 use App\Services\Admin\AdminUserManageService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\View\View;
@@ -34,7 +36,7 @@ class AdminUserManageController extends Controller
     }
 
     /**
-     * @param \App\Http\Requests\UserCreateRequest $request
+     * @param \App\Http\Requests\Users\UserCreateRequest $request
      *
      * @return \Illuminate\Http\JsonResponse
      */
@@ -49,8 +51,35 @@ class AdminUserManageController extends Controller
         }
 
         return response()->json([
-            'success' => 'User: ' . $request->input('name') . ' was added'
+            'success' => 'User: ' . $request->input('name') . ' was added.'
         ]);
     }
 
+    /**
+     * @return \Illuminate\View\View
+     */
+    public function manageAllIndex(): View
+    {
+        return view('admin.users.manageAll');
+    }
+
+    /**
+     * @param \App\Http\Requests\Users\UserAddCurrencyRequest $request
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function addCurrenciesToAllUsers(UserAddCurrencyRequest $request)
+    {
+        try {
+            $this->adminUserManageService->addCurrencyToAllUsers($request);
+        } catch (UserManageAllException $exception) {
+            return response()->json([
+                $exception->getMessage()
+            ]);
+        }
+
+        return response()->json([
+            'success' => 'All users was updated.'
+        ]);
+    }
 }

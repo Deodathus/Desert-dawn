@@ -2,9 +2,12 @@
 
 namespace App\Services\Admin;
 
-use App\Exceptions\UserManageException;
-use App\Http\Requests\UserCreateRequest;
+use App\Exceptions\Users\UserManageAllException;
+use App\Exceptions\Users\UserManageException;
+use App\Http\Requests\Users\UserAddCurrencyRequest;
+use App\Http\Requests\Users\UserCreateRequest;
 use App\Models\User\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class AdminUserManageService
@@ -22,9 +25,9 @@ class AdminUserManageService
     }
 
     /**
-     * @param \App\Http\Requests\UserCreateRequest $request
+     * @param \App\Http\Requests\Users\UserCreateRequest $request
      *
-     * @throws \App\Exceptions\UserManageException
+     * @throws \App\Exceptions\Users\UserManageException
      */
     public function createUser(UserCreateRequest $request): void
     {
@@ -48,6 +51,31 @@ class AdminUserManageService
             ]);
         } catch (\Exception $exception) {
             throw new UserManageException('Was error during creation.');
+        }
+    }
+
+    public function prepareCurrenciesListFromRequest(UserAddCurrencyRequest $request): array
+    {
+        return [
+            'coins' => 100,
+        ];
+    }
+
+    /**
+     * @param \App\Http\Requests\Users\UserAddCurrencyRequest $request
+     *
+     * @throws \App\Exceptions\Users\UserManageAllException
+     */
+    public function addCurrencyToAllUsers(UserAddCurrencyRequest $request)
+    {
+        $currencies = $this->prepareCurrenciesListFromRequest($request);
+
+        try {
+            foreach ($currencies as $currency => $value) {
+                DB::update('update users set ' . $currency . ' = ' . $currency . ' + '  . $value . ' where 1 = 1');
+            }
+        } catch (\Exception $exception) {
+            throw new UserManageAllException('Was error during update.');
         }
     }
 }
