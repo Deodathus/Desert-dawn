@@ -1806,7 +1806,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['items']
+  props: ['items'],
+  methods: {
+    pushRecord: function pushRecord(record) {
+      this.items.push(record);
+    }
+  }
 });
 
 /***/ }),
@@ -1820,11 +1825,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
 //
 //
 //
@@ -2027,17 +2027,9 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     onSubmit: function onSubmit(event) {
-      var _this = this;
-
       event.preventDefault();
-      this.errors = [];
-      axios.post(this.url, this.form).then(function (response) {
-        _this.$swal(response.data.success);
-      })["catch"](function (error) {
-        if (error.response.status === 422) {
-          _this.errors = error.response.data.errors;
-        }
-      });
+      this.$emit('addUser', this.form);
+      this.$emit('emitRecord', this.form);
     }
   }
 });
@@ -2057,8 +2049,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['users']
+  props: ['users'],
+  methods: {
+    pushRecord: function pushRecord(record) {
+      this.$refs.list.pushRecord(record);
+    }
+  }
 });
 
 /***/ }),
@@ -2083,8 +2083,38 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['users', 'url']
+  props: ['users', 'url'],
+  data: function data() {
+    return {
+      errors: []
+    };
+  },
+  methods: {
+    addUser: function addUser(form) {
+      var _this = this;
+
+      this.errors = [];
+      axios.post(this.url, form).then(function (response) {
+        _this.$swal(response.data.success);
+      })["catch"](function (error) {
+        if (error.response.status === 422) {
+          _this.errors = error.response.data.errors;
+        }
+      });
+    },
+    addUserToList: function addUserToList(user) {
+      this.$refs.userList.pushRecord(user);
+    }
+  }
 });
 
 /***/ }),
@@ -70079,18 +70109,6 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("validation-errors", {
-        directives: [
-          {
-            name: "show",
-            rawName: "v-show",
-            value: this.errors,
-            expression: "this.errors"
-          }
-        ],
-        attrs: { errors: this.errors }
-      }),
-      _vm._v(" "),
       _c(
         "b-button",
         {
@@ -70546,7 +70564,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("list", { attrs: { items: _vm.users } })
+  return _c("list", { attrs: { items: _vm.users, rel: "list" } })
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -70573,9 +70591,24 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("user-create-form", { attrs: { url: _vm.url } }),
+      _c("validation-errors", {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: this.errors,
+            expression: "this.errors"
+          }
+        ],
+        attrs: { errors: this.errors }
+      }),
       _vm._v(" "),
-      _c("user-list", { attrs: { users: _vm.users } })
+      _c("user-create-form", {
+        attrs: { url: _vm.url },
+        on: { addUser: _vm.addUser, emitRecord: _vm.addUserToList }
+      }),
+      _vm._v(" "),
+      _c("user-list", { ref: "userList", attrs: { users: _vm.users } })
     ],
     1
   )

@@ -9,5 +9,10 @@
         props: [
             'items',
         ],
+        methods: {
+            pushRecord(record) {
+                this.items.push(record);
+            }
+        }
     }
 </script>

@@ -40,16 +40,16 @@ class AdminUserManageController extends Controller
      */
     public function store(UserCreateRequest $request): JsonResponse
     {
-        try {
-            $this->adminUserManageService->createUser($request);
-        } catch (UserManageException $exception) {
-            return response()->json(
-                $exception->getMessage()
-            );
-        }
+//        try {
+//            $this->adminUserManageService->createUser($request);
+//        } catch (UserManageException $exception) {
+//            return response()->json(
+//                $exception->getMessage()
+//            );
+//        }
 
         return response()->json([
-            'success' => 'User:' . $request->input('name') . ' was added'
+            'success' => 'User: ' . $request->input('name') . ' was added'
         ]);
     }
 

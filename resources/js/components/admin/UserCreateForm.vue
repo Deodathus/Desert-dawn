@@ -2,11 +2,6 @@
 
     <div>
 
-        <validation-errors
-            :errors="this.errors"
-            v-show="this.errors">
-        </validation-errors>
-
         <b-button v-b-toggle.user-creation variant="primary" class="creation-button">Creation +</b-button>
         <b-collapse visible id="user-creation">
 
@@ -207,15 +202,9 @@
         methods: {
             onSubmit(event) {
                 event.preventDefault();
-                this.errors = [];
 
-                axios.post(this.url, this.form).then((response) => {
-                    this.$swal(response.data.success);
-                }).catch(error => {
-                    if (error.response.status === 422){
-                        this.errors = error.response.data.errors;
-                    }
-                });
+                this.$emit('addUser', this.form);
+                this.$emit('emitRecord', this.form);
             }
         },
     }
