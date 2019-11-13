@@ -15,6 +15,7 @@ class StartSeeder extends Seeder
             ItemRaritiesSeeder::class,
             ItemTypesSeeder::class,
             ItemsSeeder::class,
+            ItemAttributesSeeder::class,
             BossesSeeder::class,
             QuestsSeeder::class,
             MissionsSeeder::class,
