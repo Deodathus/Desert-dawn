@@ -2,9 +2,6 @@
 
     <div>
 
-        <b-button v-b-toggle.user-creation variant="primary" class="creation-button">Creation +</b-button>
-        <b-collapse visible id="user-creation">
-
             <b-form @submit="onSubmit">
                 <b-row>
 
@@ -168,8 +165,7 @@
                 </b-row>
 
             </b-form>
-
-        </b-collapse>
+        
     </div>
 
 </template>

@@ -5,10 +5,18 @@
             v-show="this.errors">
         </validation-errors>
 
-        <user-create-form :url="url"
-            @addUser="addUser"
-            @emitRecord="addUserToList">
-        </user-create-form>
+        <collapse :name="name">
+
+            <template v-slot:title>
+                Creation +
+            </template>
+
+            <template v-slot:content>
+                <user-create-form :url="url" @addUser="addUser" @emitRecord="addUserToList">
+                </user-create-form>
+            </template>
+
+        </collapse>
 
         <user-list :users="users"
             ref="userList">
@@ -21,7 +29,8 @@
     export default {
         props: [
             'users',
-            'url'
+            'url',
+            'name'
         ],
         data() {
             return {

@@ -14,6 +14,7 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         $this->bindLinks();
+        $this->bindNamesForCollapse();
     }
 
     /**
@@ -31,7 +32,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function bindLinks(): void
     {
-        $this->app->bind('links', function ():array {
+        $this->app->bind('links', function (): array {
             return [
                 [
                     'name' => '<i v-html="rawHtml" class="fas fa-users"></i> Users',
@@ -67,6 +68,23 @@ class AppServiceProvider extends ServiceProvider
                 ],
                 [
                     'name' => '<i class="fas fa-store"></i> Shops'
+                ],
+            ];
+        });
+    }
+
+    /**
+     * Make global variable for collapse.
+     */
+    public function bindNamesForCollapse(): void
+    {
+        $this->app->bind('collapseNames', function (): array {
+            return [
+                'admin' => [
+                    'users' => [
+                        'manage' => 'admin-user-manage',
+                        'manage-all' => 'admin-user-manage-all',
+                    ]
                 ],
             ];
         });

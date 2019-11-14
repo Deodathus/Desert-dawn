@@ -4,7 +4,8 @@
 
     <user-manage
         :users="{{ $users }}"
-        url="{{ route('admin.users.store') }}">
+        url="{{ route('admin.users.store') }}"
+        name="{{ app('collapseNames')['admin']['users']['manage'] }}">
     </user-manage>
 
 @endsection

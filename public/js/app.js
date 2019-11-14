@@ -1999,10 +1999,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['url'],
   data: function data() {
@@ -2093,8 +2089,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['users', 'url'],
+  props: ['users', 'url', 'name'],
   data: function data() {
     return {
       errors: []
@@ -2115,6 +2119,190 @@ __webpack_require__.r(__webpack_exports__);
     },
     addUserToList: function addUserToList(user) {
       this.$refs.userList.pushRecord(user);
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/UserManageAll.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/UserManageAll.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['name']
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/UserManageAllForm.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/UserManageAllForm.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      form: {
+        coins: 0,
+        gems: 0,
+        energy: 0,
+        skillOne: 0,
+        skillTwo: 0,
+        skillThree: 0
+      },
+      description: 'This count will be added to ALL users.'
+    };
+  },
+  methods: {
+    onSubmit: function onSubmit() {
+      console.log('submited');
     }
   }
 });
@@ -2143,6 +2331,55 @@ __webpack_require__.r(__webpack_exports__);
       var errors = Object.values(this.errors);
       errors = errors.flat();
       return errors;
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/utils/Collapse.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/utils/Collapse.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['name'],
+  data: function data() {
+    return {
+      visible: JSON.parse(localStorage.getItem(this.name))
+    };
+  },
+  methods: {
+    toogle: function toogle() {
+      var value = !this.visible;
+      localStorage.setItem(this.name, value.toString());
+      this.visible = value;
     }
   }
 });
@@ -70117,422 +70354,397 @@ var render = function() {
     "div",
     [
       _c(
-        "b-button",
-        {
-          directives: [
-            {
-              name: "b-toggle",
-              rawName: "v-b-toggle.user-creation",
-              modifiers: { "user-creation": true }
-            }
-          ],
-          staticClass: "creation-button",
-          attrs: { variant: "primary" }
-        },
-        [_vm._v("Creation +")]
-      ),
-      _vm._v(" "),
-      _c(
-        "b-collapse",
-        { attrs: { visible: "", id: "user-creation" } },
+        "b-form",
+        { on: { submit: _vm.onSubmit } },
         [
           _c(
-            "b-form",
-            { on: { submit: _vm.onSubmit } },
+            "b-row",
             [
               _c(
-                "b-row",
+                "b-col",
+                { attrs: { cols: "6" } },
                 [
                   _c(
-                    "b-col",
-                    { attrs: { cols: "6" } },
+                    "b-form-group",
+                    {
+                      attrs: {
+                        id: "input-group-user-name",
+                        label: "User's name",
+                        "label-for": "input-user-name"
+                      }
+                    },
                     [
-                      _c(
-                        "b-form-group",
-                        {
-                          attrs: {
-                            id: "input-group-user-name",
-                            label: "User's name",
-                            "label-for": "input-user-name"
-                          }
+                      _c("b-form-input", {
+                        attrs: {
+                          id: "input-user-name",
+                          required: "",
+                          placeholder: "Enter name"
                         },
-                        [
-                          _c("b-form-input", {
-                            attrs: {
-                              id: "input-user-name",
-                              required: "",
-                              placeholder: "Enter name"
-                            },
-                            model: {
-                              value: _vm.form.name,
-                              callback: function($$v) {
-                                _vm.$set(_vm.form, "name", $$v)
-                              },
-                              expression: "form.name"
-                            }
-                          })
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "b-form-group",
-                        {
-                          attrs: {
-                            id: "input-group-user-email",
-                            label: "User's email",
-                            "label-for": "input-user-email"
-                          }
-                        },
-                        [
-                          _c("b-form-input", {
-                            attrs: {
-                              id: "input-user-email",
-                              required: "",
-                              type: "email",
-                              placeholder: "Enter email"
-                            },
-                            model: {
-                              value: _vm.form.email,
-                              callback: function($$v) {
-                                _vm.$set(_vm.form, "email", $$v)
-                              },
-                              expression: "form.email"
-                            }
-                          })
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "b-form-group",
-                        {
-                          attrs: {
-                            id: "input-group-user-password",
-                            label: "User's Password",
-                            "label-for": "input-user-password"
-                          }
-                        },
-                        [
-                          _c("b-form-input", {
-                            attrs: {
-                              id: "input-user-password",
-                              required: "",
-                              type: "password",
-                              placeholder: "Enter password"
-                            },
-                            model: {
-                              value: _vm.form.password,
-                              callback: function($$v) {
-                                _vm.$set(_vm.form, "password", $$v)
-                              },
-                              expression: "form.password"
-                            }
-                          })
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "b-form-group",
-                        {
-                          attrs: {
-                            id: "input-group-user-coins",
-                            label: "User's coins",
-                            "label-for": "input-user-coins"
-                          }
-                        },
-                        [
-                          _c("b-form-input", {
-                            attrs: {
-                              id: "input-user-coins",
-                              placeholder: "Enter coins count"
-                            },
-                            model: {
-                              value: _vm.form.coins,
-                              callback: function($$v) {
-                                _vm.$set(_vm.form, "coins", $$v)
-                              },
-                              expression: "form.coins"
-                            }
-                          })
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "b-form-group",
-                        {
-                          attrs: {
-                            id: "input-group-user-gems",
-                            label: "User's gems",
-                            "label-for": "input-user-gems"
-                          }
-                        },
-                        [
-                          _c("b-form-input", {
-                            attrs: {
-                              id: "input-user-gems",
-                              placeholder: "Enter gems count"
-                            },
-                            model: {
-                              value: _vm.form.gems,
-                              callback: function($$v) {
-                                _vm.$set(_vm.form, "gems", $$v)
-                              },
-                              expression: "form.gems"
-                            }
-                          })
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "b-form-group",
-                        {
-                          attrs: {
-                            id: "input-group-user-energy",
-                            label: "User's energy",
-                            "label-for": "input-user-energy"
-                          }
-                        },
-                        [
-                          _c("b-form-input", {
-                            attrs: {
-                              id: "input-user-energy",
-                              placeholder: "Enter energy count"
-                            },
-                            model: {
-                              value: _vm.form.energy,
-                              callback: function($$v) {
-                                _vm.$set(_vm.form, "energy", $$v)
-                              },
-                              expression: "form.energy"
-                            }
-                          })
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "b-form-group",
-                        {
-                          attrs: {
-                            id: "input-group-user-admin",
-                            label: "Admin",
-                            "label-for": "checkbox-user-admin"
-                          }
-                        },
-                        [
-                          _c("b-form-checkbox", {
-                            model: {
-                              value: _vm.form.isAdmin,
-                              callback: function($$v) {
-                                _vm.$set(_vm.form, "isAdmin", $$v)
-                              },
-                              expression: "form.isAdmin"
-                            }
-                          })
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c("b-button", { attrs: { type: "submit" } }, [
-                        _vm._v("Add")
-                      ])
+                        model: {
+                          value: _vm.form.name,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "name", $$v)
+                          },
+                          expression: "form.name"
+                        }
+                      })
                     ],
                     1
                   ),
                   _vm._v(" "),
                   _c(
-                    "b-col",
-                    { attrs: { cols: "6" } },
+                    "b-form-group",
+                    {
+                      attrs: {
+                        id: "input-group-user-email",
+                        label: "User's email",
+                        "label-for": "input-user-email"
+                      }
+                    },
                     [
-                      _c(
-                        "b-form-group",
-                        {
-                          attrs: {
-                            id: "input-group-user-level",
-                            label: "User's level",
-                            "label-for": "input-user-level"
-                          }
+                      _c("b-form-input", {
+                        attrs: {
+                          id: "input-user-email",
+                          required: "",
+                          type: "email",
+                          placeholder: "Enter email"
                         },
-                        [
-                          _c("b-form-input", {
-                            attrs: {
-                              id: "input-user-level",
-                              placeholder: "Enter level"
-                            },
-                            model: {
-                              value: _vm.form.level,
-                              callback: function($$v) {
-                                _vm.$set(_vm.form, "level", $$v)
-                              },
-                              expression: "form.level"
-                            }
-                          })
-                        ],
-                        1
-                      ),
+                        model: {
+                          value: _vm.form.email,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "email", $$v)
+                          },
+                          expression: "form.email"
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-form-group",
+                    {
+                      attrs: {
+                        id: "input-group-user-password",
+                        label: "User's Password",
+                        "label-for": "input-user-password"
+                      }
+                    },
+                    [
+                      _c("b-form-input", {
+                        attrs: {
+                          id: "input-user-password",
+                          required: "",
+                          type: "password",
+                          placeholder: "Enter password"
+                        },
+                        model: {
+                          value: _vm.form.password,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "password", $$v)
+                          },
+                          expression: "form.password"
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-form-group",
+                    {
+                      attrs: {
+                        id: "input-group-user-coins",
+                        label: "User's coins",
+                        "label-for": "input-user-coins"
+                      }
+                    },
+                    [
+                      _c("b-form-input", {
+                        attrs: {
+                          id: "input-user-coins",
+                          placeholder: "Enter coins count"
+                        },
+                        model: {
+                          value: _vm.form.coins,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "coins", $$v)
+                          },
+                          expression: "form.coins"
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-form-group",
+                    {
+                      attrs: {
+                        id: "input-group-user-gems",
+                        label: "User's gems",
+                        "label-for": "input-user-gems"
+                      }
+                    },
+                    [
+                      _c("b-form-input", {
+                        attrs: {
+                          id: "input-user-gems",
+                          placeholder: "Enter gems count"
+                        },
+                        model: {
+                          value: _vm.form.gems,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "gems", $$v)
+                          },
+                          expression: "form.gems"
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-form-group",
+                    {
+                      attrs: {
+                        id: "input-group-user-energy",
+                        label: "User's energy",
+                        "label-for": "input-user-energy"
+                      }
+                    },
+                    [
+                      _c("b-form-input", {
+                        attrs: {
+                          id: "input-user-energy",
+                          placeholder: "Enter energy count"
+                        },
+                        model: {
+                          value: _vm.form.energy,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "energy", $$v)
+                          },
+                          expression: "form.energy"
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-form-group",
+                    {
+                      attrs: {
+                        id: "input-group-user-admin",
+                        label: "Admin",
+                        "label-for": "checkbox-user-admin"
+                      }
+                    },
+                    [
+                      _c("b-form-checkbox", {
+                        model: {
+                          value: _vm.form.isAdmin,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "isAdmin", $$v)
+                          },
+                          expression: "form.isAdmin"
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("b-button", { attrs: { type: "submit" } }, [_vm._v("Add")])
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "b-col",
+                { attrs: { cols: "6" } },
+                [
+                  _c(
+                    "b-form-group",
+                    {
+                      attrs: {
+                        id: "input-group-user-level",
+                        label: "User's level",
+                        "label-for": "input-user-level"
+                      }
+                    },
+                    [
+                      _c("b-form-input", {
+                        attrs: {
+                          id: "input-user-level",
+                          placeholder: "Enter level"
+                        },
+                        model: {
+                          value: _vm.form.level,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "level", $$v)
+                          },
+                          expression: "form.level"
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-form-group",
+                    {
+                      attrs: {
+                        id: "input-group-user-exp",
+                        label: "User's experience",
+                        "label-for": "input-user-exp"
+                      }
+                    },
+                    [
+                      _c("b-form-input", {
+                        attrs: {
+                          id: "input-user-exp",
+                          placeholder: "Enter experience"
+                        },
+                        model: {
+                          value: _vm.form.exp,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "exp", $$v)
+                          },
+                          expression: "form.exp"
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-form-group",
+                    {
+                      attrs: {
+                        id: "input-group-user-skill-one",
+                        label: "User's first skill",
+                        "label-for": "input-user-skill-one"
+                      }
+                    },
+                    [
+                      _c("b-form-input", {
+                        attrs: {
+                          id: "input-user-skill-one",
+                          placeholder: "Enter count of first skill"
+                        },
+                        model: {
+                          value: _vm.form.skillOne,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "skillOne", $$v)
+                          },
+                          expression: "form.skillOne"
+                        }
+                      }),
                       _vm._v(" "),
                       _c(
-                        "b-form-group",
-                        {
-                          attrs: {
-                            id: "input-group-user-exp",
-                            label: "User's experience",
-                            "label-for": "input-user-exp"
-                          }
-                        },
-                        [
-                          _c("b-form-input", {
-                            attrs: {
-                              id: "input-user-exp",
-                              placeholder: "Enter experience"
-                            },
-                            model: {
-                              value: _vm.form.exp,
-                              callback: function($$v) {
-                                _vm.$set(_vm.form, "exp", $$v)
-                              },
-                              expression: "form.exp"
-                            }
-                          })
-                        ],
-                        1
+                        "label",
+                        { attrs: { for: "input-user-skill-one-damage" } },
+                        [_vm._v("Damage")]
                       ),
                       _vm._v(" "),
-                      _c(
-                        "b-form-group",
-                        {
-                          attrs: {
-                            id: "input-group-user-skill-one",
-                            label: "User's first skill",
-                            "label-for": "input-user-skill-one"
-                          }
+                      _c("b-form-input", {
+                        attrs: { id: "input-user-skill-one-damage" },
+                        model: {
+                          value: _vm.form.skillOneDamage,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "skillOneDamage", $$v)
+                          },
+                          expression: "form.skillOneDamage"
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-form-group",
+                    {
+                      attrs: {
+                        id: "input-group-user-skill-two",
+                        label: "User's second skill",
+                        "label-for": "input-user-skill-two"
+                      }
+                    },
+                    [
+                      _c("b-form-input", {
+                        attrs: {
+                          id: "input-user-skill-two",
+                          placeholder: "Enter count of second skill"
                         },
-                        [
-                          _c("b-form-input", {
-                            attrs: {
-                              id: "input-user-skill-one",
-                              placeholder: "Enter count of first skill"
-                            },
-                            model: {
-                              value: _vm.form.skillOne,
-                              callback: function($$v) {
-                                _vm.$set(_vm.form, "skillOne", $$v)
-                              },
-                              expression: "form.skillOne"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c(
-                            "label",
-                            { attrs: { for: "input-user-skill-one-damage" } },
-                            [_vm._v("Damage")]
-                          ),
-                          _vm._v(" "),
-                          _c("b-form-input", {
-                            attrs: { id: "input-user-skill-one-damage" },
-                            model: {
-                              value: _vm.form.skillOneDamage,
-                              callback: function($$v) {
-                                _vm.$set(_vm.form, "skillOneDamage", $$v)
-                              },
-                              expression: "form.skillOneDamage"
-                            }
-                          })
-                        ],
-                        1
-                      ),
+                        model: {
+                          value: _vm.form.skillTwo,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "skillTwo", $$v)
+                          },
+                          expression: "form.skillTwo"
+                        }
+                      }),
                       _vm._v(" "),
                       _c(
-                        "b-form-group",
-                        {
-                          attrs: {
-                            id: "input-group-user-skill-two",
-                            label: "User's second skill",
-                            "label-for": "input-user-skill-two"
-                          }
-                        },
-                        [
-                          _c("b-form-input", {
-                            attrs: {
-                              id: "input-user-skill-two",
-                              placeholder: "Enter count of second skill"
-                            },
-                            model: {
-                              value: _vm.form.skillTwo,
-                              callback: function($$v) {
-                                _vm.$set(_vm.form, "skillTwo", $$v)
-                              },
-                              expression: "form.skillTwo"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c(
-                            "label",
-                            { attrs: { for: "input-user-skill-two-damage" } },
-                            [_vm._v("Damage")]
-                          ),
-                          _vm._v(" "),
-                          _c("b-form-input", {
-                            attrs: { id: "input-user-skill-two-damage" },
-                            model: {
-                              value: _vm.form.skillTwoDamage,
-                              callback: function($$v) {
-                                _vm.$set(_vm.form, "skillTwoDamage", $$v)
-                              },
-                              expression: "form.skillTwoDamage"
-                            }
-                          })
-                        ],
-                        1
+                        "label",
+                        { attrs: { for: "input-user-skill-two-damage" } },
+                        [_vm._v("Damage")]
                       ),
                       _vm._v(" "),
-                      _c(
-                        "b-form-group",
-                        {
-                          attrs: {
-                            id: "input-group-user-skill-three",
-                            label: "User's three skill",
-                            "label-for": "input-user-skill-three"
-                          }
+                      _c("b-form-input", {
+                        attrs: { id: "input-user-skill-two-damage" },
+                        model: {
+                          value: _vm.form.skillTwoDamage,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "skillTwoDamage", $$v)
+                          },
+                          expression: "form.skillTwoDamage"
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-form-group",
+                    {
+                      attrs: {
+                        id: "input-group-user-skill-three",
+                        label: "User's three skill",
+                        "label-for": "input-user-skill-three"
+                      }
+                    },
+                    [
+                      _c("b-form-input", {
+                        attrs: {
+                          id: "input-user-skill-three",
+                          placeholder: "Enter count of third skill"
                         },
-                        [
-                          _c("b-form-input", {
-                            attrs: {
-                              id: "input-user-skill-three",
-                              placeholder: "Enter count of third skill"
-                            },
-                            model: {
-                              value: _vm.form.skillThree,
-                              callback: function($$v) {
-                                _vm.$set(_vm.form, "skillThree", $$v)
-                              },
-                              expression: "form.skillThree"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c(
-                            "label",
-                            { attrs: { for: "input-user-skill-three-damage" } },
-                            [_vm._v("Damage")]
-                          ),
-                          _vm._v(" "),
-                          _c("b-form-input", {
-                            attrs: { id: "input-user-skill-three-damage" },
-                            model: {
-                              value: _vm.form.skillThreeDamage,
-                              callback: function($$v) {
-                                _vm.$set(_vm.form, "skillThreeDamage", $$v)
-                              },
-                              expression: "form.skillThreeDamage"
-                            }
-                          })
-                        ],
-                        1
-                      )
+                        model: {
+                          value: _vm.form.skillThree,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "skillThree", $$v)
+                          },
+                          expression: "form.skillThree"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        { attrs: { for: "input-user-skill-three-damage" } },
+                        [_vm._v("Damage")]
+                      ),
+                      _vm._v(" "),
+                      _c("b-form-input", {
+                        attrs: { id: "input-user-skill-three-damage" },
+                        model: {
+                          value: _vm.form.skillThreeDamage,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "skillThreeDamage", $$v)
+                          },
+                          expression: "form.skillThreeDamage"
+                        }
+                      })
                     ],
                     1
                   )
@@ -70610,12 +70822,347 @@ var render = function() {
         attrs: { errors: this.errors }
       }),
       _vm._v(" "),
-      _c("user-create-form", {
-        attrs: { url: _vm.url },
-        on: { addUser: _vm.addUser, emitRecord: _vm.addUserToList }
+      _c("collapse", {
+        attrs: { name: _vm.name },
+        scopedSlots: _vm._u([
+          {
+            key: "title",
+            fn: function() {
+              return [_vm._v("\n            Creation +\n        ")]
+            },
+            proxy: true
+          },
+          {
+            key: "content",
+            fn: function() {
+              return [
+                _c("user-create-form", {
+                  attrs: { url: _vm.url },
+                  on: { addUser: _vm.addUser, emitRecord: _vm.addUserToList }
+                })
+              ]
+            },
+            proxy: true
+          }
+        ])
       }),
       _vm._v(" "),
       _c("user-list", { ref: "userList", attrs: { users: _vm.users } })
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/UserManageAll.vue?vue&type=template&id=41708d16&":
+/*!**********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/UserManageAll.vue?vue&type=template&id=41708d16& ***!
+  \**********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("collapse", {
+        attrs: { name: _vm.name },
+        scopedSlots: _vm._u([
+          {
+            key: "title",
+            fn: function() {
+              return [_vm._v("\n            Add +\n        ")]
+            },
+            proxy: true
+          },
+          {
+            key: "content",
+            fn: function() {
+              return [_c("user-manage-all-form")]
+            },
+            proxy: true
+          }
+        ])
+      })
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/UserManageAllForm.vue?vue&type=template&id=13d18cfa&":
+/*!**************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/UserManageAllForm.vue?vue&type=template&id=13d18cfa& ***!
+  \**************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "b-form",
+    { on: { submit: _vm.onSubmit } },
+    [
+      _c(
+        "b-container",
+        { attrs: { fluid: "" } },
+        [
+          _c(
+            "b-row",
+            [
+              _c(
+                "b-col",
+                { attrs: { cols: "3" } },
+                [
+                  _c(
+                    "b-form-group",
+                    {
+                      attrs: {
+                        id: "input-group-all-users-coins",
+                        label: "Add coins",
+                        "label-for": "input-all-users-coins",
+                        description: this.description
+                      }
+                    },
+                    [
+                      _c("b-form-input", {
+                        attrs: {
+                          id: "input-all-users-coins",
+                          placeholder: "Coins"
+                        },
+                        model: {
+                          value: _vm.form.coins,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "coins", $$v)
+                          },
+                          expression: "form.coins"
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "b-col",
+                { attrs: { cols: "3", offset: "1" } },
+                [
+                  _c(
+                    "b-form-group",
+                    {
+                      attrs: {
+                        id: "input-group-all-users-gems",
+                        label: "Add gems",
+                        "label-for": "input-all-users-gems",
+                        description: this.description
+                      }
+                    },
+                    [
+                      _c("b-form-input", {
+                        attrs: {
+                          id: "input-all-users-gems",
+                          placeholder: "Gems"
+                        },
+                        model: {
+                          value: _vm.form.gems,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "gems", $$v)
+                          },
+                          expression: "form.gems"
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "b-col",
+                { attrs: { cols: "3", offset: "1" } },
+                [
+                  _c(
+                    "b-form-group",
+                    {
+                      attrs: {
+                        id: "input-group-all-users-energy",
+                        label: "Add energy",
+                        "label-for": "input-all-users-energy",
+                        description: this.description
+                      }
+                    },
+                    [
+                      _c("b-form-input", {
+                        attrs: {
+                          id: "input-all-users-energy",
+                          placeholder: "Energy"
+                        },
+                        model: {
+                          value: _vm.form.energy,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "energy", $$v)
+                          },
+                          expression: "form.energy"
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "b-container",
+        { attrs: { fluid: "" } },
+        [
+          _c(
+            "b-row",
+            [
+              _c(
+                "b-col",
+                { attrs: { cols: "3" } },
+                [
+                  _c(
+                    "b-form-group",
+                    {
+                      attrs: {
+                        id: "input-all-users-skill-one",
+                        label: "Add skill one",
+                        "label-for": "input-all-users-skill-one",
+                        description: this.description
+                      }
+                    },
+                    [
+                      _c("b-form-input", {
+                        attrs: {
+                          id: "input-all-users-skill-one",
+                          placeholder: "Skill One"
+                        },
+                        model: {
+                          value: _vm.form.skillOne,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "skillOne", $$v)
+                          },
+                          expression: "form.skillOne"
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "b-col",
+                { attrs: { cols: "3", offset: "1" } },
+                [
+                  _c(
+                    "b-form-group",
+                    {
+                      attrs: {
+                        id: "input-group-all-users-skill-two",
+                        label: "Add skill two",
+                        "label-for": "input-all-users-skill-two",
+                        description: this.description
+                      }
+                    },
+                    [
+                      _c("b-form-input", {
+                        attrs: {
+                          id: "input-all-users-skill-two",
+                          placeholder: "Skill two"
+                        },
+                        model: {
+                          value: _vm.form.skillTwo,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "skillTwo", $$v)
+                          },
+                          expression: "form.skillTwo"
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "b-col",
+                { attrs: { cols: "3", offset: "1" } },
+                [
+                  _c(
+                    "b-form-group",
+                    {
+                      attrs: {
+                        id: "input-group-all-users-skill-three",
+                        label: "Add skill three",
+                        "label-for": "input-all-users-skill-three",
+                        description: this.description
+                      }
+                    },
+                    [
+                      _c("b-form-input", {
+                        attrs: {
+                          id: "input-all-users-skill-three",
+                          placeholder: "Skill three"
+                        },
+                        model: {
+                          value: _vm.form.skillThree,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "skillThree", $$v)
+                          },
+                          expression: "form.skillThree"
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("b-button", { attrs: { type: "submit" } }, [_vm._v("Add")])
+        ],
+        1
+      )
     ],
     1
   )
@@ -70649,6 +71196,67 @@ var render = function() {
         _vm._v(_vm._s(value))
       ])
     }),
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/utils/Collapse.vue?vue&type=template&id=441910f6&":
+/*!*****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/utils/Collapse.vue?vue&type=template&id=441910f6& ***!
+  \*****************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c(
+        "b-button",
+        {
+          staticClass: "creation-button",
+          class: _vm.visible ? null : "collapsed",
+          attrs: {
+            "aria-expanded": _vm.visible ? "true" : "false",
+            "aria-controls": _vm.name,
+            variant: "primary"
+          },
+          on: { click: _vm.toogle }
+        },
+        [_vm._t("title")],
+        2
+      ),
+      _vm._v(" "),
+      _c(
+        "b-collapse",
+        {
+          staticClass: "mt-2",
+          attrs: { id: _vm.name },
+          model: {
+            value: _vm.visible,
+            callback: function($$v) {
+              _vm.visible = $$v
+            },
+            expression: "visible"
+          }
+        },
+        [_vm._t("content")],
+        2
+      )
+    ],
     1
   )
 }
@@ -82870,14 +83478,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var sweetalert2_dist_sweetalert2_min_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(sweetalert2_dist_sweetalert2_min_css__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _sass_app_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../sass/app.scss */ "./resources/sass/app.scss");
 /* harmony import */ var _sass_app_scss__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_sass_app_scss__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _components_admin_AdminLeftBar__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/admin/AdminLeftBar */ "./resources/js/components/admin/AdminLeftBar.vue");
-/* harmony import */ var _components_admin_LeftBarLinks__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/admin/LeftBarLinks */ "./resources/js/components/admin/LeftBarLinks.vue");
-/* harmony import */ var _components_admin_DataCard__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/admin/DataCard */ "./resources/js/components/admin/DataCard.vue");
-/* harmony import */ var _components_admin_List__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/admin/List */ "./resources/js/components/admin/List.vue");
-/* harmony import */ var _components_admin_UserManage__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/admin/UserManage */ "./resources/js/components/admin/UserManage.vue");
-/* harmony import */ var _components_admin_UserCreateForm__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/admin/UserCreateForm */ "./resources/js/components/admin/UserCreateForm.vue");
-/* harmony import */ var _components_admin_UserList__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/admin/UserList */ "./resources/js/components/admin/UserList.vue");
-/* harmony import */ var _components_admin_ValidationErrors__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/admin/ValidationErrors */ "./resources/js/components/admin/ValidationErrors.vue");
+/* harmony import */ var _components_utils_Collapse__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/utils/Collapse */ "./resources/js/components/utils/Collapse.vue");
+/* harmony import */ var _components_admin_AdminLeftBar__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/admin/AdminLeftBar */ "./resources/js/components/admin/AdminLeftBar.vue");
+/* harmony import */ var _components_admin_LeftBarLinks__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/admin/LeftBarLinks */ "./resources/js/components/admin/LeftBarLinks.vue");
+/* harmony import */ var _components_admin_DataCard__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/admin/DataCard */ "./resources/js/components/admin/DataCard.vue");
+/* harmony import */ var _components_admin_List__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/admin/List */ "./resources/js/components/admin/List.vue");
+/* harmony import */ var _components_admin_UserManage__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/admin/UserManage */ "./resources/js/components/admin/UserManage.vue");
+/* harmony import */ var _components_admin_UserCreateForm__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/admin/UserCreateForm */ "./resources/js/components/admin/UserCreateForm.vue");
+/* harmony import */ var _components_admin_UserList__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/admin/UserList */ "./resources/js/components/admin/UserList.vue");
+/* harmony import */ var _components_admin_ValidationErrors__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/admin/ValidationErrors */ "./resources/js/components/admin/ValidationErrors.vue");
+/* harmony import */ var _components_admin_UserManageAll__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/admin/UserManageAll */ "./resources/js/components/admin/UserManageAll.vue");
+/* harmony import */ var _components_admin_UserManageAllForm__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/admin/UserManageAllForm */ "./resources/js/components/admin/UserManageAllForm.vue");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
@@ -82891,7 +83502,10 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(bootstrap_vue__WEBPACK_IMPORTED_M
 
 
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_sweetalert2__WEBPACK_IMPORTED_MODULE_2__["default"]); //ADMIN*********************************************************
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_sweetalert2__WEBPACK_IMPORTED_MODULE_2__["default"]); //UTIL-COMPONENTS***********************************************
+
+
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('collapse', _components_utils_Collapse__WEBPACK_IMPORTED_MODULE_7__["default"]); //ADMIN*********************************************************
 
 
 
@@ -82901,14 +83515,18 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_sweetalert2__WEBPACK_IMPORTED
 
 
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('admin-left-bar', _components_admin_AdminLeftBar__WEBPACK_IMPORTED_MODULE_7__["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('left-bar-links', _components_admin_LeftBarLinks__WEBPACK_IMPORTED_MODULE_8__["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('data-card', _components_admin_DataCard__WEBPACK_IMPORTED_MODULE_9__["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('list', _components_admin_List__WEBPACK_IMPORTED_MODULE_10__["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('user-manage', _components_admin_UserManage__WEBPACK_IMPORTED_MODULE_11__["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('user-create-form', _components_admin_UserCreateForm__WEBPACK_IMPORTED_MODULE_12__["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('user-list', _components_admin_UserList__WEBPACK_IMPORTED_MODULE_13__["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('validation-errors', _components_admin_ValidationErrors__WEBPACK_IMPORTED_MODULE_14__["default"]);
+
+
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('admin-left-bar', _components_admin_AdminLeftBar__WEBPACK_IMPORTED_MODULE_8__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('left-bar-links', _components_admin_LeftBarLinks__WEBPACK_IMPORTED_MODULE_9__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('data-card', _components_admin_DataCard__WEBPACK_IMPORTED_MODULE_10__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('list', _components_admin_List__WEBPACK_IMPORTED_MODULE_11__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('user-manage', _components_admin_UserManage__WEBPACK_IMPORTED_MODULE_12__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('user-create-form', _components_admin_UserCreateForm__WEBPACK_IMPORTED_MODULE_13__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('user-list', _components_admin_UserList__WEBPACK_IMPORTED_MODULE_14__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('validation-errors', _components_admin_ValidationErrors__WEBPACK_IMPORTED_MODULE_15__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('user-manage-all', _components_admin_UserManageAll__WEBPACK_IMPORTED_MODULE_16__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('user-manage-all-form', _components_admin_UserManageAllForm__WEBPACK_IMPORTED_MODULE_17__["default"]);
 var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#app'
 });
@@ -83515,6 +84133,144 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/admin/UserManageAll.vue":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/admin/UserManageAll.vue ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _UserManageAll_vue_vue_type_template_id_41708d16___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UserManageAll.vue?vue&type=template&id=41708d16& */ "./resources/js/components/admin/UserManageAll.vue?vue&type=template&id=41708d16&");
+/* harmony import */ var _UserManageAll_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UserManageAll.vue?vue&type=script&lang=js& */ "./resources/js/components/admin/UserManageAll.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _UserManageAll_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _UserManageAll_vue_vue_type_template_id_41708d16___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _UserManageAll_vue_vue_type_template_id_41708d16___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/admin/UserManageAll.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/UserManageAll.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/admin/UserManageAll.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserManageAll_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./UserManageAll.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/UserManageAll.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserManageAll_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/UserManageAll.vue?vue&type=template&id=41708d16&":
+/*!****************************************************************************************!*\
+  !*** ./resources/js/components/admin/UserManageAll.vue?vue&type=template&id=41708d16& ***!
+  \****************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserManageAll_vue_vue_type_template_id_41708d16___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./UserManageAll.vue?vue&type=template&id=41708d16& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/UserManageAll.vue?vue&type=template&id=41708d16&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserManageAll_vue_vue_type_template_id_41708d16___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserManageAll_vue_vue_type_template_id_41708d16___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/UserManageAllForm.vue":
+/*!*************************************************************!*\
+  !*** ./resources/js/components/admin/UserManageAllForm.vue ***!
+  \*************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _UserManageAllForm_vue_vue_type_template_id_13d18cfa___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UserManageAllForm.vue?vue&type=template&id=13d18cfa& */ "./resources/js/components/admin/UserManageAllForm.vue?vue&type=template&id=13d18cfa&");
+/* harmony import */ var _UserManageAllForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UserManageAllForm.vue?vue&type=script&lang=js& */ "./resources/js/components/admin/UserManageAllForm.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _UserManageAllForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _UserManageAllForm_vue_vue_type_template_id_13d18cfa___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _UserManageAllForm_vue_vue_type_template_id_13d18cfa___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/admin/UserManageAllForm.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/UserManageAllForm.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/components/admin/UserManageAllForm.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserManageAllForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./UserManageAllForm.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/UserManageAllForm.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserManageAllForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/UserManageAllForm.vue?vue&type=template&id=13d18cfa&":
+/*!********************************************************************************************!*\
+  !*** ./resources/js/components/admin/UserManageAllForm.vue?vue&type=template&id=13d18cfa& ***!
+  \********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserManageAllForm_vue_vue_type_template_id_13d18cfa___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./UserManageAllForm.vue?vue&type=template&id=13d18cfa& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/UserManageAllForm.vue?vue&type=template&id=13d18cfa&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserManageAllForm_vue_vue_type_template_id_13d18cfa___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserManageAllForm_vue_vue_type_template_id_13d18cfa___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/admin/ValidationErrors.vue":
 /*!************************************************************!*\
   !*** ./resources/js/components/admin/ValidationErrors.vue ***!
@@ -83579,6 +84335,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ValidationErrors_vue_vue_type_template_id_3a5eaba2___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ValidationErrors_vue_vue_type_template_id_3a5eaba2___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/utils/Collapse.vue":
+/*!****************************************************!*\
+  !*** ./resources/js/components/utils/Collapse.vue ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Collapse_vue_vue_type_template_id_441910f6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Collapse.vue?vue&type=template&id=441910f6& */ "./resources/js/components/utils/Collapse.vue?vue&type=template&id=441910f6&");
+/* harmony import */ var _Collapse_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Collapse.vue?vue&type=script&lang=js& */ "./resources/js/components/utils/Collapse.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Collapse_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Collapse_vue_vue_type_template_id_441910f6___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Collapse_vue_vue_type_template_id_441910f6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/utils/Collapse.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/utils/Collapse.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/components/utils/Collapse.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Collapse_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Collapse.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/utils/Collapse.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Collapse_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/utils/Collapse.vue?vue&type=template&id=441910f6&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/utils/Collapse.vue?vue&type=template&id=441910f6& ***!
+  \***********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Collapse_vue_vue_type_template_id_441910f6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Collapse.vue?vue&type=template&id=441910f6& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/utils/Collapse.vue?vue&type=template&id=441910f6&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Collapse_vue_vue_type_template_id_441910f6___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Collapse_vue_vue_type_template_id_441910f6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

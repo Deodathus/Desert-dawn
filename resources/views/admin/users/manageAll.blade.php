@@ -2,6 +2,7 @@
 
 @section('content')
 
-    Test page
+    <user-manage-all name="{{ app('collapseNames')['admin']['users']['manage-all'] }}">
+    </user-manage-all>
 
 @endsection

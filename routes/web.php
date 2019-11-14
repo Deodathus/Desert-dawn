@@ -15,16 +15,23 @@ use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
 
+    /**
+     * Admin routes
+     */
     Route::middleware('admin')
         ->namespace('Admin')
         ->prefix('admin')
         ->name('admin.')->group(function (): void {
             Route::get('/', 'AdminController@index')->name('home');
 
-            // users
+            /**
+             * Users
+             */
             Route::resource('users', 'AdminUserManageController');
 
-            // users manage all
+            /**
+             * Manage all users
+             */
             Route::get('manage-all/users', 'AdminUserManageController@manageAllIndex')->name('manage.all.users');
     });
 

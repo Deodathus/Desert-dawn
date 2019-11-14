@@ -17,6 +17,11 @@ import '../sass/app.scss'
 
 Vue.use(VueSweetalert2);
 
+//UTIL-COMPONENTS***********************************************
+import Collapse from "./components/utils/Collapse"
+
+Vue.component('collapse', Collapse);
+
 //ADMIN*********************************************************
 import AdminLeftBar from './components/admin/AdminLeftBar'
 import LeftBarLinks from "./components/admin/LeftBarLinks"
@@ -26,6 +31,8 @@ import UserManage from "./components/admin/UserManage"
 import UserCreateForm from "./components/admin/UserCreateForm"
 import UserList from "./components/admin/UserList"
 import ValidationErrors from "./components/admin/ValidationErrors"
+import UserManageAll from "./components/admin/UserManageAll"
+import UserManageAllForm from "./components/admin/UserManageAllForm"
 
 Vue.component('admin-left-bar', AdminLeftBar);
 Vue.component('left-bar-links', LeftBarLinks);
@@ -35,6 +42,8 @@ Vue.component('user-manage', UserManage);
 Vue.component('user-create-form', UserCreateForm);
 Vue.component('user-list', UserList);
 Vue.component('validation-errors', ValidationErrors);
+Vue.component('user-manage-all', UserManageAll);
+Vue.component('user-manage-all-form', UserManageAllForm);
 
 
 const app = new Vue({
