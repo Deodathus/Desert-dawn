@@ -3,6 +3,7 @@
     <div>
 
             <b-form @submit="onSubmit">
+
                 <b-row>
 
                     <b-col cols="6">
@@ -90,7 +91,9 @@
                         <b-button type="submit">Add</b-button>
 
                     </b-col>
+
                     <b-col cols="6">
+
                         <b-form-group
                             id="input-group-user-level"
                             label="User's level"
@@ -160,12 +163,13 @@
                                 v-model="form.skillThreeDamage">
                             </b-form-input>
                         </b-form-group>
+
                     </b-col>
 
                 </b-row>
 
             </b-form>
-        
+
     </div>
 
 </template>

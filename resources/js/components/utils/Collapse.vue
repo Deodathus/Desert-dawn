@@ -9,11 +9,15 @@
             :aria-controls="name"
             variant="primary"
             @click="toogle">
+
             <slot name="title"></slot>
+
         </b-button>
 
         <b-collapse :id="name" v-model="visible" class="mt-2">
+
             <slot name="content"></slot>
+
         </b-collapse>
 
     </div>
