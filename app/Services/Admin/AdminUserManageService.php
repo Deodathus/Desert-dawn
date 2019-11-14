@@ -4,7 +4,6 @@ namespace App\Services\Admin;
 
 use App\Exceptions\Users\UserManageAllException;
 use App\Exceptions\Users\UserManageException;
-use App\Http\Requests\Users\UserAddCurrencyRequest;
 use App\Http\Requests\Users\UserCreateRequest;
 use App\Models\User\User;
 use Illuminate\Support\Facades\DB;
@@ -54,25 +53,18 @@ class AdminUserManageService
         }
     }
 
-    public function prepareCurrenciesListFromRequest(UserAddCurrencyRequest $request): array
-    {
-        return [
-            'coins' => 100,
-        ];
-    }
-
     /**
-     * @param \App\Http\Requests\Users\UserAddCurrencyRequest $request
+     * @param array $currencies
      *
      * @throws \App\Exceptions\Users\UserManageAllException
      */
-    public function addCurrencyToAllUsers(UserAddCurrencyRequest $request)
+    public function addCurrencyToAllUsers(array $currencies)
     {
-        $currencies = $this->prepareCurrenciesListFromRequest($request);
-
         try {
             foreach ($currencies as $currency => $value) {
-                DB::update('update users set ' . $currency . ' = ' . $currency . ' + '  . $value . ' where 1 = 1');
+                if ($value > 0) {
+                    DB::update('update users set ' . $currency . ' = ' . $currency . ' + '  . $value . ' where 1 = 1');
+                }
             }
         } catch (\Exception $exception) {
             throw new UserManageAllException('Was error during update.');

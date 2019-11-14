@@ -45,6 +45,8 @@ Vue.component('validation-errors', ValidationErrors);
 Vue.component('user-manage-all', UserManageAll);
 Vue.component('user-manage-all-form', UserManageAllForm);
 
+//**************************************************************
+
 
 const app = new Vue({
     el: '#app',

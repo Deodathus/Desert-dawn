@@ -42,7 +42,7 @@ class AppServiceProvider extends ServiceProvider
                             'text' => 'Manage',
                         ],
                         [
-                            'href' => route('admin.manage.all.users'),
+                            'href' => route('admin.manage.all.users.index'),
                             'text' => 'Manage All',
                         ],
                     ],

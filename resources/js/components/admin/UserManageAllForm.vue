@@ -1,4 +1,5 @@
 <template>
+
     <b-form @submit="onSubmit">
 
         <b-container fluid>
@@ -70,7 +71,7 @@
                         :description="this.description">
                         <b-form-input
                             id="input-all-users-skill-one"
-                            v-model="form.skillOne"
+                            v-model="form.skill_one"
                             placeholder="Skill One">
                         </b-form-input>
                     </b-form-group>
@@ -86,7 +87,7 @@
                         :description="this.description">
                         <b-form-input
                             id="input-all-users-skill-two"
-                            v-model="form.skillTwo"
+                            v-model="form.skill_two"
                             placeholder="Skill two">
                         </b-form-input>
                     </b-form-group>
@@ -102,7 +103,7 @@
                         :description="this.description">
                         <b-form-input
                             id="input-all-users-skill-three"
-                            v-model="form.skillThree"
+                            v-model="form.skill_three"
                             placeholder="Skill three">
                         </b-form-input>
                     </b-form-group>
@@ -116,6 +117,7 @@
         </b-container>
 
     </b-form>
+
 </template>
 
 <script>
@@ -126,16 +128,18 @@
                     coins: 0,
                     gems: 0,
                     energy: 0,
-                    skillOne: 0,
-                    skillTwo: 0,
-                    skillThree: 0
+                    skill_one: 0,
+                    skill_two: 0,
+                    skill_three: 0
                 },
                 description: 'This count will be added to ALL users.',
             }
         },
         methods: {
-            onSubmit() {
-                console.log('submited');
+            onSubmit(event) {
+                event.preventDefault();
+
+                this.$emit('addCurrencies', this.form);
             }
         }
     }

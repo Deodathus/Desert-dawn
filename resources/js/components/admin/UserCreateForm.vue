@@ -196,7 +196,6 @@
                     skillThreeDamage: 1,
                     isAdmin: false
                 },
-                errors: [],
             }
         },
         methods: {

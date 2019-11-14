@@ -32,7 +32,8 @@ Auth::routes();
             /**
              * Manage all users
              */
-            Route::get('manage-all/users', 'AdminUserManageController@manageAllIndex')->name('manage.all.users');
+            Route::get('manage-all/users', 'AdminUserManageController@manageAllIndex')->name('manage.all.users.index');
+            Route::post('manage-all/users', 'AdminUserManageController@addCurrenciesToAllUsers')->name('manage.all.users.add.currencies');
     });
 
     Route::middleware('auth')->group(function (): void

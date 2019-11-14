@@ -71,7 +71,7 @@ class AdminUserManageController extends Controller
     public function addCurrenciesToAllUsers(UserAddCurrencyRequest $request)
     {
         try {
-            $this->adminUserManageService->addCurrencyToAllUsers($request);
+            $this->adminUserManageService->addCurrencyToAllUsers($request->all());
         } catch (UserManageAllException $exception) {
             return response()->json([
                 $exception->getMessage()

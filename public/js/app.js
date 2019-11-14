@@ -2023,8 +2023,7 @@ __webpack_require__.r(__webpack_exports__);
         skillThree: 1,
         skillThreeDamage: 1,
         isAdmin: false
-      },
-      errors: []
+      }
     };
   },
   methods: {
@@ -2158,8 +2157,31 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['name']
+  props: ['name', 'url'],
+  data: function data() {
+    return {
+      errors: []
+    };
+  },
+  methods: {
+    addCurrencies: function addCurrencies(form) {
+      var _this = this;
+
+      axios.post(this.url, form).then(function (response) {
+        _this.$swal(response.data.success);
+      })["catch"](function (error) {
+        if (error.response.status === 422) {
+          _this.errors = error.response.data.errors;
+        }
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -2293,6 +2315,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2300,16 +2324,17 @@ __webpack_require__.r(__webpack_exports__);
         coins: 0,
         gems: 0,
         energy: 0,
-        skillOne: 0,
-        skillTwo: 0,
-        skillThree: 0
+        skill_one: 0,
+        skill_two: 0,
+        skill_three: 0
       },
       description: 'This count will be added to ALL users.'
     };
   },
   methods: {
-    onSubmit: function onSubmit() {
-      console.log('submited');
+    onSubmit: function onSubmit(event) {
+      event.preventDefault();
+      this.$emit('addCurrencies', this.form);
     }
   }
 });
@@ -70888,6 +70913,18 @@ var render = function() {
   return _c(
     "div",
     [
+      _c("validation-errors", {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: this.errors,
+            expression: "this.errors"
+          }
+        ],
+        attrs: { errors: this.errors }
+      }),
+      _vm._v(" "),
       _c("collapse", {
         attrs: { name: _vm.name },
         scopedSlots: _vm._u([
@@ -70901,7 +70938,11 @@ var render = function() {
           {
             key: "content",
             fn: function() {
-              return [_c("user-manage-all-form")]
+              return [
+                _c("user-manage-all-form", {
+                  on: { addCurrencies: _vm.addCurrencies }
+                })
+              ]
             },
             proxy: true
           }
@@ -71083,11 +71124,11 @@ var render = function() {
                           placeholder: "Skill One"
                         },
                         model: {
-                          value: _vm.form.skillOne,
+                          value: _vm.form.skill_one,
                           callback: function($$v) {
-                            _vm.$set(_vm.form, "skillOne", $$v)
+                            _vm.$set(_vm.form, "skill_one", $$v)
                           },
-                          expression: "form.skillOne"
+                          expression: "form.skill_one"
                         }
                       })
                     ],
@@ -71118,11 +71159,11 @@ var render = function() {
                           placeholder: "Skill two"
                         },
                         model: {
-                          value: _vm.form.skillTwo,
+                          value: _vm.form.skill_two,
                           callback: function($$v) {
-                            _vm.$set(_vm.form, "skillTwo", $$v)
+                            _vm.$set(_vm.form, "skill_two", $$v)
                           },
-                          expression: "form.skillTwo"
+                          expression: "form.skill_two"
                         }
                       })
                     ],
@@ -71153,11 +71194,11 @@ var render = function() {
                           placeholder: "Skill three"
                         },
                         model: {
-                          value: _vm.form.skillThree,
+                          value: _vm.form.skill_three,
                           callback: function($$v) {
-                            _vm.$set(_vm.form, "skillThree", $$v)
+                            _vm.$set(_vm.form, "skill_three", $$v)
                           },
-                          expression: "form.skillThree"
+                          expression: "form.skill_three"
                         }
                       })
                     ],
@@ -83537,7 +83578,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('user-create-form', _compon
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('user-list', _components_admin_UserList__WEBPACK_IMPORTED_MODULE_14__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('validation-errors', _components_admin_ValidationErrors__WEBPACK_IMPORTED_MODULE_15__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('user-manage-all', _components_admin_UserManageAll__WEBPACK_IMPORTED_MODULE_16__["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('user-manage-all-form', _components_admin_UserManageAllForm__WEBPACK_IMPORTED_MODULE_17__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('user-manage-all-form', _components_admin_UserManageAllForm__WEBPACK_IMPORTED_MODULE_17__["default"]); //**************************************************************
+
 var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#app'
 });

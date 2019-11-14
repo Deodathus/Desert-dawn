@@ -41,10 +41,12 @@
             addUser(form) {
                 this.errors = [];
 
-                axios.post(this.url, form).then((response) => {
-                    this.$swal(response.data.success);
-                }).catch(error => {
-                    if (error.response.status === 422){
+                axios.post(this.url, form)
+                    .then((response) => {
+                        this.$swal(response.data.success);
+                    })
+                    .catch(error => {
+                    if (error.response.status === 422) {
                         this.errors = error.response.data.errors;
                     }
                 });
