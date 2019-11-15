@@ -48,6 +48,13 @@ Vue.component('user-list', UserList);
 Vue.component('user-manage-all', UserManageAll);
 Vue.component('user-manage-all-form', UserManageAllForm);
 
+//BOSS**********************************************************
+import BossManage from "./components/admin/boss/BossManage"
+import BossCreateForm from "./components/admin/boss/BossCreateForm"
+
+Vue.component('boss-manage', BossManage);
+Vue.component('boss-create-form', BossCreateForm);
+
 //**************************************************************
 
 

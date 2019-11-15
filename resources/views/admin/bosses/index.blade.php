@@ -1,5 +1,8 @@
 @extends('admin.layouts.main')
 
 @section('content')
-    Bosses page
+    <boss-manage
+        url="{{ route('admin.bosses.store') }}"
+        name="{{ app('collapseNames')['admin']['bosses']['manage'] }}">
+    </boss-manage>
 @endsection

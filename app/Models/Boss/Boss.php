@@ -16,7 +16,9 @@ class Boss extends Model
         'armor',
         'reward_gold',
         'reward_exp',
-        'reward_item'
+        'reward_gems',
+        'reward_item',
+        'reward_item_rarity',
     ];
 
     /**

@@ -54,10 +54,10 @@ class AppServiceProvider extends ServiceProvider
                             'href' => route('admin.bosses.index'),
                             'text' => 'Manage',
                         ],
-                        [
-                            'href' => 'tasd',
-                            'text' => 'Bosses',
-                        ],
+//                        [
+//                            'href' => 'tasd',
+//                            'text' => 'Bosses',
+//                        ],
                     ],
                 ],
                 [
@@ -84,7 +84,10 @@ class AppServiceProvider extends ServiceProvider
                     'users' => [
                         'manage' => 'admin-user-manage',
                         'manage-all' => 'admin-user-manage-all',
-                    ]
+                    ],
+                    'bosses' => [
+                        'manage' => 'admin-boss-manage',
+                    ],
                 ],
             ];
         });
