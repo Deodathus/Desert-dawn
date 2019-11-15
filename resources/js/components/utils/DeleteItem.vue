@@ -34,7 +34,26 @@
         },
         methods: {
             deleteItem() {
-                this.$emit('deleteRecord', this.id);
+                this.$swal({
+                    title: 'Are you sure?',
+                    text: 'You can\'t revert your action',
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Yes Delete it!',
+                    cancelButtonText: 'No, Keep it!',
+                    showCloseButton: true,
+                    showLoaderOnConfirm: true
+                }).then((result) => {
+                    if (result.value) {
+                        axios.delete(this.deleteUrl);
+                        this.$emit('deleteRecord', this.id);
+                    }
+                    return result;
+                }).then((result) => {
+                    if (result.value) {
+                        this.$swal('Deleted', 'You successfully deleted it', 'success');
+                    }
+                });
                 //axios
             }
         },

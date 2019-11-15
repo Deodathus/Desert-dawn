@@ -54,11 +54,25 @@ class AdminUserManageService
     }
 
     /**
+     * @param \App\Models\User\User $user
+     *
+     * @throws \App\Exceptions\Users\UserManageException
+     */
+    public function deleteUser(User $user): void
+    {
+        try {
+            $user->delete();
+        } catch (\Exception $exception) {
+            throw new UserManageException('Was error during deliting.');
+        }
+    }
+
+    /**
      * @param array $currencies
      *
      * @throws \App\Exceptions\Users\UserManageAllException
      */
-    public function addCurrencyToAllUsers(array $currencies)
+    public function addCurrencyToAllUsers(array $currencies): void
     {
         try {
             foreach ($currencies as $currency => $value) {

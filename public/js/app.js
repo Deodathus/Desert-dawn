@@ -2629,7 +2629,30 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     deleteItem: function deleteItem() {
-      this.$emit('deleteRecord', this.id); //axios
+      var _this = this;
+
+      this.$swal({
+        title: 'Are you sure?',
+        text: 'You can\'t revert your action',
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes Delete it!',
+        cancelButtonText: 'No, Keep it!',
+        showCloseButton: true,
+        showLoaderOnConfirm: true
+      }).then(function (result) {
+        if (result.value) {
+          axios["delete"](_this.deleteUrl);
+
+          _this.$emit('deleteRecord', _this.id);
+        }
+
+        return result;
+      }).then(function (result) {
+        if (result.value) {
+          _this.$swal('Deleted', 'You successfully deleted it', 'success');
+        }
+      }); //axios
     }
   }
 });

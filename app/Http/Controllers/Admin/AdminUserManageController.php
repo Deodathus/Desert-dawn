@@ -7,6 +7,7 @@ use App\Exceptions\Users\UserManageException;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Users\UserAddCurrencyRequest;
 use App\Http\Requests\Users\UserCreateRequest;
+use App\Models\User\User;
 use App\Services\Admin\AdminUserManageService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\View\View;
@@ -56,6 +57,26 @@ class AdminUserManageController extends Controller
     }
 
     /**
+     * @param \App\Models\User\User $user
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function destroy(User $user): JsonResponse
+    {
+        try {
+            $this->adminUserManageService->deleteUser($user);
+        } catch (UserManageException $exception) {
+            return response()->json([
+                $exception->getMessage()
+            ]);
+        }
+
+        return response()->json([
+            'success' => 'User was deleted.'
+        ]);
+    }
+
+    /**
      * @return \Illuminate\View\View
      */
     public function manageAllIndex(): View
@@ -68,7 +89,7 @@ class AdminUserManageController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function addCurrenciesToAllUsers(UserAddCurrencyRequest $request)
+    public function addCurrenciesToAllUsers(UserAddCurrencyRequest $request): JsonResponse
     {
         try {
             $this->adminUserManageService->addCurrencyToAllUsers($request->all());
