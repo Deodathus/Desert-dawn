@@ -1,6 +1,6 @@
 <template>
     <div>
-        <b-alert v-for="(value, key, index) in validationErrors" show variant="danger">{{ value }}</b-alert>
+        <b-alert v-for="(value, key, index) in validationErrors" v-bind:key="key" show variant="danger">{{ value }}</b-alert>
     </div>
 </template>
 

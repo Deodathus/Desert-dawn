@@ -22,11 +22,15 @@ import DataCard from "./components/utils/DataCard"
 import List from "./components/utils/List"
 import Collapse from "./components/utils/Collapse"
 import ValidationErrors from "./components/utils/ValidationErrors"
+import EditItem from "./components/utils/EditItem"
+import DeleteItem from "./components/utils/DeleteItem"
 
 Vue.component('collapse', Collapse);
 Vue.component('validation-errors', ValidationErrors);
 Vue.component('data-card', DataCard);
 Vue.component('list', List);
+Vue.component('edit-item', EditItem);
+Vue.component('delete-item', DeleteItem);
 
 //ADMIN*********************************************************
 import AdminLeftBar from './components/admin/AdminLeftBar'

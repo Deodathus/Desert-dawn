@@ -19,8 +19,10 @@
 
         </collapse>
 
-        <user-list :users="users"
-            ref="userList">
+        <user-list
+            :users="users"
+            ref="userList"
+            :url="url">
         </user-list>
 
     </div>

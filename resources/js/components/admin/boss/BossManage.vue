@@ -21,8 +21,6 @@
             </template>
 
         </collapse>
-
-        boss list
     </div>
 </template>
 
