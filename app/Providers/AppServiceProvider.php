@@ -51,7 +51,7 @@ class AppServiceProvider extends ServiceProvider
                     'name' => '<i class="fas fa-khanda"></i> Bosses',
                     'links' => [
                         [
-                            'href' => '',
+                            'href' => route('admin.bosses.index'),
                             'text' => 'Manage',
                         ],
                         [

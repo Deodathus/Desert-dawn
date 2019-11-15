@@ -18,30 +18,33 @@ import '../sass/app.scss'
 Vue.use(VueSweetalert2);
 
 //UTIL-COMPONENTS***********************************************
+import DataCard from "./components/utils/DataCard"
+import List from "./components/utils/List"
 import Collapse from "./components/utils/Collapse"
+import ValidationErrors from "./components/utils/ValidationErrors"
 
 Vue.component('collapse', Collapse);
+Vue.component('validation-errors', ValidationErrors);
+Vue.component('data-card', DataCard);
+Vue.component('list', List);
 
 //ADMIN*********************************************************
 import AdminLeftBar from './components/admin/AdminLeftBar'
 import LeftBarLinks from "./components/admin/LeftBarLinks"
-import DataCard from "./components/admin/DataCard"
-import List from "./components/admin/List"
-import UserManage from "./components/admin/UserManage"
-import UserCreateForm from "./components/admin/UserCreateForm"
-import UserList from "./components/admin/UserList"
-import ValidationErrors from "./components/admin/ValidationErrors"
-import UserManageAll from "./components/admin/UserManageAll"
-import UserManageAllForm from "./components/admin/UserManageAllForm"
 
 Vue.component('admin-left-bar', AdminLeftBar);
 Vue.component('left-bar-links', LeftBarLinks);
-Vue.component('data-card', DataCard);
-Vue.component('list', List);
+
+//USER**********************************************************
+import UserManage from "./components/admin/user/UserManage"
+import UserCreateForm from "./components/admin/user/UserCreateForm"
+import UserList from "./components/admin/user/UserList"
+import UserManageAll from "./components/admin/user/UserManageAll"
+import UserManageAllForm from "./components/admin/user/UserManageAllForm"
+
 Vue.component('user-manage', UserManage);
 Vue.component('user-create-form', UserCreateForm);
 Vue.component('user-list', UserList);
-Vue.component('validation-errors', ValidationErrors);
 Vue.component('user-manage-all', UserManageAll);
 Vue.component('user-manage-all-form', UserManageAllForm);
 
