@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Item;
 
+use App\Http\Controllers\Controller;
 use App\Models\Item\Item;
 use App\Services\Card\CardService;
 use App\Services\Item\ItemService;
 use App\Services\User\UserService;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 class ItemController extends Controller

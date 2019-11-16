@@ -51,7 +51,9 @@ Auth::routes();
         /**
          * User routes
          */
-        Route::name('user.')->group(function (): void
+        Route::name('user.')
+            ->namespace('User\\')
+            ->group(function (): void
         {
             Route::get('/', 'UserCharacteristicsController@index')->name('hero');
             Route::get('/update-user-bar', 'UserCharacteristicsController@updateUserBar')->name('update.user.bar');
@@ -60,19 +62,22 @@ Auth::routes();
         /**
          * Boss routes
          */
-        Route::middleware('item.reward.check')->group(function (): void
+        Route::middleware('item.reward.check')
+            ->namespace('Boss\\')
+            ->name('boss.')
+            ->group(function (): void
         {
-            Route::name('boss.')->group(function (): void
-            {
-                Route::get('/boss', 'BossController@index')->name('index')->middleware('hp.check');
-                Route::get('/boss/{boss}', 'BossController@show')->name('show')->middleware('boss.check');
-            });
+            Route::get('/boss', 'BossController@index')->name('index')->middleware('hp.check');
+            Route::get('/boss/{boss}', 'BossController@show')->name('show')->middleware('boss.check');
         });
 
         /**
          * Attack routes
          */
-        Route::middleware('item.reward.check')->group(function (): void
+        Route::middleware('item.reward.check')
+            ->name('attack.')
+            ->namespace('Boss\\')
+            ->group(function (): void
         {
             Route::name('attack.')->group(function (): void
             {
@@ -90,7 +95,9 @@ Auth::routes();
         /**
          * Item routes
          */
-        Route::name('item.')->group(function (): void
+        Route::name('item.')
+            ->namespace('Item\\')
+            ->group(function (): void
         {
             Route::patch('/update-activity-status/{item}', 'ItemController@updateCardActiveStatus')->name('change.status');
             Route::get('/item-reward', 'ItemController@getRewardItem')->name('reward');
@@ -99,7 +106,9 @@ Auth::routes();
         /**
          * Shop routes
          */
-        Route::name('shop.')->group(function (): void
+        Route::name('shop.')
+            ->namespace('Shop\\')
+            ->group(function (): void
         {
             Route::get('/shop', 'ShopController@index')->name('index');
             Route::get('/shop/getType', 'ShopController@getType')->name('get.type');
@@ -112,7 +121,9 @@ Auth::routes();
         /**
          * Quest routes.
          */
-        Route::name('quest.')->group(function (): void
+        Route::name('quest.')
+            ->namespace('Quest\\')
+            ->group(function (): void
         {
             Route::get('/quests', 'QuestController@index')->name('index');
             Route::get('/quest/{quest}', 'QuestController@show')->name('show');
@@ -122,7 +133,9 @@ Auth::routes();
         /**
          * Mission routes.
          */
-        Route::name('mission.')->group(function (): void
+        Route::name('mission.')
+            ->namespace('Quest\\')
+            ->group(function (): void
         {
             Route::get('/quests/{quest}/missions', 'MissionController@index')->name('index');
             Route::get('/quest/{mission}/done', 'MissionController@doneMission')->name('done');

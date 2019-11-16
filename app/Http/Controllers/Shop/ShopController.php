@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Shop;
 
+use App\Http\Controllers\Controller;
 use App\Models\Item\Item;
 use App\Services\Shop\ShopService;
 use Illuminate\Http\RedirectResponse;

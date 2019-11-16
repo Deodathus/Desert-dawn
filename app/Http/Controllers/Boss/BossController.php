@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Boss;
 
+use App\Http\Controllers\Controller;
 use App\Models\Boss\Boss;
 use App\Services\Boss\BossService;
 use App\Services\Card\CardService;

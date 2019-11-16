@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Quest;
 
+use App\Http\Controllers\Controller;
 use App\Models\Quest\Mission;
 use App\Services\Quest\MissionService;
 use App\Services\User\UserService;
