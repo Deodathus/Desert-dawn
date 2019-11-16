@@ -35,9 +35,11 @@ Vue.component('delete-item', DeleteItem);
 //ADMIN*********************************************************
 import AdminLeftBar from './components/admin/AdminLeftBar'
 import LeftBarLinks from "./components/admin/LeftBarLinks"
+import MainLink from "./components/admin/MainLink"
 
 Vue.component('admin-left-bar', AdminLeftBar);
 Vue.component('left-bar-links', LeftBarLinks);
+Vue.component('main-link', MainLink);
 
 //USER**********************************************************
 import UserManage from "./components/admin/user/UserManage"

@@ -8,7 +8,7 @@
             :aria-expanded="visible ? 'true' : 'false'"
             :aria-controls="name"
             variant="primary"
-            @click="toogle">
+            @click="toggle">
 
             <slot name="title"></slot>
 
@@ -33,7 +33,7 @@
             }
         },
         methods: {
-            toogle() {
+            toggle() {
                 let value = !this.visible;
 
                 localStorage.setItem(this.name, value.toString());
