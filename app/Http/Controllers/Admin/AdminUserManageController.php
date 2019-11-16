@@ -8,20 +8,20 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Users\UserAddCurrencyRequest;
 use App\Http\Requests\Users\UserCreateRequest;
 use App\Models\User\User;
-use App\Services\Admin\AdminUserManageService;
+use App\Services\Admin\User\AdminUserManageService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\View\View;
 
 class AdminUserManageController extends Controller
 {
     /**
-     * @var \App\Services\Admin\AdminUserManageService $adminUserManageService
+     * @var \App\Services\Admin\User\AdminUserManageService $adminUserManageService
      */
     private $adminUserManageService;
 
     /**
      * AdminUserManageController constructor.
-     * @param \App\Services\Admin\AdminUserManageService $adminUserManageService
+     * @param \App\Services\Admin\User\AdminUserManageService $adminUserManageService
      */
     public function __construct(AdminUserManageService $adminUserManageService)
     {

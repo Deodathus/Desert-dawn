@@ -37,7 +37,7 @@ class User extends Authenticatable
         'skill_1',
         'skill_2',
         'skill_3',
-        'is_active',
+        'is_admin',
     ];
 
     /**
