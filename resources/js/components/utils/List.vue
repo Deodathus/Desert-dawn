@@ -30,6 +30,8 @@
         },
         methods: {
             pushRecord(record) {
+                console.log('add');
+                console.log(record);
                 this.items.push(record);
             },
             removeRecord(id) {

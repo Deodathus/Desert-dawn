@@ -1930,10 +1930,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['url'],
   data: function data() {
@@ -1954,6 +1950,37 @@ __webpack_require__.r(__webpack_exports__);
       event.preventDefault();
       this.$emit('addBoss', this.form);
     }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/boss/BossList.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/boss/BossList.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['items', 'url'],
+  data: function data() {
+    return {
+      fields: ['id', 'name', 'hp', 'armor', 'reward_gold', 'reward_gems', 'reward_exp', 'reward_item_rarity', 'options']
+    };
   }
 });
 
@@ -1994,8 +2021,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['bosses', 'url', 'name'],
+  props: ['bosses', 'url', 'name', 'items'],
   data: function data() {
     return {
       errors: []
@@ -2790,6 +2822,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     pushRecord: function pushRecord(record) {
+      console.log('add');
+      console.log(record);
       this.items.push(record);
     },
     removeRecord: function removeRecord(id) {
@@ -70743,232 +70777,223 @@ var render = function() {
     "div",
     [
       _c(
-        "b-container",
-        { attrs: { fluid: "" } },
+        "b-form",
+        { attrs: { id: "boss-creation-form" }, on: { submit: _vm.onSubmit } },
         [
           _c(
-            "b-form",
-            { on: { submit: _vm.onSubmit } },
+            "b-row",
             [
               _c(
-                "b-row",
+                "b-col",
+                { attrs: { cols: "3" } },
                 [
                   _c(
-                    "b-col",
-                    { attrs: { cols: "3" } },
+                    "b-form-group",
+                    {
+                      attrs: {
+                        id: "input-group-boss-name",
+                        label: "Boss's name",
+                        "label-for": "input-boss-name"
+                      }
+                    },
                     [
-                      _c(
-                        "b-form-group",
-                        {
-                          attrs: {
-                            id: "input-group-boss-name",
-                            label: "Boss's name",
-                            "label-for": "input-boss-name"
-                          }
+                      _c("b-form-input", {
+                        attrs: {
+                          id: "input-boss-name",
+                          required: "",
+                          placeholder: "Enter name"
                         },
-                        [
-                          _c("b-form-input", {
-                            attrs: {
-                              id: "input-boss-name",
-                              required: "",
-                              placeholder: "Enter name"
-                            },
-                            model: {
-                              value: _vm.form.name,
-                              callback: function($$v) {
-                                _vm.$set(_vm.form, "name", $$v)
-                              },
-                              expression: "form.name"
-                            }
-                          })
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "b-form-group",
-                        {
-                          attrs: {
-                            id: "input-group-boss-hp",
-                            label: "Boss's hp",
-                            "label-for": "input-boss-hp"
-                          }
-                        },
-                        [
-                          _c("b-form-input", {
-                            attrs: {
-                              id: "input-boss-hp",
-                              required: "",
-                              placeholder: "Enter hp"
-                            },
-                            model: {
-                              value: _vm.form.hp,
-                              callback: function($$v) {
-                                _vm.$set(_vm.form, "hp", $$v)
-                              },
-                              expression: "form.hp"
-                            }
-                          })
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "b-form-group",
-                        {
-                          attrs: {
-                            id: "input-group-boss-armor",
-                            label: "Boss's armor",
-                            "label-for": "input-boss-armor"
-                          }
-                        },
-                        [
-                          _c("b-form-input", {
-                            attrs: {
-                              id: "input-boss-armor",
-                              required: "",
-                              placeholder: "Enter armor"
-                            },
-                            model: {
-                              value: _vm.form.armor,
-                              callback: function($$v) {
-                                _vm.$set(_vm.form, "armor", $$v)
-                              },
-                              expression: "form.armor"
-                            }
-                          })
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c("b-button", { attrs: { type: "submit" } }, [
-                        _vm._v("Add")
-                      ])
+                        model: {
+                          value: _vm.form.name,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "name", $$v)
+                          },
+                          expression: "form.name"
+                        }
+                      })
                     ],
                     1
                   ),
                   _vm._v(" "),
                   _c(
-                    "b-col",
-                    { attrs: { cols: "3", offset: "1" } },
+                    "b-form-group",
+                    {
+                      attrs: {
+                        id: "input-group-boss-hp",
+                        label: "Boss's hp",
+                        "label-for": "input-boss-hp"
+                      }
+                    },
                     [
-                      _c(
-                        "b-form-group",
-                        {
-                          attrs: {
-                            id: "input-group-boss-reward-gold",
-                            label: "Enter gold count",
-                            "label-for": "input-boss-reward-gold"
-                          }
+                      _c("b-form-input", {
+                        attrs: {
+                          id: "input-boss-hp",
+                          required: "",
+                          placeholder: "Enter hp"
                         },
-                        [
-                          _c("b-form-input", {
-                            attrs: {
-                              id: "input-boss-reward-gold",
-                              required: "",
-                              placeholder: "Enter gold count"
-                            },
-                            model: {
-                              value: _vm.form.reward_gold,
-                              callback: function($$v) {
-                                _vm.$set(_vm.form, "reward_gold", $$v)
-                              },
-                              expression: "form.reward_gold"
-                            }
-                          })
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "b-form-group",
-                        {
-                          attrs: {
-                            id: "input-group-boss-reward-gems",
-                            label: "Enter gems count",
-                            "label-for": "input-boss-reward-gems"
-                          }
-                        },
-                        [
-                          _c("b-form-input", {
-                            attrs: {
-                              id: "input-boss-reward-gems",
-                              required: "",
-                              placeholder: "Enter gems count"
-                            },
-                            model: {
-                              value: _vm.form.reward_gems,
-                              callback: function($$v) {
-                                _vm.$set(_vm.form, "reward_gems", $$v)
-                              },
-                              expression: "form.reward_gems"
-                            }
-                          })
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "b-form-group",
-                        {
-                          attrs: {
-                            id: "input-group-boss-reward-exp",
-                            label: "Enter exp count",
-                            "label-for": "input-boss-reward-exp"
-                          }
-                        },
-                        [
-                          _c("b-form-input", {
-                            attrs: {
-                              id: "input-bpss=reward-exp",
-                              required: "",
-                              placeholder: "Enter exp count"
-                            },
-                            model: {
-                              value: _vm.form.reward_exp,
-                              callback: function($$v) {
-                                _vm.$set(_vm.form, "reward_exp", $$v)
-                              },
-                              expression: "form.reward_exp"
-                            }
-                          })
-                        ],
-                        1
-                      )
+                        model: {
+                          value: _vm.form.hp,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "hp", $$v)
+                          },
+                          expression: "form.hp"
+                        }
+                      })
                     ],
                     1
                   ),
                   _vm._v(" "),
                   _c(
-                    "b-col",
-                    { attrs: { cols: "3", offset: "1" } },
+                    "b-form-group",
+                    {
+                      attrs: {
+                        id: "input-group-boss-armor",
+                        label: "Boss's armor",
+                        "label-for": "input-boss-armor"
+                      }
+                    },
                     [
-                      _c(
-                        "b-form-group",
-                        {
-                          attrs: {
-                            id: "input-group-boss-reward-item-rarity",
-                            label: "Enter item rarity",
-                            "label-for": "input-boss-reward-item-rarity"
-                          }
+                      _c("b-form-input", {
+                        attrs: {
+                          id: "input-boss-armor",
+                          required: "",
+                          placeholder: "Enter armor"
                         },
-                        [
-                          _c("b-form-input", {
-                            attrs: {
-                              id: "input-boss-reward-item-rarity",
-                              placeholder: "Enter item rarity"
-                            },
-                            model: {
-                              value: _vm.form.reward_item_rarity,
-                              callback: function($$v) {
-                                _vm.$set(_vm.form, "reward_item_rarity", $$v)
-                              },
-                              expression: "form.reward_item_rarity"
-                            }
-                          })
-                        ],
-                        1
-                      )
+                        model: {
+                          value: _vm.form.armor,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "armor", $$v)
+                          },
+                          expression: "form.armor"
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("b-button", { attrs: { type: "submit" } }, [_vm._v("Add")])
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "b-col",
+                { attrs: { cols: "3", offset: "1" } },
+                [
+                  _c(
+                    "b-form-group",
+                    {
+                      attrs: {
+                        id: "input-group-boss-reward-gold",
+                        label: "Enter gold count",
+                        "label-for": "input-boss-reward-gold"
+                      }
+                    },
+                    [
+                      _c("b-form-input", {
+                        attrs: {
+                          id: "input-boss-reward-gold",
+                          required: "",
+                          placeholder: "Enter gold count"
+                        },
+                        model: {
+                          value: _vm.form.reward_gold,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "reward_gold", $$v)
+                          },
+                          expression: "form.reward_gold"
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-form-group",
+                    {
+                      attrs: {
+                        id: "input-group-boss-reward-gems",
+                        label: "Enter gems count",
+                        "label-for": "input-boss-reward-gems"
+                      }
+                    },
+                    [
+                      _c("b-form-input", {
+                        attrs: {
+                          id: "input-boss-reward-gems",
+                          required: "",
+                          placeholder: "Enter gems count"
+                        },
+                        model: {
+                          value: _vm.form.reward_gems,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "reward_gems", $$v)
+                          },
+                          expression: "form.reward_gems"
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-form-group",
+                    {
+                      attrs: {
+                        id: "input-group-boss-reward-exp",
+                        label: "Enter exp count",
+                        "label-for": "input-boss-reward-exp"
+                      }
+                    },
+                    [
+                      _c("b-form-input", {
+                        attrs: {
+                          id: "input-bpss=reward-exp",
+                          required: "",
+                          placeholder: "Enter exp count"
+                        },
+                        model: {
+                          value: _vm.form.reward_exp,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "reward_exp", $$v)
+                          },
+                          expression: "form.reward_exp"
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "b-col",
+                { attrs: { cols: "3", offset: "1" } },
+                [
+                  _c(
+                    "b-form-group",
+                    {
+                      attrs: {
+                        id: "input-group-boss-reward-item-rarity",
+                        label: "Enter item rarity",
+                        "label-for": "input-boss-reward-item-rarity"
+                      }
+                    },
+                    [
+                      _c("b-form-input", {
+                        attrs: {
+                          id: "input-boss-reward-item-rarity",
+                          placeholder: "Enter item rarity"
+                        },
+                        model: {
+                          value: _vm.form.reward_item_rarity,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "reward_item_rarity", $$v)
+                          },
+                          expression: "form.reward_item_rarity"
+                        }
+                      })
                     ],
                     1
                   )
@@ -70984,6 +71009,33 @@ var render = function() {
     ],
     1
   )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/boss/BossList.vue?vue&type=template&id=c328e21c&scoped=true&":
+/*!**********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/boss/BossList.vue?vue&type=template&id=c328e21c&scoped=true& ***!
+  \**********************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("list", {
+    ref: "list",
+    attrs: { items: _vm.items, fields: _vm.fields, url: _vm.url }
+  })
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -71040,7 +71092,9 @@ var render = function() {
             proxy: true
           }
         ])
-      })
+      }),
+      _vm._v(" "),
+      _c("boss-list", { attrs: { items: _vm.items } })
     ],
     1
   )
@@ -84416,6 +84470,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_admin_user_UserManageAllForm__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/admin/user/UserManageAllForm */ "./resources/js/components/admin/user/UserManageAllForm.vue");
 /* harmony import */ var _components_admin_boss_BossManage__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/admin/boss/BossManage */ "./resources/js/components/admin/boss/BossManage.vue");
 /* harmony import */ var _components_admin_boss_BossCreateForm__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/admin/boss/BossCreateForm */ "./resources/js/components/admin/boss/BossCreateForm.vue");
+/* harmony import */ var _components_admin_boss_BossList__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/admin/boss/BossList */ "./resources/js/components/admin/boss/BossList.vue");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
@@ -84464,8 +84519,10 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('user-manage-all-form', _co
 
 
 
+
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('boss-manage', _components_admin_boss_BossManage__WEBPACK_IMPORTED_MODULE_21__["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('boss-create-form', _components_admin_boss_BossCreateForm__WEBPACK_IMPORTED_MODULE_22__["default"]); //**************************************************************
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('boss-create-form', _components_admin_boss_BossCreateForm__WEBPACK_IMPORTED_MODULE_22__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('boss-list', _components_admin_boss_BossList__WEBPACK_IMPORTED_MODULE_23__["default"]); //**************************************************************
 
 var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#app'
@@ -84861,6 +84918,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BossCreateForm_vue_vue_type_template_id_4c9bb434___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BossCreateForm_vue_vue_type_template_id_4c9bb434___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/boss/BossList.vue":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/admin/boss/BossList.vue ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _BossList_vue_vue_type_template_id_c328e21c_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./BossList.vue?vue&type=template&id=c328e21c&scoped=true& */ "./resources/js/components/admin/boss/BossList.vue?vue&type=template&id=c328e21c&scoped=true&");
+/* harmony import */ var _BossList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./BossList.vue?vue&type=script&lang=js& */ "./resources/js/components/admin/boss/BossList.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _BossList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _BossList_vue_vue_type_template_id_c328e21c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _BossList_vue_vue_type_template_id_c328e21c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "c328e21c",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/admin/boss/BossList.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/boss/BossList.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/admin/boss/BossList.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_BossList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./BossList.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/boss/BossList.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_BossList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/boss/BossList.vue?vue&type=template&id=c328e21c&scoped=true&":
+/*!****************************************************************************************************!*\
+  !*** ./resources/js/components/admin/boss/BossList.vue?vue&type=template&id=c328e21c&scoped=true& ***!
+  \****************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BossList_vue_vue_type_template_id_c328e21c_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./BossList.vue?vue&type=template&id=c328e21c&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/boss/BossList.vue?vue&type=template&id=c328e21c&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BossList_vue_vue_type_template_id_c328e21c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BossList_vue_vue_type_template_id_c328e21c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

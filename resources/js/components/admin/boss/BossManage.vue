@@ -21,6 +21,11 @@
             </template>
 
         </collapse>
+
+        <boss-list
+            :items="items">
+        </boss-list>
+
     </div>
 </template>
 
@@ -29,7 +34,8 @@
         props: [
             'bosses',
             'url',
-            'name'
+            'name',
+            'items'
         ],
         data() {
             return {

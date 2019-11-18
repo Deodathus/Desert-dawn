@@ -79,12 +79,9 @@ Auth::routes();
             ->namespace('Boss\\')
             ->group(function (): void
         {
-            Route::name('attack.')->group(function (): void
-            {
-                Route::get('/boss/{boss}/firstSkill', 'BossController@firstSkill')->name('first');
-                Route::get('/boss/{boss}/secondSkill', 'BossController@secondSkill')->name('second');
-                Route::get('/boss/{boss}/thirdSkill', 'BossController@thirdSkill')->name('third');
-            });
+            Route::get('/boss/{boss}/firstSkill', 'BossController@firstSkill')->name('first');
+            Route::get('/boss/{boss}/secondSkill', 'BossController@secondSkill')->name('second');
+            Route::get('/boss/{boss}/thirdSkill', 'BossController@thirdSkill')->name('third');
         });
 
         /**
