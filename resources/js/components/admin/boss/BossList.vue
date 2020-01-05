@@ -29,7 +29,12 @@
                     'options'
                 ],
             }
-        }
+        },
+        methods: {
+            pushRecord(record) {
+                this.$refs.list.pushRecord(record);
+            }
+        },
     }
 </script>
 

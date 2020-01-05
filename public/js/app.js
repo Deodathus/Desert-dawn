@@ -1981,6 +1981,11 @@ __webpack_require__.r(__webpack_exports__);
     return {
       fields: ['id', 'name', 'hp', 'armor', 'reward_gold', 'reward_gems', 'reward_exp', 'reward_item_rarity', 'options']
     };
+  },
+  methods: {
+    pushRecord: function pushRecord(record) {
+      this.$refs.list.pushRecord(record);
+    }
   }
 });
 
@@ -2026,6 +2031,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['bosses', 'url', 'name', 'items'],
   data: function data() {
@@ -2040,6 +2046,8 @@ __webpack_require__.r(__webpack_exports__);
       this.errors = [];
       axios.post(this.url, form).then(function (response) {
         _this.$swal(response.data.success);
+
+        _this.$refs.bossList.pushRecord(form);
       })["catch"](function (error) {
         if (error.response.status === 422) {
           _this.errors = error.response.data.errors;
@@ -2263,7 +2271,6 @@ __webpack_require__.r(__webpack_exports__);
     onSubmit: function onSubmit(event) {
       event.preventDefault();
       this.$emit('addUser', this.form);
-      this.$emit('emitRecord', this.form);
     }
   }
 });
@@ -2358,14 +2365,13 @@ __webpack_require__.r(__webpack_exports__);
       this.errors = [];
       axios.post(this.url, form).then(function (response) {
         _this.$swal(response.data.success);
+
+        _this.$refs.userList.pushRecord(form);
       })["catch"](function (error) {
         if (error.response.status === 422) {
           _this.errors = error.response.data.errors;
         }
       });
-    },
-    addUserToList: function addUserToList(user) {
-      this.$refs.userList.pushRecord(user);
     }
   }
 });
@@ -2820,10 +2826,13 @@ __webpack_require__.r(__webpack_exports__);
     fields: {},
     url: ''
   },
+  data: function data() {
+    return {
+      itemss: this.items
+    };
+  },
   methods: {
     pushRecord: function pushRecord(record) {
-      console.log('add');
-      console.log(record);
       this.items.push(record);
     },
     removeRecord: function removeRecord(id) {
@@ -70948,7 +70957,7 @@ var render = function() {
                     [
                       _c("b-form-input", {
                         attrs: {
-                          id: "input-bpss=reward-exp",
+                          id: "input-boss-reward-exp",
                           required: "",
                           placeholder: "Enter exp count"
                         },
@@ -71094,7 +71103,7 @@ var render = function() {
         ])
       }),
       _vm._v(" "),
-      _c("boss-list", { attrs: { items: _vm.items } })
+      _c("boss-list", { ref: "bossList", attrs: { items: _vm.items } })
     ],
     1
   )
@@ -71612,7 +71621,7 @@ var render = function() {
               return [
                 _c("user-create-form", {
                   attrs: { url: _vm.url },
-                  on: { addUser: _vm.addUser, emitRecord: _vm.addUserToList }
+                  on: { addUser: _vm.addUser }
                 })
               ]
             },
@@ -72180,7 +72189,6 @@ var render = function() {
     "div",
     [
       _c("b-table", {
-        ref: "table",
         attrs: { striped: "", hover: "", items: _vm.items, fields: _vm.fields },
         scopedSlots: _vm._u([
           {

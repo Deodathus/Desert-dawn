@@ -1,6 +1,6 @@
 <template>
     <div>
-        <b-table striped hover :items="items" :fields="fields" ref="table">
+        <b-table striped hover :items="items" :fields="fields">
 
             <template v-slot:cell(options)="data">
 
@@ -28,10 +28,13 @@
             fields: {},
             url: '',
         },
+        data() {
+            return {
+                itemss: this.items,
+            };
+        },
         methods: {
             pushRecord(record) {
-                console.log('add');
-                console.log(record);
                 this.items.push(record);
             },
             removeRecord(id) {

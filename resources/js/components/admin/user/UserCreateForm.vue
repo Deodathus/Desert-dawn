@@ -203,7 +203,6 @@
                 event.preventDefault();
 
                 this.$emit('addUser', this.form);
-                this.$emit('emitRecord', this.form);
             }
         },
     }

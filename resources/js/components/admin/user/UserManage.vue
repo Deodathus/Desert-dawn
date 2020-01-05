@@ -13,7 +13,7 @@
             </template>
 
             <template v-slot:content>
-                <user-create-form :url="url" @addUser="addUser" @emitRecord="addUserToList">
+                <user-create-form :url="url" @addUser="addUser">
                 </user-create-form>
             </template>
 
@@ -48,15 +48,13 @@
                 axios.post(this.url, form)
                     .then((response) => {
                         this.$swal(response.data.success);
+                        this.$refs.userList.pushRecord(form);
                     })
                     .catch(error => {
                     if (error.response.status === 422) {
                         this.errors = error.response.data.errors;
                     }
                 });
-            },
-            addUserToList(user) {
-                this.$refs.userList.pushRecord(user);
             },
         }
     }

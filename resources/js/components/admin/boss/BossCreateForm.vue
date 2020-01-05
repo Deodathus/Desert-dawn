@@ -79,7 +79,7 @@
                         label="Enter exp count"
                         label-for="input-boss-reward-exp">
                         <b-form-input
-                            id="input-bpss=reward-exp"
+                            id="input-boss-reward-exp"
                             v-model="form.reward_exp"
                             required
                             placeholder="Enter exp count">

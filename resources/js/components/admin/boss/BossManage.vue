@@ -23,7 +23,8 @@
         </collapse>
 
         <boss-list
-            :items="items">
+            :items="items"
+            ref="bossList">
         </boss-list>
 
     </div>
@@ -47,15 +48,16 @@
                 this.errors = [];
 
                 axios.post(this.url, form)
-                    .then(response => {
+                    .then((response) => {
                         this.$swal(response.data.success);
+                        this.$refs.bossList.pushRecord(form);
                     })
                     .catch(error => {
                     if (error.response.status === 422) {
                         this.errors = error.response.data.errors;
                     }
                 });
-            }
+            },
         },
     }
 </script>
