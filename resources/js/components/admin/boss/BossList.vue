@@ -18,7 +18,6 @@
         data() {
             return {
                 fields: [
-                    'id',
                     'name',
                     'hp',
                     'armor',

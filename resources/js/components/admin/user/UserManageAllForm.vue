@@ -71,7 +71,7 @@
                         :description="this.description">
                         <b-form-input
                             id="input-all-users-skill-one"
-                            v-model="form.skill_one"
+                            v-model="form.skill_1"
                             placeholder="Skill One">
                         </b-form-input>
                     </b-form-group>
@@ -87,7 +87,7 @@
                         :description="this.description">
                         <b-form-input
                             id="input-all-users-skill-two"
-                            v-model="form.skill_two"
+                            v-model="form.skill_2"
                             placeholder="Skill two">
                         </b-form-input>
                     </b-form-group>
@@ -103,7 +103,7 @@
                         :description="this.description">
                         <b-form-input
                             id="input-all-users-skill-three"
-                            v-model="form.skill_three"
+                            v-model="form.skill_3"
                             placeholder="Skill three">
                         </b-form-input>
                     </b-form-group>
@@ -128,9 +128,9 @@
                     coins: 0,
                     gems: 0,
                     energy: 0,
-                    skill_one: 0,
-                    skill_two: 0,
-                    skill_three: 0
+                    skill_1: 0,
+                    skill_2: 0,
+                    skill_3: 0
                 },
                 description: 'This count will be added to ALL users.',
             }

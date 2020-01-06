@@ -1979,7 +1979,7 @@ __webpack_require__.r(__webpack_exports__);
   props: ['items', 'url'],
   data: function data() {
     return {
-      fields: ['id', 'name', 'hp', 'armor', 'reward_gold', 'reward_gems', 'reward_exp', 'reward_item_rarity', 'options']
+      fields: ['name', 'hp', 'armor', 'reward_gold', 'reward_gems', 'reward_exp', 'reward_item_rarity', 'options']
     };
   },
   methods: {
@@ -2574,9 +2574,9 @@ __webpack_require__.r(__webpack_exports__);
         coins: 0,
         gems: 0,
         energy: 0,
-        skill_one: 0,
-        skill_two: 0,
-        skill_three: 0
+        skill_1: 0,
+        skill_2: 0,
+        skill_3: 0
       },
       description: 'This count will be added to ALL users.'
     };
@@ -71874,11 +71874,11 @@ var render = function() {
                           placeholder: "Skill One"
                         },
                         model: {
-                          value: _vm.form.skill_one,
+                          value: _vm.form.skill_1,
                           callback: function($$v) {
-                            _vm.$set(_vm.form, "skill_one", $$v)
+                            _vm.$set(_vm.form, "skill_1", $$v)
                           },
-                          expression: "form.skill_one"
+                          expression: "form.skill_1"
                         }
                       })
                     ],
@@ -71909,11 +71909,11 @@ var render = function() {
                           placeholder: "Skill two"
                         },
                         model: {
-                          value: _vm.form.skill_two,
+                          value: _vm.form.skill_2,
                           callback: function($$v) {
-                            _vm.$set(_vm.form, "skill_two", $$v)
+                            _vm.$set(_vm.form, "skill_2", $$v)
                           },
-                          expression: "form.skill_two"
+                          expression: "form.skill_2"
                         }
                       })
                     ],
@@ -71944,11 +71944,11 @@ var render = function() {
                           placeholder: "Skill three"
                         },
                         model: {
-                          value: _vm.form.skill_three,
+                          value: _vm.form.skill_3,
                           callback: function($$v) {
-                            _vm.$set(_vm.form, "skill_three", $$v)
+                            _vm.$set(_vm.form, "skill_3", $$v)
                           },
-                          expression: "form.skill_three"
+                          expression: "form.skill_3"
                         }
                       })
                     ],
