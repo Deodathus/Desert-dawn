@@ -1930,8 +1930,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['url', 'edition_mode', 'api_url', 'boss_id'],
+  props: ['url', 'edition_mode', 'api_url', 'rarities_api_url', 'boss_id'],
   data: function data() {
     return {
       form: {
@@ -1944,6 +1945,7 @@ __webpack_require__.r(__webpack_exports__);
         reward_item_rarity: null
       },
       button: '',
+      rarities: {},
       edition: false
     };
   },
@@ -1965,19 +1967,27 @@ __webpack_require__.r(__webpack_exports__);
       this.form.reward_gems = bossData.reward_gems;
       this.form.reward_exp = bossData.reward_exp;
       this.form.reward_item_rarity = bossData.reward_item_rarity;
+    },
+    getItemRarities: function getItemRarities() {
+      var _this = this;
+
+      axios.get(this.rarities_api_url).then(function (response) {
+        _this.rarities = response.data;
+      });
     }
   },
   created: function created() {
-    var _this = this;
+    var _this2 = this;
 
     this.edition = this.edition_mode;
+    this.getItemRarities();
 
     if (this.edition) {
       this.button = 'Edit';
       axios.post(this.api_url, {
         id: this.boss_id
       }).then(function (response) {
-        _this.fillBossData(response.data);
+        _this2.fillBossData(response.data);
       })["catch"](function (error) {
         if (error.response.status === 422) {
           console.log(error.response.data);
@@ -2021,8 +2031,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['api_url', 'boss_id', 'url'],
+  props: ['api_url', 'boss_id', 'url', 'rarities_api_url'],
   data: function data() {
     return {
       errors: []
@@ -2133,8 +2144,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['bosses', 'url', 'name', 'items'],
+  props: ['bosses', 'url', 'name', 'items', 'rarities_api_url'],
   data: function data() {
     return {
       errors: []
@@ -71200,10 +71213,11 @@ var render = function() {
                       }
                     },
                     [
-                      _c("b-form-input", {
+                      _c("b-form-select", {
                         attrs: {
                           id: "input-boss-reward-item-rarity",
-                          placeholder: "Enter item rarity"
+                          placeholder: "Enter item rarity",
+                          options: _vm.rarities
                         },
                         model: {
                           value: _vm.form.reward_item_rarity,
@@ -71270,7 +71284,8 @@ var render = function() {
         attrs: {
           boss_id: _vm.boss_id,
           api_url: _vm.api_url,
-          edition_mode: "true"
+          edition_mode: "true",
+          rarities_api_url: _vm.rarities_api_url
         },
         on: { editBoss: _vm.editBoss }
       })
@@ -71355,7 +71370,15 @@ var render = function() {
           {
             key: "content",
             fn: function() {
-              return [_c("boss-create-form", { on: { addBoss: _vm.addBoss } })]
+              return [
+                _c("boss-create-form", {
+                  attrs: {
+                    rarities_api_url: _vm.rarities_api_url,
+                    edition_mode: "false"
+                  },
+                  on: { addBoss: _vm.addBoss }
+                })
+              ]
             },
             proxy: true
           }

@@ -5,7 +5,8 @@
     <boss-edition
         boss_id="{{ $boss->id }}"
         api_url="{{ route('API.boss.get') }}"
-        url="{{ route('admin.bosses.update', $boss) }}">
+        url="{{ route('admin.bosses.update', $boss) }}"
+        rarities_api_url="{{ route('API.item.rarities.get') }}">
     </boss-edition>
 
 @endsection

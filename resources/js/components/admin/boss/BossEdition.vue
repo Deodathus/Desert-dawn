@@ -11,7 +11,8 @@
             :boss_id="boss_id"
             :api_url="api_url"
             edition_mode="true"
-            @editBoss="editBoss">
+            @editBoss="editBoss"
+            :rarities_api_url="rarities_api_url">
         </boss-create-form>
 
     </div>
@@ -24,7 +25,8 @@
         props: [
             'api_url',
             'boss_id',
-            'url'
+            'url',
+            'rarities_api_url'
         ],
         data() {
             return {

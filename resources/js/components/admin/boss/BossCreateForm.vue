@@ -94,11 +94,12 @@
                         id="input-group-boss-reward-item-rarity"
                         label="Enter item rarity"
                         label-for="input-boss-reward-item-rarity">
-                        <b-form-input
+                        <b-form-select
                             id="input-boss-reward-item-rarity"
                             v-model="form.reward_item_rarity"
-                            placeholder="Enter item rarity">
-                        </b-form-input>
+                            placeholder="Enter item rarity"
+                            :options="rarities">
+                        </b-form-select>
                     </b-form-group>
 
                 </b-col>
@@ -117,6 +118,7 @@
             'url',
             'edition_mode',
             'api_url',
+            'rarities_api_url',
             'boss_id'
         ],
         data() {
@@ -131,6 +133,7 @@
                     reward_item_rarity: null,
                 },
                 button: '',
+                rarities: {},
                 edition: false,
             }
         },
@@ -153,9 +156,16 @@
                 this.form.reward_exp = bossData.reward_exp;
                 this.form.reward_item_rarity = bossData.reward_item_rarity;
             },
+            getItemRarities() {
+                axios.get(this.rarities_api_url)
+                    .then((response) => {
+                        this.rarities = response.data;
+                });
+            }
         },
         created() {
             this.edition = this.edition_mode;
+            this.getItemRarities();
 
             if (this.edition) {
                 this.button = 'Edit';

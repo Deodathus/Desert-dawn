@@ -15,7 +15,9 @@
 
             <template v-slot:content>
 
-                <boss-create-form @addBoss="addBoss">
+                <boss-create-form @addBoss="addBoss"
+                    :rarities_api_url="rarities_api_url"
+                    edition_mode="false">
                 </boss-create-form>
 
             </template>
@@ -37,7 +39,8 @@
             'bosses',
             'url',
             'name',
-            'items'
+            'items',
+            'rarities_api_url'
         ],
         data() {
             return {

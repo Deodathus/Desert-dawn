@@ -26,4 +26,9 @@ Route::middleware('api')
          * Boss API routes.
          */
         Route::post('boss/get', 'Boss\APIBossController@getBoss')->name('boss.get');
+
+        /**
+         * Item API routes.
+         */
+        Route::get('item/rarities/get', 'Item\APIItemController@getItemRarities')->name('item.rarities.get');
 });
