@@ -26,6 +26,8 @@
         },
         methods: {
             editUser(user) {
+                this.errors = [];
+
                 axios.patch(this.url, {
                     id: this.user_id,
                     name: user.name,

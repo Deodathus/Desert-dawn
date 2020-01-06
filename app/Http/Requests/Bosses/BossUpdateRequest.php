@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests\Bosses;
 
-class BossCreateRequest extends BossRequest
+class BossUpdateRequest extends BossRequest
 {
     /**
      * Get the validation rules that apply to the request.
@@ -13,7 +13,7 @@ class BossCreateRequest extends BossRequest
     {
         return parent::rules() +
             [
-                'name' => 'string|min:3|max:255|required|unique:bosses',
+                'name' => 'string|min:3|max:255|required',
             ];
     }
 }

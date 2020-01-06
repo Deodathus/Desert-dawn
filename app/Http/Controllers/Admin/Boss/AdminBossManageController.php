@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Boss;
 use App\Exceptions\Bosses\BossManageException;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Bosses\BossCreateRequest;
+use App\Http\Requests\Bosses\BossUpdateRequest;
 use App\Models\Boss\Boss;
 use App\Services\Admin\Boss\BossManageService;
 use Illuminate\Http\JsonResponse;
@@ -51,6 +52,36 @@ class AdminBossManageController extends Controller
 
         return response()->json([
             'success' => 'Boss ' . $request->input('name') . ' was added',
+        ]);
+    }
+
+    /**
+     * @param \App\Models\Boss\Boss $boss
+     *
+     * @return \Illuminate\View\View
+     */
+    public function edit(Boss $boss): View
+    {
+        return view('admin.bosses.edit', $this->bossManageService->prepareDataForEditView($boss));
+    }
+
+    /**
+     * @param \App\Http\Requests\Bosses\BossUpdateRequest $request
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function update(BossUpdateRequest $request): JsonResponse
+    {
+        try {
+            $this->bossManageService->updateBoss($request);
+        } catch (BossManageException $exception) {
+            return response()->json([
+                $exception->getMessage()
+            ]);
+        }
+
+        return response()->json([
+            'success' => 'Boss was updated.'
         ]);
     }
 

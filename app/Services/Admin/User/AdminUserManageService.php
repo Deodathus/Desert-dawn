@@ -13,8 +13,6 @@ use Illuminate\Support\Facades\Hash;
 class AdminUserManageService
 {
     /**
-     * Prepare data for index view.
-     *
      * @return array
      */
     public function prepareDataForIndexView(): array
@@ -25,8 +23,6 @@ class AdminUserManageService
     }
 
     /**
-     * Prepare data for edit view.
-     *
      * @param \App\Models\User\User $user
      *
      * @return array
@@ -73,7 +69,7 @@ class AdminUserManageService
      *
      * @throws \App\Exceptions\Users\UserManageException
      */
-    public function updateUser(UserEditRequest $request): void 
+    public function updateUser(UserEditRequest $request): void
     {
         $user = User::find($request->input('id'));
         $password = $request->input('password');

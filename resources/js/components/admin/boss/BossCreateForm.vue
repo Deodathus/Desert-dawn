@@ -44,7 +44,7 @@
                         </b-form-input>
                     </b-form-group>
 
-                    <b-button type="submit">Add</b-button>
+                    <b-button type="submit">{{ this.button }}</b-button>
 
                 </b-col>
 
@@ -114,7 +114,10 @@
 <script>
     export default {
         props: [
-            'url'
+            'url',
+            'edition_mode',
+            'api_url',
+            'boss_id'
         ],
         data() {
             return {
@@ -126,15 +129,49 @@
                     reward_gems: null,
                     reward_exp: null,
                     reward_item_rarity: null,
-                }
+                },
+                button: '',
+                edition: false,
             }
         },
         methods: {
             onSubmit(event) {
                 event.preventDefault();
 
-                this.$emit('addBoss', this.form);
+                if (this.edition) {
+                    this.$emit('editBoss', this.form)
+                } else {
+                    this.$emit('addBoss', this.form);
+                }
+            },
+            fillBossData(bossData) {
+                this.form.name = bossData.name;
+                this.form.hp = bossData.hp;
+                this.form.armor = bossData.armor;
+                this.form.reward_gold = bossData.reward_gold;
+                this.form.reward_gems = bossData.reward_gems;
+                this.form.reward_exp = bossData.reward_exp;
+                this.form.reward_item_rarity = bossData.reward_item_rarity;
+            },
+        },
+        created() {
+            this.edition = this.edition_mode;
+
+            if (this.edition) {
+                this.button = 'Edit';
+
+                axios.post(this.api_url, {
+                    id: this.boss_id
+                }).then((response) => {
+                    this.fillBossData(response.data);
+                }).catch((error) => {
+                    if (error.response.status === 422) {
+                        console.log(error.response.data);
+                    }
+                });
+            } else {
+                this.button = 'Add';
             }
-        }
+        },
     }
 </script>

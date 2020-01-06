@@ -1931,7 +1931,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['url'],
+  props: ['url', 'edition_mode', 'api_url', 'boss_id'],
   data: function data() {
     return {
       form: {
@@ -1942,13 +1942,113 @@ __webpack_require__.r(__webpack_exports__);
         reward_gems: null,
         reward_exp: null,
         reward_item_rarity: null
-      }
+      },
+      button: '',
+      edition: false
     };
   },
   methods: {
     onSubmit: function onSubmit(event) {
       event.preventDefault();
-      this.$emit('addBoss', this.form);
+
+      if (this.edition) {
+        this.$emit('editBoss', this.form);
+      } else {
+        this.$emit('addBoss', this.form);
+      }
+    },
+    fillBossData: function fillBossData(bossData) {
+      this.form.name = bossData.name;
+      this.form.hp = bossData.hp;
+      this.form.armor = bossData.armor;
+      this.form.reward_gold = bossData.reward_gold;
+      this.form.reward_gems = bossData.reward_gems;
+      this.form.reward_exp = bossData.reward_exp;
+      this.form.reward_item_rarity = bossData.reward_item_rarity;
+    }
+  },
+  created: function created() {
+    var _this = this;
+
+    this.edition = this.edition_mode;
+
+    if (this.edition) {
+      this.button = 'Edit';
+      axios.post(this.api_url, {
+        id: this.boss_id
+      }).then(function (response) {
+        _this.fillBossData(response.data);
+      })["catch"](function (error) {
+        if (error.response.status === 422) {
+          console.log(error.response.data);
+        }
+      });
+    } else {
+      this.button = 'Add';
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/boss/BossEdition.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/boss/BossEdition.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['api_url', 'boss_id', 'url'],
+  data: function data() {
+    return {
+      errors: []
+    };
+  },
+  methods: {
+    editBoss: function editBoss(boss) {
+      var _this = this;
+
+      this.errors = [];
+      axios.patch(this.url, {
+        id: this.boss_id,
+        name: boss.name,
+        hp: boss.hp,
+        armor: boss.armor,
+        reward_gold: boss.reward_gold,
+        reward_gems: boss.reward_gems,
+        reward_exp: boss.reward_exp,
+        reward_item_rarity: boss.reward_item_rarity
+      }).then(function (response) {
+        _this.$swal(response.data.success);
+      })["catch"](function (error) {
+        if (error.response.status === 422) {
+          _this.errors = error.response.data.errors;
+        }
+      });
     }
   }
 });
@@ -2355,6 +2455,7 @@ __webpack_require__.r(__webpack_exports__);
     editUser: function editUser(user) {
       var _this = this;
 
+      this.errors = [];
       axios.patch(this.url, {
         id: this.user_id,
         name: user.name,
@@ -70987,7 +71088,9 @@ var render = function() {
                     1
                   ),
                   _vm._v(" "),
-                  _c("b-button", { attrs: { type: "submit" } }, [_vm._v("Add")])
+                  _c("b-button", { attrs: { type: "submit" } }, [
+                    _vm._v(_vm._s(this.button))
+                  ])
                 ],
                 1
               ),
@@ -71122,6 +71225,55 @@ var render = function() {
         ],
         1
       )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/boss/BossEdition.vue?vue&type=template&id=08f7251a&scoped=true&":
+/*!*************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/boss/BossEdition.vue?vue&type=template&id=08f7251a&scoped=true& ***!
+  \*************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("validation-errors", {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: this.errors,
+            expression: "this.errors"
+          }
+        ],
+        attrs: { errors: this.errors }
+      }),
+      _vm._v(" "),
+      _c("boss-create-form", {
+        attrs: {
+          boss_id: _vm.boss_id,
+          api_url: _vm.api_url,
+          edition_mode: "true"
+        },
+        on: { editBoss: _vm.editBoss }
+      })
     ],
     1
   )
@@ -84643,6 +84795,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_admin_boss_BossManage__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/admin/boss/BossManage */ "./resources/js/components/admin/boss/BossManage.vue");
 /* harmony import */ var _components_admin_boss_BossCreateForm__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/admin/boss/BossCreateForm */ "./resources/js/components/admin/boss/BossCreateForm.vue");
 /* harmony import */ var _components_admin_boss_BossList__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/admin/boss/BossList */ "./resources/js/components/admin/boss/BossList.vue");
+/* harmony import */ var _components_admin_boss_BossEdition__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/admin/boss/BossEdition */ "./resources/js/components/admin/boss/BossEdition.vue");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
@@ -84694,9 +84847,11 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('user-edition', _components
 
 
 
+
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('boss-manage', _components_admin_boss_BossManage__WEBPACK_IMPORTED_MODULE_22__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('boss-create-form', _components_admin_boss_BossCreateForm__WEBPACK_IMPORTED_MODULE_23__["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('boss-list', _components_admin_boss_BossList__WEBPACK_IMPORTED_MODULE_24__["default"]); //**************************************************************
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('boss-list', _components_admin_boss_BossList__WEBPACK_IMPORTED_MODULE_24__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('boss-edition', _components_admin_boss_BossEdition__WEBPACK_IMPORTED_MODULE_25__["default"]); //**************************************************************
 
 var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#app'
@@ -85092,6 +85247,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BossCreateForm_vue_vue_type_template_id_4c9bb434___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BossCreateForm_vue_vue_type_template_id_4c9bb434___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/boss/BossEdition.vue":
+/*!************************************************************!*\
+  !*** ./resources/js/components/admin/boss/BossEdition.vue ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _BossEdition_vue_vue_type_template_id_08f7251a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./BossEdition.vue?vue&type=template&id=08f7251a&scoped=true& */ "./resources/js/components/admin/boss/BossEdition.vue?vue&type=template&id=08f7251a&scoped=true&");
+/* harmony import */ var _BossEdition_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./BossEdition.vue?vue&type=script&lang=js& */ "./resources/js/components/admin/boss/BossEdition.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _BossEdition_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _BossEdition_vue_vue_type_template_id_08f7251a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _BossEdition_vue_vue_type_template_id_08f7251a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "08f7251a",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/admin/boss/BossEdition.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/boss/BossEdition.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/components/admin/boss/BossEdition.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_BossEdition_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./BossEdition.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/boss/BossEdition.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_BossEdition_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/boss/BossEdition.vue?vue&type=template&id=08f7251a&scoped=true&":
+/*!*******************************************************************************************************!*\
+  !*** ./resources/js/components/admin/boss/BossEdition.vue?vue&type=template&id=08f7251a&scoped=true& ***!
+  \*******************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BossEdition_vue_vue_type_template_id_08f7251a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./BossEdition.vue?vue&type=template&id=08f7251a&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/boss/BossEdition.vue?vue&type=template&id=08f7251a&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BossEdition_vue_vue_type_template_id_08f7251a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BossEdition_vue_vue_type_template_id_08f7251a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

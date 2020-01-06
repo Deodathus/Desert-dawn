@@ -47,7 +47,7 @@ import UserCreateForm from "./components/admin/user/UserCreateForm"
 import UserList from "./components/admin/user/UserList"
 import UserManageAll from "./components/admin/user/UserManageAll"
 import UserManageAllForm from "./components/admin/user/UserManageAllForm"
-import UserEdition from "./components/admin/user/UserEdition";
+import UserEdition from "./components/admin/user/UserEdition"
 
 Vue.component('user-manage', UserManage);
 Vue.component('user-create-form', UserCreateForm);
@@ -60,10 +60,12 @@ Vue.component('user-edition', UserEdition);
 import BossManage from "./components/admin/boss/BossManage"
 import BossCreateForm from "./components/admin/boss/BossCreateForm"
 import BossList from "./components/admin/boss/BossList"
+import BossEdition from "./components/admin/boss/BossEdition"
 
 Vue.component('boss-manage', BossManage);
 Vue.component('boss-create-form', BossCreateForm);
 Vue.component('boss-list', BossList);
+Vue.component('boss-edition', BossEdition);
 
 //**************************************************************
 

@@ -22,6 +22,14 @@ class Boss extends Model
     ];
 
     /**
+     * @var array $hidden
+     */
+    protected $hidden = [
+        'created_at',
+        'updated_at',
+    ];
+
+    /**
      * Relation with Item model.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
