@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\User;
 
 use App\Exceptions\Users\UserManageAllException;
 use App\Exceptions\Users\UserManageException;

@@ -25,20 +25,20 @@ Auth::routes();
             Route::get('/', 'AdminController@index')->name('home');
 
             /**
-             * Users
+             * User
              */
-            Route::resource('users', 'AdminUserManageController');
+            Route::resource('users', 'User\AdminUserManageController');
 
             /**
              * Manage all users
              */
-            Route::get('manage-all/users', 'AdminUserManageController@manageAllIndex')->name('manage.all.users.index');
-            Route::post('manage-all/users', 'AdminUserManageController@addCurrenciesToAllUsers')->name('manage.all.users.add.currencies');
+            Route::get('manage-all/users', 'User\AdminUserManageController@manageAllIndex')->name('manage.all.users.index');
+            Route::post('manage-all/users', 'User\AdminUserManageController@addCurrenciesToAllUsers')->name('manage.all.users.add.currencies');
 
             /**
              * Bosses
              */
-            Route::resource('bosses', 'AdminBossManageController');
+            Route::resource('bosses', 'Boss\AdminBossManageController');
     });
 
     Route::middleware('auth')->group(function (): void
