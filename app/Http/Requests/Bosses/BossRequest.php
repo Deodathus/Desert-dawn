@@ -29,7 +29,7 @@ abstract class BossRequest extends FormRequest
             'reward_gold' => 'integer|required',
             'reward_gems' => 'integer|required',
             'reward_exp' => 'integer|required',
-            'reward_item_rarity' => 'integer|exists:item_rarities,id',
+            'reward_item_rarity' => 'exists:item_rarities,id',
         ];
     }
 }
