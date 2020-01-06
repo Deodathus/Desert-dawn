@@ -23,12 +23,26 @@ class BossManageService
      *
      * @throws \App\Exceptions\Bosses\BossManageException
      */
-    public function createBoss(BossCreateRequest $request)
+    public function createBoss(BossCreateRequest $request): void
     {
         try {
             Boss::create($request->all());
         } catch (\Exception $exception) {
             throw new BossManageException('Was problem during creation');
+        }
+    }
+
+    /**
+     * @param \App\Models\Boss\Boss $boss
+     *
+     * @throws \App\Exceptions\Bosses\BossManageException
+     */
+    public function deleteBoss(Boss $boss): void
+    {
+        try {
+            $boss->delete();
+        } catch (\Exception $exception) {
+            throw new BossManageException('Was problem during deletion');
         }
     }
 }

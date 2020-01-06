@@ -54,7 +54,6 @@
                         this.$swal('Deleted', 'You successfully deleted it', 'success');
                     }
                 });
-                //axios
             }
         },
     }

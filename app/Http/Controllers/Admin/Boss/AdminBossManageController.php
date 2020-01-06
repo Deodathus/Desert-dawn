@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Admin\Boss;
 use App\Exceptions\Bosses\BossManageException;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Bosses\BossCreateRequest;
+use App\Models\Boss\Boss;
 use App\Services\Admin\Boss\BossManageService;
+use Illuminate\Http\JsonResponse;
 use Illuminate\View\View;
 
 class AdminBossManageController extends Controller
@@ -37,7 +39,7 @@ class AdminBossManageController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function store(BossCreateRequest $request)
+    public function store(BossCreateRequest $request): JsonResponse
     {
         try {
             $this->bossManageService->createBoss($request);
@@ -49,6 +51,26 @@ class AdminBossManageController extends Controller
 
         return response()->json([
             'success' => 'Boss ' . $request->input('name') . ' was added',
+        ]);
+    }
+
+    /**
+     * @param \App\Models\Boss\Boss $boss
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function destroy(Boss $boss): JsonResponse
+    {
+        try {
+            $this->bossManageService->deleteBoss($boss);
+        } catch (BossManageException $exception) {
+            return response()->json([
+                $exception->getMessage()
+            ]);
+        }
+
+        return response()->json([
+            'success' => 'Boss was deleted'
         ]);
     }
 }

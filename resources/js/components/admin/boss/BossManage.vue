@@ -24,7 +24,8 @@
 
         <boss-list
             :items="items"
-            ref="bossList">
+            ref="bossList"
+            :url="url">
         </boss-list>
 
     </div>

@@ -2032,6 +2032,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['bosses', 'url', 'name', 'items'],
   data: function data() {
@@ -2775,7 +2776,7 @@ __webpack_require__.r(__webpack_exports__);
         if (result.value) {
           _this.$swal('Deleted', 'You successfully deleted it', 'success');
         }
-      }); //axios
+      });
     }
   }
 });
@@ -71145,7 +71146,10 @@ var render = function() {
         ])
       }),
       _vm._v(" "),
-      _c("boss-list", { ref: "bossList", attrs: { items: _vm.items } })
+      _c("boss-list", {
+        ref: "bossList",
+        attrs: { items: _vm.items, url: _vm.url }
+      })
     ],
     1
   )
