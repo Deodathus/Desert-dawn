@@ -28,6 +28,7 @@ Auth::routes();
              * User
              */
             Route::resource('users', 'User\AdminUserManageController');
+            Route::get('login/{user}', 'User\AdminUserManageController@loginAsUser')->name('login.as.user');
 
             /**
              * Manage all users

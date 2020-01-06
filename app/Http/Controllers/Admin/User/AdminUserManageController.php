@@ -11,6 +11,8 @@ use App\Http\Requests\Users\UserEditRequest;
 use App\Models\User\User;
 use App\Services\Admin\User\AdminUserManageService;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 class AdminUserManageController extends Controller
@@ -134,5 +136,19 @@ class AdminUserManageController extends Controller
         return response()->json([
             'success' => 'All users was updated.'
         ]);
+    }
+
+    /**
+     * Login as user.
+     *
+     * @param \App\Models\User\User $user
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function loginAsUser(User $user): RedirectResponse
+    {
+        Auth::guard()->login($user);
+
+        return redirect('home');
     }
 }

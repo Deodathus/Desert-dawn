@@ -15,10 +15,10 @@ use Illuminate\Http\Request;
 
 Route::middleware('api')
     ->namespace('API\\')
-    ->name('API::')
+    ->name('API.')
     ->group(function (): void {
         /**
          * User API routes.
          */
-        Route::post('user/get', 'User\APIUserController@getUser')->name('user::get');
+        Route::post('user/get', 'User\APIUserController@getUser')->name('user.get');
 });
