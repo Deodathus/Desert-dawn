@@ -23,7 +23,8 @@
                     <b-form-group
                         id="input-group-user-email"
                         label="User's email"
-                        label-for="input-user-email">
+                        label-for="input-user-email"
+                        v-if="!this.edition">
                         <b-form-input
                             id="input-user-email"
                             v-model="form.email"
@@ -40,7 +41,7 @@
                         <b-form-input
                             id="input-user-password"
                             v-model="form.password"
-                            required
+                            :required="!this.edition"
                             type="password"
                             placeholder="Enter password">
                         </b-form-input>
@@ -209,23 +210,26 @@
             onSubmit(event) {
                 event.preventDefault();
 
-                this.$emit('editUser', this.form);
+                if (this.edition) {
+                    this.$emit('editUser', this.form);
+                } else {
+                    this.$emit('addUser', this.form);
+                }
             },
             fillUserData(userData) {
                 this.form.name = userData.name;
-                this.form.email = userData.email;
                 this.form.coins = userData.coins;
                 this.form.coins = userData.coins;
                 this.form.gems = userData.gems;
                 this.form.energy = userData.energy;
                 this.form.level = userData.level;
                 this.form.exp = userData.exp;
-                this.form.skillOne = userData.skillOneDamage;
-                this.form.skillOneDamage = userData.skillOneDamage;
-                this.form.skillTwo = userData.skillTwo;
-                this.form.skillTwoDamage = userData.skillTwoDamage;
-                this.form.skillThree = userData.skillThree;
-                this.form.skillThreeDamage = userData.skillThreeDamage;
+                this.form.skillOne = userData.skill_1;
+                this.form.skillOneDamage = userData.skill_1_damage;
+                this.form.skillTwo = userData.skill_2;
+                this.form.skillTwoDamage = userData.skill_2_damage;
+                this.form.skillThree = userData.skill_3;
+                this.form.skillThreeDamage = userData.skill_3_damage;
             }
         },
         created() {
@@ -233,23 +237,20 @@
 
             if (this.edition) {
                 this.button = 'Edit';
-            } else {
-                this.button = 'Add'
-            }
-        },
-        mounted() {
-            if (this.edition) {
+
                 axios.post(this.api_url, {
                     id:this.user_id
                 })
                     .then((response) => {
                         this.fillUserData(response.data);
                     }).catch((error) => {
-                        if (error.response.status === 422) {
-                            console.log(error.response.data);
-                        }
+                    if (error.response.status === 422) {
+                        console.log(error.response.data);
+                    }
                 });
+            } else {
+                this.button = 'Add'
             }
-        }
+        },
     }
 </script>

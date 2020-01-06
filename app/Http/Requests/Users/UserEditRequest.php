@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests\Users;
 
-class UserCreateRequest extends UserRequest
+class UserEditRequest extends UserRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,11 +21,6 @@ class UserCreateRequest extends UserRequest
      */
     public function rules(): array
     {
-        $rules = parent::rules();
-
-        return $rules + [
-                'password' => 'required|string|min:8',
-                'email' => 'required|email|unique:users|string|max:225',
-            ];
+        return parent::rules();
     }
 }

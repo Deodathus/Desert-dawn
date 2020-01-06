@@ -2,7 +2,10 @@
 
 @section('content')
 
-    <user-create-form :edition_mode="true" api_url="{{ route('API::user::get') }}" user_id="{{ $user->id }}">
-    </user-create-form>
+    <user-edition
+        api_url="{{ route('API::user::get') }}"
+        user_id="{{ $user->id }}"
+        url="{{ route('admin.users.update', $user) }}">
+    </user-edition>
 
 @endsection

@@ -47,12 +47,14 @@ import UserCreateForm from "./components/admin/user/UserCreateForm"
 import UserList from "./components/admin/user/UserList"
 import UserManageAll from "./components/admin/user/UserManageAll"
 import UserManageAllForm from "./components/admin/user/UserManageAllForm"
+import UserEdition from "./components/admin/user/UserEdition";
 
 Vue.component('user-manage', UserManage);
 Vue.component('user-create-form', UserCreateForm);
 Vue.component('user-list', UserList);
 Vue.component('user-manage-all', UserManageAll);
 Vue.component('user-manage-all-form', UserManageAllForm);
+Vue.component('user-edition', UserEdition);
 
 //BOSS**********************************************************
 import BossManage from "./components/admin/boss/BossManage"
