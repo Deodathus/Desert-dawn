@@ -21,4 +21,9 @@ Route::middleware('api')
          * User API routes.
          */
         Route::post('user/get', 'User\APIUserController@getUser')->name('user.get');
+
+        /**
+         * Boss API routes.
+         */
+        Route::post('boss/get', 'Boss\APIBossController@getBoss')->name('boss.get');
 });

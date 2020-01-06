@@ -27,12 +27,12 @@ class APIUserController extends Controller
     /**
      * Get user by id.
      *
-     * @param \App\Http\Requests\API\User\APIUserRequest $request
+     * @param \App\Http\Requests\API\User\APIUserRequest $APIUserRequest
      *
      * @return \App\Models\User\User
      */
-    public function getUser(APIUserRequest $request): User
+    public function getUser(APIUserRequest $APIUserRequest): User
     {
-        return $this->apiUserService->getUser($request->input('id'));
+        return $this->apiUserService->getUser($APIUserRequest->input('id'));
     }
 }

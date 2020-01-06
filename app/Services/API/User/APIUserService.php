@@ -7,7 +7,7 @@ use App\Models\User\User;
 class APIUserService
 {
     /**
-     * Prepare data for edit view.
+     * Get user.
      *
      * @param int $userId
      *
