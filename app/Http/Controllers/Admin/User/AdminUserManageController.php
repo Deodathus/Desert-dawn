@@ -59,6 +59,16 @@ class AdminUserManageController extends Controller
     /**
      * @param \App\Models\User\User $user
      *
+     * @return \Illuminate\View\View
+     */
+    public function edit(User $user): View
+    {
+        return view('admin.users.edit', compact('user'));
+    }
+
+    /**
+     * @param \App\Models\User\User $user
+     *
      * @return \Illuminate\Http\JsonResponse
      */
     public function destroy(User $user): JsonResponse

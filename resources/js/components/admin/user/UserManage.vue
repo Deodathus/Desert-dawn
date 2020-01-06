@@ -13,7 +13,7 @@
             </template>
 
             <template v-slot:content>
-                <user-create-form :url="url" @addUser="addUser">
+                <user-create-form :url="url" @addUser="addUser" :edition_mode="false">
                 </user-create-form>
             </template>
 

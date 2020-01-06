@@ -88,7 +88,7 @@
                         </b-form-checkbox>
                     </b-form-group>
 
-                    <b-button type="submit">Add</b-button>
+                    <b-button type="submit">{{ this.button }}</b-button>
 
                 </b-col>
 
@@ -176,7 +176,12 @@
 
 <script>
     export default {
-        props: ['url'],
+        props: [
+            'url',
+            'edition_mode',
+            'api_url',
+            'user_id'
+        ],
         data() {
             return {
                 form: {
@@ -196,14 +201,55 @@
                     skillThreeDamage: 1,
                     isAdmin: false
                 },
+                button: '',
+                edition: false,
             }
         },
         methods: {
             onSubmit(event) {
                 event.preventDefault();
 
-                this.$emit('addUser', this.form);
+                this.$emit('editUser', this.form);
+            },
+            fillUserData(userData) {
+                this.form.name = userData.name;
+                this.form.email = userData.email;
+                this.form.coins = userData.coins;
+                this.form.coins = userData.coins;
+                this.form.gems = userData.gems;
+                this.form.energy = userData.energy;
+                this.form.level = userData.level;
+                this.form.exp = userData.exp;
+                this.form.skillOne = userData.skillOneDamage;
+                this.form.skillOneDamage = userData.skillOneDamage;
+                this.form.skillTwo = userData.skillTwo;
+                this.form.skillTwoDamage = userData.skillTwoDamage;
+                this.form.skillThree = userData.skillThree;
+                this.form.skillThreeDamage = userData.skillThreeDamage;
             }
         },
+        created() {
+            this.edition = this.edition_mode;
+
+            if (this.edition) {
+                this.button = 'Edit';
+            } else {
+                this.button = 'Add'
+            }
+        },
+        mounted() {
+            if (this.edition) {
+                axios.post(this.api_url, {
+                    id:this.user_id
+                })
+                    .then((response) => {
+                        this.fillUserData(response.data);
+                    }).catch((error) => {
+                        if (error.response.status === 422) {
+                            console.log(error.response.data);
+                        }
+                });
+            }
+        }
     }
 </script>
