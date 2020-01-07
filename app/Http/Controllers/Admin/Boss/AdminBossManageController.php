@@ -20,6 +20,7 @@ class AdminBossManageController extends Controller
 
     /**
      * AdminBossManageController constructor.
+     *
      * @param \App\Services\Admin\Boss\BossManageService $bossManageService
      */
     public function __construct(BossManageService $bossManageService)

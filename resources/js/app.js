@@ -67,6 +67,15 @@ Vue.component('boss-create-form', BossCreateForm);
 Vue.component('boss-list', BossList);
 Vue.component('boss-edition', BossEdition);
 
+//ITEM**********************************************************
+import ItemCreateForm from "./components/admin/item/ItemCreateForm"
+import ItemList from "./components/admin/item/ItemList"
+import ItemManage from "./components/admin/item/ItemManage"
+
+Vue.component('item-create-form', ItemCreateForm);
+Vue.component('item-list', ItemList);
+Vue.component('item-manage', ItemManage);
+
 //**************************************************************
 
 

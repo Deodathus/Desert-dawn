@@ -23,7 +23,6 @@ class APIItemController extends Controller
         $this->apiItemService = $apiItemService;
     }
 
-
     /**
      * Get all item's rarities.
      *
@@ -32,5 +31,15 @@ class APIItemController extends Controller
     public function getItemRarities(): Collection
     {
         return $this->apiItemService->getItemRarities();
+    }
+
+    /**
+     * Get all item's types.
+     *
+     * @return \Illuminate\Support\Collection
+     */
+    public function getItemTypes(): Collection
+    {
+        return $this->apiItemService->getItemTypes();
     }
 }

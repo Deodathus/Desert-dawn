@@ -37,9 +37,14 @@ Auth::routes();
             Route::post('manage-all/users', 'User\AdminUserManageController@addCurrenciesToAllUsers')->name('manage.all.users.add.currencies');
 
             /**
-             * Bosses
+             * Boss
              */
             Route::resource('bosses', 'Boss\AdminBossManageController');
+
+            /**
+             * Item
+             */
+            Route::resource('items', 'Item\AdminItemManageController');
     });
 
     Route::middleware('auth')->group(function (): void

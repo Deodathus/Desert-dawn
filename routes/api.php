@@ -31,4 +31,5 @@ Route::middleware('api')
          * Item API routes.
          */
         Route::get('item/rarities/get', 'Item\APIItemController@getItemRarities')->name('item.rarities.get');
+        Route::get('item/types/get', 'Item\APIItemController@getItemTypes')->name('item.types.get');
 });

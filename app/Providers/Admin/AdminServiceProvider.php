@@ -52,7 +52,9 @@ class AdminServiceProvider extends ServiceProvider
                 'visible' => $collapseState['bosses'],
             ],
             'items' => [
-                'name' => '<i class="fas fa-chess-knight"></i> Items'
+                'name' => '<i class="fas fa-chess-knight"></i> Items',
+                'links' => $links['items'],
+                'visible' => $collapseState['items'],
             ],
             'quests' => [
                 'name' => '<i class="fas fa-question"></i> Quests'
@@ -86,7 +88,13 @@ class AdminServiceProvider extends ServiceProvider
                     'href' => route('admin.bosses.index'),
                     'text' => 'Manage',
                 ],
-            ]
+            ],
+            'items' => [
+                [
+                    'href' => route('admin.items.index'),
+                    'text' => 'Manage'
+                ],
+            ],
         ];
     }
 
@@ -105,6 +113,9 @@ class AdminServiceProvider extends ServiceProvider
                     'bosses' => [
                         'manage' => 'admin-boss-manage',
                     ],
+                    'items' => [
+                        'manage' => 'admin-items-manage'
+                    ],
                 ],
             ];
         });
@@ -120,6 +131,7 @@ class AdminServiceProvider extends ServiceProvider
         return [
             'users' => $this->getCollapseStateForLinks('users'),
             'bosses' => $this->getCollapseStateForLinks('bosses'),
+            'items' => $this->getCollapseStateForLinks('items'),
         ];
     }
 

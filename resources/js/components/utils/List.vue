@@ -39,10 +39,10 @@
         },
         methods: {
             pushRecord(record) {
-                this.items.push(record);
+                this.items.data.push(record);
             },
             removeRecord(id) {
-                this.items = this.items.filter((item) => item.id !== id);
+                this.items.data = this.items.data.filter((item) => item.id !== id);
             },
             linkGen(pageNum) {
                 return pageNum === 1 ? this.items.path : `?page=${pageNum}`

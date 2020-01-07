@@ -93,11 +93,12 @@
                     <b-form-group
                         id="input-group-boss-reward-item-rarity"
                         label="Enter item rarity"
-                        label-for="input-boss-reward-item-rarity">
+                        label-for="select-boss-reward-item-rarity">
                         <b-form-select
-                            id="input-boss-reward-item-rarity"
+                            id="select-boss-reward-item-rarity"
                             v-model="form.reward_item_rarity"
-                            placeholder="Enter item rarity">
+                            required>
+                            <option :value="disabled" disabled>Please select an option</option>
                             <option :value="index" v-for="(item, index) in this.rarities">{{ item }}</option>
                         </b-form-select>
                     </b-form-group>
@@ -135,6 +136,7 @@
                 button: '',
                 rarities: {},
                 edition: false,
+                disabled: null,
             }
         },
         methods: {
@@ -160,7 +162,10 @@
                 axios.get(this.rarities_api_url)
                     .then((response) => {
                         this.rarities = response.data;
-                });
+                })
+                    .catch((error) => {
+                        console.log(error.response.data);
+                    });
             }
         },
         created() {
