@@ -48,8 +48,5 @@
                 return pageNum === 1 ? this.items.path : `?page=${pageNum}`
             }
         },
-        mounted() {
-            console.log(this.items);
-        }
     }
 </script>

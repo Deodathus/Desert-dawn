@@ -3068,9 +3068,6 @@ __webpack_require__.r(__webpack_exports__);
     linkGen: function linkGen(pageNum) {
       return pageNum === 1 ? this.items.path : "?page=".concat(pageNum);
     }
-  },
-  mounted: function mounted() {
-    console.log(this.items);
   }
 });
 
@@ -71384,7 +71381,7 @@ var render = function() {
                 _c("boss-create-form", {
                   attrs: {
                     rarities_api_url: _vm.rarities_api_url,
-                    edition_mode: "false"
+                    edition_mode: false
                   },
                   on: { addBoss: _vm.addBoss }
                 })

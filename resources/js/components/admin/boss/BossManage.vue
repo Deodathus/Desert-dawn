@@ -17,7 +17,7 @@
 
                 <boss-create-form @addBoss="addBoss"
                     :rarities_api_url="rarities_api_url"
-                    edition_mode="false">
+                    :edition_mode="false">
                 </boss-create-form>
 
             </template>
