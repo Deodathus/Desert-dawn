@@ -71220,20 +71220,28 @@ var render = function() {
                       }
                     },
                     [
-                      _c("b-form-select", {
-                        attrs: {
-                          id: "input-boss-reward-item-rarity",
-                          placeholder: "Enter item rarity",
-                          options: _vm.rarities
-                        },
-                        model: {
-                          value: _vm.form.reward_item_rarity,
-                          callback: function($$v) {
-                            _vm.$set(_vm.form, "reward_item_rarity", $$v)
+                      _c(
+                        "b-form-select",
+                        {
+                          attrs: {
+                            id: "input-boss-reward-item-rarity",
+                            placeholder: "Enter item rarity"
                           },
-                          expression: "form.reward_item_rarity"
-                        }
-                      })
+                          model: {
+                            value: _vm.form.reward_item_rarity,
+                            callback: function($$v) {
+                              _vm.$set(_vm.form, "reward_item_rarity", $$v)
+                            },
+                            expression: "form.reward_item_rarity"
+                          }
+                        },
+                        _vm._l(this.rarities, function(item, index) {
+                          return _c("option", { domProps: { value: index } }, [
+                            _vm._v(_vm._s(item))
+                          ])
+                        }),
+                        0
+                      )
                     ],
                     1
                   )

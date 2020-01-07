@@ -97,8 +97,8 @@
                         <b-form-select
                             id="input-boss-reward-item-rarity"
                             v-model="form.reward_item_rarity"
-                            placeholder="Enter item rarity"
-                            :options="rarities">
+                            placeholder="Enter item rarity">
+                            <option :value="index" v-for="(item, index) in this.rarities">{{ item }}</option>
                         </b-form-select>
                     </b-form-group>
 
