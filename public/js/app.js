@@ -3041,6 +3041,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     items: {},
@@ -3060,7 +3064,13 @@ __webpack_require__.r(__webpack_exports__);
       this.items = this.items.filter(function (item) {
         return item.id !== id;
       });
+    },
+    linkGen: function linkGen(pageNum) {
+      return pageNum === 1 ? this.items.path : "?page=".concat(pageNum);
     }
+  },
+  mounted: function mounted() {
+    console.log(this.items);
   }
 });
 
@@ -72527,7 +72537,12 @@ var render = function() {
     "div",
     [
       _c("b-table", {
-        attrs: { striped: "", hover: "", items: _vm.items, fields: _vm.fields },
+        attrs: {
+          striped: "",
+          hover: "",
+          items: _vm.items.data,
+          fields: _vm.fields
+        },
         scopedSlots: _vm._u([
           {
             key: "cell(options)",
@@ -72543,7 +72558,21 @@ var render = function() {
             }
           }
         ])
-      })
+      }),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "overflow-auto" },
+        [
+          _c("b-pagination-nav", {
+            attrs: {
+              "link-gen": _vm.linkGen,
+              "number-of-pages": _vm.items.last_page
+            }
+          })
+        ],
+        1
+      )
     ],
     1
   )

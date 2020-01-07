@@ -1,6 +1,6 @@
 <template>
     <div>
-        <b-table striped hover :items="items" :fields="fields">
+        <b-table striped hover :items="items.data" :fields="fields">
 
             <template v-slot:cell(options)="data">
 
@@ -18,6 +18,10 @@
             </template>
 
         </b-table>
+
+        <div class="overflow-auto">
+            <b-pagination-nav :link-gen="linkGen" :number-of-pages="items.last_page"></b-pagination-nav>
+        </div>
     </div>
 </template>
 
@@ -40,6 +44,12 @@
             removeRecord(id) {
                 this.items = this.items.filter((item) => item.id !== id);
             },
+            linkGen(pageNum) {
+                return pageNum === 1 ? this.items.path : `?page=${pageNum}`
+            }
         },
+        mounted() {
+            console.log(this.items);
+        }
     }
 </script>

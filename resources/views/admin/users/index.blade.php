@@ -3,7 +3,7 @@
 @section('content')
 
     <user-manage
-        :users="{{ $users }}"
+        :users='@json($users)'
         url="{{ route('admin.users.store') }}"
         name="{{ app('collapseNames')['admin']['users']['manage'] }}">
     </user-manage>

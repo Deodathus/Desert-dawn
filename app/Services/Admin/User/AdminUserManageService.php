@@ -18,7 +18,7 @@ class AdminUserManageService
     public function prepareDataForIndexView(): array
     {
         return [
-            'users' => User::all(),
+            'users' => User::paginate(5),
         ];
     }
 

@@ -15,7 +15,7 @@ class BossManageService
     public function prepareDataForIndexView(): array
     {
         return [
-            'bosses' => Boss::all(),
+            'bosses' => Boss::paginate(5),
         ];
     }
 

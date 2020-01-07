@@ -20,6 +20,24 @@ body {
     cursor: pointer;
 }
 
+.page-item.active .page-link {
+    background-color: #6c757d !important;
+    border-color: #6c757d !important;
+    color: #fff !important;
+}
+
+.page-item .page-link {
+    color: #6c757d !important;
+}
+
+.page-link[role=menuitem] {
+    color: #6c757d !important;
+}
+
+.page-link:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.05) !important;
+}
+
 //TOP BAR*******************************************************
 .admin-top-panel {
   min-height: 50px;
