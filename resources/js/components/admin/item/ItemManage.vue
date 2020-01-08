@@ -44,7 +44,6 @@
             'api_url',
             'item_types_api_url',
             'item_rarities_api_url',
-            'item_id',
             'items',
             'name'
         ],
@@ -55,6 +54,8 @@
         },
         methods: {
             addItem(form) {
+                this.errors = [];
+
                 axios.post(this.url, form)
                     .then((response) => {
                         this.$swal(response.data.success);

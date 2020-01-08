@@ -2,6 +2,7 @@
 
 namespace App\Services\API\Item;
 
+use App\Models\Item\Item;
 use App\Models\Item\ItemRarity;
 use App\Models\Item\ItemType;
 use Illuminate\Support\Collection;
@@ -26,5 +27,17 @@ class APIItemService
     public function getItemTypes(): Collection
     {
         return ItemType::pluck('name', 'id');
+    }
+
+    /**
+     * Get item by id.
+     *
+     * @param int $itemId
+     *
+     * @return \App\Models\Item\Item
+     */
+    public function getItem(int $itemId): Item
+    {
+        return Item::with('itemAttribute')->find($itemId);
     }
 }

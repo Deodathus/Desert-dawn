@@ -102,7 +102,7 @@ class AdminBossManageController extends Controller
         }
 
         return response()->json([
-            'success' => 'Boss was deleted'
+            'success' => 'Boss was deleted.'
         ]);
     }
 }

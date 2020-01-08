@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\API\Item;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\API\Item\APIItemRequest;
+use App\Models\Item\Item;
 use App\Services\API\Item\APIItemService;
 use Illuminate\Support\Collection;
 
@@ -41,5 +43,15 @@ class APIItemController extends Controller
     public function getItemTypes(): Collection
     {
         return $this->apiItemService->getItemTypes();
+    }
+
+    /**
+     * @param \App\Http\Requests\API\Item\APIItemRequest $APIItemRequest
+     *
+     * @return \App\Models\Item\Item
+     */
+    public function getItem(APIItemRequest $APIItemRequest): Item
+    {
+        return $this->apiItemService->getItem($APIItemRequest->input('id'));
     }
 }

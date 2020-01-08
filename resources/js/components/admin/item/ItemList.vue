@@ -26,7 +26,8 @@
                     'agility',
                     'intellect',
                     'luck',
-                    'wisdom'
+                    'wisdom',
+                    'options'
                 ],
                 items_data: null,
             }

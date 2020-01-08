@@ -111,7 +111,7 @@ class AdminUserManageService
         try {
             $user->delete();
         } catch (\Exception $exception) {
-            throw new UserManageException('Was error during deliting.');
+            throw new UserManageException('Was error during deleting.');
         }
     }
 

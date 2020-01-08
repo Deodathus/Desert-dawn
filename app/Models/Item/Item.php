@@ -16,7 +16,6 @@ class Item extends Model
         'item_rarity_id',
         'name',
         'required_level',
-        'active',
         'type'
     ];
 

@@ -32,4 +32,5 @@ Route::middleware('api')
          */
         Route::get('item/rarities/get', 'Item\APIItemController@getItemRarities')->name('item.rarities.get');
         Route::get('item/types/get', 'Item\APIItemController@getItemTypes')->name('item.types.get');
+        Route::post('item/get', 'Item\APIItemController@getItem')->name('item.get');
 });

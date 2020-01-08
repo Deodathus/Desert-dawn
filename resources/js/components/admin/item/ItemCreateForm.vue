@@ -196,12 +196,12 @@
                 this.form.required_level = itemData.required_level;
                 this.form.item_rarity_id = itemData.item_rarity_id;
                 this.form.type = itemData.type;
-                this.form.strength = itemData.strength;
-                this.form.stamina = itemData.stamina;
-                this.form.agility = itemData.agility;
-                this.form.intellect = itemData.intellect;
-                this.form.luck = itemData.luck;
-                this.form.wisdom = itemData.wisdom;
+                this.form.strength = itemData.item_attribute.strength;
+                this.form.stamina = itemData.item_attribute.stamina;
+                this.form.agility = itemData.item_attribute.agility;
+                this.form.intellect = itemData.item_attribute.intellect;
+                this.form.luck = itemData.item_attribute.luck;
+                this.form.wisdom = itemData.item_attribute.wisdom;
             },
             getItemRarities() {
                 axios.get(this.item_rarities_api_url)
