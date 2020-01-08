@@ -2362,7 +2362,15 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    onSubmit: function onSubmit() {},
+    onSubmit: function onSubmit(event) {
+      event.preventDefault();
+
+      if (this.edition) {
+        this.$emit('editItem', this.form);
+      } else {
+        this.$emit('addItem', this.form);
+      }
+    },
     fillItemData: function fillItemData(itemData) {
       this.form.name = itemData.name;
       this.form.required_level = itemData.required_level;
@@ -2395,6 +2403,8 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   created: function created() {
+    var _this3 = this;
+
     this.edition = this.edition_mode;
     this.getItemRarities();
     this.getItemTypes();
@@ -2404,7 +2414,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.post(this.api_url, {
         id: this.item_id
       }).then(function (response) {
-        fillItemData(response.data);
+        _this3.fillItemData(response.data);
       })["catch"](function (error) {
         console.log(error.response.data);
       });
@@ -2513,12 +2523,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['url', 'api_url', 'item_types_api_url', 'item_rarities_api_url', 'item_id', 'items', 'name'],
   data: function data() {
     return {
       errors: []
     };
+  },
+  methods: {
+    addItem: function addItem(form) {
+      var _this = this;
+
+      axios.post(this.url, form).then(function (response) {
+        _this.$swal(response.data.success);
+
+        _this.$refs.itemList.pushRecord(form);
+      })["catch"](function (error) {
+        console.log(error.response.data);
+      });
+    }
   }
 });
 
@@ -72241,7 +72266,8 @@ var render = function() {
                     api_url: _vm.api_url,
                     item_rarities_api_url: _vm.item_rarities_api_url,
                     item_types_api_url: _vm.item_types_api_url
-                  }
+                  },
+                  on: { addItem: _vm.addItem }
                 })
               ]
             },
@@ -72250,7 +72276,10 @@ var render = function() {
         ])
       }),
       _vm._v(" "),
-      _c("item-list", { attrs: { items: _vm.items, url: _vm.url } })
+      _c("item-list", {
+        ref: "itemList",
+        attrs: { items: _vm.items, url: _vm.url }
+      })
     ],
     1
   )

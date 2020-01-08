@@ -19,7 +19,8 @@
                     :url="url"
                     :api_url="api_url"
                     :item_rarities_api_url="item_rarities_api_url"
-                    :item_types_api_url="item_types_api_url">
+                    :item_types_api_url="item_types_api_url"
+                    @addItem="addItem">
                 </item-create-form>
 
             </template>
@@ -28,7 +29,8 @@
 
         <item-list
             :items="items"
-            :url="url">
+            :url="url"
+            ref="itemList">
         </item-list>
 
     </div>
@@ -50,7 +52,19 @@
             return {
                 errors: [],
             }
-        }
+        },
+        methods: {
+            addItem(form) {
+                axios.post(this.url, form)
+                    .then((response) => {
+                        this.$swal(response.data.success);
+                        this.$refs.itemList.pushRecord(form);
+                    })
+                    .catch((error) => {
+                        console.log(error.response.data);
+                    });
+            }
+        },
     }
 </script>
 

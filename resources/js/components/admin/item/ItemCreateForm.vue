@@ -182,8 +182,14 @@
             };
         },
         methods: {
-            onSubmit() {
+            onSubmit(event) {
+                event.preventDefault();
 
+                if (this.edition) {
+                    this.$emit('editItem', this.form);
+                } else {
+                    this.$emit('addItem', this.form);
+                }
             },
             fillItemData(itemData) {
                 this.form.name = itemData.name;
@@ -228,7 +234,7 @@
                     id: this.item_id
                 })
                     .then((response) => {
-                        fillItemData(response.data);
+                        this.fillItemData(response.data);
                     })
                     .catch((error) => {
                         console.log(error.response.data);
