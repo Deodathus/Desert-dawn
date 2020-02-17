@@ -145,6 +145,6 @@ Auth::routes();
         });
     });
 
-    Route::get('/drowing', function (): \Illuminate\View\View {
-        return view('drowing');
+    Route::get('/drawing', function (): \Illuminate\View\View {
+        return view('drawing');
     });
