@@ -144,3 +144,7 @@ Auth::routes();
             Route::get('/quest/{mission}/done', 'MissionController@doneMission')->name('done');
         });
     });
+
+    Route::get('/drowing', function (): \Illuminate\View\View {
+        return view('drowing');
+    });
