@@ -13,7 +13,7 @@
         Hello world
     </canvas>
 
-    <div class="panel" style="margin: 10px">
+    <div class="panel" style="margin: 10px; text-align: center">
         @foreach($colors as $color)
             <a class="color-a" href="?color={{ $color }}" style="height: 25px;width: 25px;background-color: {{ $color }};display: inline-block;"></a>
         @endforeach
@@ -31,7 +31,7 @@
             coords = [];
 
         canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight - 150;
+        canvas.height = window.innerHeight - 50;
 
         ctx.lineWidth = 5;
 
