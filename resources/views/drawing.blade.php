@@ -13,6 +13,13 @@
         Hello world
     </canvas>
 
+    <div class="hotkeys" style="top: 10px;right: 5px;position: absolute;">
+        <div>Hotkeys:</div>
+        <div>S - Save</div>
+        <div>C - Clear</div>
+        <div>R - Redraw last from saved</div>
+    </div>
+
     <div class="panel" style="margin: 10px; text-align: center">
         @foreach($colors as $color)
             <a class="color-a" href="?color={{ $color }}" style="height: 25px;width: 25px;background-color: {{ $color }};display: inline-block;"></a>
