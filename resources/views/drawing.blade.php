@@ -13,20 +13,40 @@
         Hello world
     </canvas>
 
+    <div class="panel" style="margin: 10px">
+        @foreach($colors as $color)
+            <a class="color-a" href="?color={{ $color }}" style="height: 25px;width: 25px;background-color: {{ $color }};display: inline-block;"></a>
+        @endforeach
+    </div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 
     <script>
+        var color = localStorage.getItem('color') ? localStorage.getItem('color') : 'black';
+
         let
             canvas = $('#canvas').get(0),
-            ctx = canvas.getContext('2d');
-        var
+            ctx = canvas.getContext('2d'),
             isMouseDown = false,
             coords = [];
 
         canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        canvas.height = window.innerHeight - 150;
 
         ctx.lineWidth = 5;
+
+        $("a[class='color-a']").click((e) => {
+            e.preventDefault();
+
+            window.history.pushState(e.target.href, 'Drawing lesson', e.target.href);
+
+            localStorage.setItem('color', new URLSearchParams(window.location.search).get('color'));
+        });
+
+        function getColor()
+        {
+            return localStorage.getItem('color');
+        }
 
         $(window).mouseup(() => {
             coords.push('keyup');
@@ -41,7 +61,7 @@
 
         $(window).mousemove((e) => {
             if (isMouseDown) {
-                coords.push([e.clientX, e.clientY]);
+                coords.push([e.clientX, e.clientY, localStorage.getItem('color')]);
 
                 draw(e);
             }
@@ -64,7 +84,10 @@
             }
         });
 
-        function draw(e) {
+        function draw(e, color = null) {
+            ctx.fillStyle = color ? color : getColor();
+            ctx.strokeStyle = color ? color : getColor();
+
             ctx.lineTo(e.clientX, e.clientY);
             ctx.stroke();
 
@@ -100,9 +123,10 @@
                     e = {
                         clientX: crd["0"],
                         clientY: crd["1"]
-                    };
+                    },
+                    color = crd["2"];
 
-                draw(e);
+                draw(e, color);
             }, 30);
         }
     </script>

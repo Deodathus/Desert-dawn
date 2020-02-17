@@ -146,5 +146,18 @@ Auth::routes();
     });
 
     Route::get('/drawing', function (): \Illuminate\View\View {
-        return view('drawing');
+        return view('drawing', ['colors' => [
+            'red',
+            'blue',
+            'black',
+            'orange',
+            'green',
+            'cyan',
+            'purple',
+            'white',
+            'gray',
+            'brown',
+            'pink',
+            'yellow'
+        ]]);
     });
