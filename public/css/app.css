@@ -10704,6 +10704,14 @@ a:hover {
 
 /*----------------------------NAV BAR----------------------------*/
 
+.user-bar .user-row-info a {
+  color: #fff;
+}
+
+.user-bar .user-row-info a:hover {
+  text-decoration: none;
+}
+
 .user-bar,
 .footer {
   background: #04043b;

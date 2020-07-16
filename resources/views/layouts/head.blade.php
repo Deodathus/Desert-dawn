@@ -17,7 +17,7 @@
         <div class="row user-row-info">
             <div class="col-md-2">
                 <i class="fas fa-signature"></i>
-                {{ Auth::user()->name }}
+                <a href="{{ route('user.hero') }}">{{ Auth::user()->name }}</a>
             </div>
             <div class="col-md-2">
                 <i class="fas fa-long-arrow-alt-up"></i>

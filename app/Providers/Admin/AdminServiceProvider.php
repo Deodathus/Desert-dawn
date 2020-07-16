@@ -12,7 +12,7 @@ class AdminServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(): void
     {
         $this->app->booted(function () {
             $this->bindLinks();
@@ -57,10 +57,12 @@ class AdminServiceProvider extends ServiceProvider
                 'visible' => $collapseState['items'],
             ],
             'quests' => [
-                'name' => '<i class="fas fa-question"></i> Quests'
+                'name' => '<i class="fas fa-question"></i> Quests',
+                'links' => $links['quests'],
+                'visible' => $collapseState['quests'],
             ],
             'shops' => [
-                'name' => '<i class="fas fa-store"></i> Shops'
+                'name' => '<i class="fas fa-store"></i> Shop'
             ],
         ];
     }
@@ -93,6 +95,12 @@ class AdminServiceProvider extends ServiceProvider
                 [
                     'href' => route('admin.items.index'),
                     'text' => 'Manage'
+                ],
+            ],
+            'quests' => [
+                [
+                    'href' => 'none',
+                    'text' => 'Manage',
                 ],
             ],
         ];
@@ -132,6 +140,7 @@ class AdminServiceProvider extends ServiceProvider
             'users' => $this->getCollapseStateForLinks('users'),
             'bosses' => $this->getCollapseStateForLinks('bosses'),
             'items' => $this->getCollapseStateForLinks('items'),
+            'quests' => $this->getCollapseStateForLinks('quests'),
         ];
     }
 
